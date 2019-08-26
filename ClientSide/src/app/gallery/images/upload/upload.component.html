@@ -1,3 +1,10 @@
+<!-- <hello name="{{ name }}"></hello> -->
 <p>
-  upload works!
+  Start editing to see some magic happen :)
 </p>
+
+
+<img *ngFor='let url of urls'  [src]="url" height="200"> <br/>
+
+<input type='file' (change)="onSelectFile($event)" multiple>
+
