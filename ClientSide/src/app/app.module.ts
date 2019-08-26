@@ -18,7 +18,9 @@ import { UploadComponent } from './gallery/images/upload/upload.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ImagesComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

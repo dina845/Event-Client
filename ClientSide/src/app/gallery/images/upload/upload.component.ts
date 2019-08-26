@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ImagesComponent } from '../images.component';
 
 @Component({
   selector: 'app-upload',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class UploadComponent implements OnInit {
   globalService: any;
 
-  constructor() { }
+  constructor(private router:Router,public imageComponent:ImagesComponent) { }
 
   ngOnInit() {
   }
@@ -22,11 +24,14 @@ export class UploadComponent implements OnInit {
 
                 reader.onload = (event:any) => {
                   console.log(event.target.result);
-                   this.urls.push(event.target.result); 
+                   this.urls.push(event.target.result);
+                   this.imageComponent.urls.push(event.target.result);
                 }
 
                 reader.readAsDataURL(event.target.files[i]);
         }
+        // this.imageComponent.urls=this.urls;
+        // this.router.navigate(['/file']);
     }
   }
 }
