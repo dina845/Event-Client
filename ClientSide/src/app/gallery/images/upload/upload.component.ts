@@ -24,7 +24,8 @@ export class UploadComponent implements OnInit {
 
                 reader.onload = (event:any) => {
                   console.log(event.target.result);
-                   this.urls.push(event.target.result);
+                  //  this.urls.push(event.target.result);
+                   debugger;
                    this.imageComponent.urls.push(event.target.result);
                 }
 

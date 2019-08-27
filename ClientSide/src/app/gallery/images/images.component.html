@@ -7,9 +7,10 @@
         </div>
         <div class="column-12 column-xs-12 tab">
           <div class="custom-row">
+
             <!-- <div class="column-4 column-sm-6 column-xs-12 column-md-6 box-tab">
               <div class="effect effect-eight">
-                <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+                <img src="https://www.photo-art.co.il/wp-content/uploads/2018/09/J85_9560-420x236.jpg"
                   class="img-fluid">
                 <div class="tab-text">
                   <h2>Three column 4</h2>
@@ -20,12 +21,22 @@
                 </div>
               </div>
             </div> -->
-            <div *ngFor="let url of urls">
+
+            <!-- <div *ngFor ="let url of urls; let i=index">
+                // only show the image if the urls index in the array is less than 1
+                <div *ngIf="i < 1">
+                  <img [src]="url" class="rounded mb-3" width="180">
+                </div>
+              </div> -->
+
+              <div *ngFor ="let url of urls; let i=index">
               <!-- <div class="box-tab"> -->
                 <div class="column-4 column-sm-6 column-xs-12 column-md-6 box-tab">
                 <div class="effect effect-eight">
-                  <!-- <img [src]={{url}}
-                    class="img-fluid"> -->
+                 <div *ngIf="i <= 1">
+                   <img [src]="url" class="img-fluid">
+                   {{url}}
+                </div>
                   <div class="tab-text">
                     <h2> {{url}}</h2>
                     <!-- <p>poppins Design for smart design.</p> -->
@@ -119,3 +130,20 @@
       </div>
     </div>
   </section>
+
+  <!-- <div *ngFor="let url of urls">
+      <div class="box-tab">
+        <div class="column-4 column-sm-6 column-xs-12 column-md-6 box-tab">
+        <div class="effect effect-eight">
+          <img [src]="url"
+            class="img-fluid">
+          <div class="tab-text">
+            <h2> {{url}}</h2>
+            <p>poppins Design for smart design.</p>
+            <div class="icons-block"> <a href="#" class="social-icon-1"><i class="fa fa-facebook-official"></i></a>
+              <a href="#" class="social-icon-2"><i class="fa fa-twitter-square"></i></a> <a href="#" class="social-icon-3"><i
+                  class="fa fa-youtube-square"></i></a> </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
