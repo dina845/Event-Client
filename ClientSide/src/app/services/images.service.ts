@@ -10,11 +10,8 @@ export class ImagesService {
   constructor(private http:HttpClient) { }
   InsertImages(urls:string[])
   {
-    alert("beggin");
-    alert(urls);
     debugger;
     console.log(urls);
-    alert("service");
     return this.http.post(environment.baseRoute+'Image/InsertImages',urls);
   }
 }

@@ -7,12 +7,7 @@ import { ImagesService } from 'src/app/services/images.service';
   styleUrls: ['./images.component.css']
 })
 export class ImagesComponent implements OnInit {
-<<<<<<< HEAD
-
-  constructor() { }
-=======
   constructor(private imagesService:ImagesService) { }
->>>>>>> a651ab1ff2767a61a0abbb09cb3d59012fa65a9e
   urls:string[]=new Array;
   public num=[1,2,3,4,5];
   selected:boolean=false;
@@ -39,10 +34,8 @@ export class ImagesComponent implements OnInit {
   }
   InsertImages(urls:string[])
   {
-    alert("ts");
     debugger;
     this.imagesService.InsertImages(urls).subscribe((res: any) => {
-     alert("gooooood");
      alert(res);
   });
 }
