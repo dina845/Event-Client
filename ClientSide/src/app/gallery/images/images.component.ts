@@ -7,9 +7,10 @@ import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
 })
 export class ImagesComponent implements OnInit {
 
-  constructor(private cdRef:ChangeDetectorRef) { }
+  constructor() { }
   urls:string[]=new Array;
   public num=[1,2,3,4,5];
+  selected:boolean=false;
   ngOnInit() {
     debugger;
   }
@@ -30,6 +31,7 @@ export class ImagesComponent implements OnInit {
         }
         
     }
+    this.selected=true;
   }
 }
 
