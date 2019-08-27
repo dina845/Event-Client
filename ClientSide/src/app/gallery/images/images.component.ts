@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-images',
@@ -6,20 +6,29 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./images.component.css']
 })
 export class ImagesComponent implements OnInit {
-  @Input()
-  urls:string[]=new Array;
-  @Output() q = new EventEmitter<string[]>();
-
   constructor() { }
-// urls:string[]=new Array;
+  urls:string[]=new Array;
   public num=[1,2,3,4,5];
   ngOnInit() {
     debugger;
   }
-  debugger;
- updateQuestion()
-  {
-    this.q.emit(this.urls);
+  //upload images
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+        var filesAmount = event.target.files.length;
+        for (let i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = (event:any) => {
+                  console.log(event.target.result);
+                   debugger;
+                   this.urls.push(event.target.result);
+                }
+
+                reader.readAsDataURL(event.target.files[i]);
+        }
+        
+    }
   }
 }
 
