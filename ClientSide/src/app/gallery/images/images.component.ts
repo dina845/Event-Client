@@ -34,10 +34,8 @@ export class ImagesComponent implements OnInit {
   }
   InsertImages(urls:string[])
   {
-    alert("ts");
     debugger;
     this.imagesService.InsertImages(urls).subscribe((res: any) => {
-     alert("gooooood");
      alert(res);
   });
 }
