@@ -1,8 +1,8 @@
 #sideBar{
-   width: min-content;
+   /* width: min-content;
     /* left: 100px; */
-    /* margin-right: 0%; */
-    margin-left: inherit;
+    /* margin-right: 0%;
+    margin-left: inherit; */
 }
 label.btn span {
     font-size: 1.5em ;
