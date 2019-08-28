@@ -8,10 +8,10 @@ import { HttpClient } from '@angular/common/http';
 export class ImagesService {
 
   constructor(private http:HttpClient) { }
-  InsertImages(urls:string[])
+  InsertImages(formData): any
   {
     debugger;
-    console.log(urls);
-    return this.http.post(environment.baseRoute+'Image/InsertImages',urls);
+    console.log(formData);
+    return this.http.post(environment.baseRoute+'Image/file',formData);
   }
 }

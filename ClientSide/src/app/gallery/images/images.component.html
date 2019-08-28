@@ -8,7 +8,7 @@
         <!-- העלאת קבצים -->
         <div class="upload-btn-wrapper" *ngIf="selected==false">
           <button class="btn">Upload your photos</button>
-          <input type='file' name='myfile' (change)="onSelectFile($event)" multiple>
+          <input type='file' name='myfile' (change)="handleFileInput($event.target.files)" multiple>
         </div>
             
         <!-- הצגת הקבצים -->
