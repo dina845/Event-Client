@@ -1,12 +1,13 @@
-#sideBar{
+/* #sideBar{
    /* width: min-content;
     /* left: 100px; */
     /* margin-right: 0%;
-    margin-left: inherit; */
-}
+    margin-left: inherit;
+} */
+
 label.btn span {
     font-size: 1.5em ;
-  }
+  } 
   
   label input[type="radio"] ~ i.fa.fa-circle-o{
       color: #c8c8c8;    display: inline;
@@ -46,7 +47,7 @@ label.btn span {
   
   div[data-toggle="buttons"] label {
   display: inline-block;
-  padding: 6px 12px;
+ padding: 6px 12px; 
   margin-bottom: 0;
   font-size: 14px;
   font-weight: normal;
@@ -78,5 +79,7 @@ label.btn span {
   #sideBar{
       color: yellow;
   }
-  
+  label.btn.active{
+      padding: 0px,0px;
+  }
   
