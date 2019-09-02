@@ -10,37 +10,39 @@
       <div class="btn-group btn-group-vertical" data-toggle="buttons">
           <label class="btn active"><b><span> filter images where : </span> </b> </label>
         <label class="btn active">
-          <input type="checkbox" name='email1' checked><span> Blurred </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' checked [(ngModel)]="imageResult.isBlur"><span> Blurred </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
         <label class="btn active">
-          <input type="checkbox" name='email1' checked><span> Dark  </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' checked [(ngModel)]="imageResult.isDark"><span> Dark  </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
         <label class="btn active">
-          <input type="checkbox" name='email1' checked><span>Closed eyes </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' checked [(ngModel)]="imageResult.isCloseEye"><span>Closed eyes </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
         <label class="btn active">
-          <input type="checkbox" name='email1' checked><span> Cut face </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' checked [(ngModel)]="imageResult.isCutFace"><span> Cut face </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
        </div>
+       <input type="button" (click)="filter()" value="blblbklbkl"/>
+
 <!-- פילטור לפי -->
        <div class="btn-group btn-group-vertical" data-toggle="buttons">
           <label class="btn active"><b><span> Mapping images where : </span></b> </label>
         <label class="btn active">
-          <input type="checkbox" name='email1' checked><span> Inside </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' checked  [(ngModel)]="imageResult.isInside"><span> Inside </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        </label>
+       
+        <label class="btn active">
+          <input type="checkbox" name='email1' checked [(ngModel)]="imageResult.isGroomAlone"><span>Event groom </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
         <label class="btn active">
-          <input type="checkbox" name='email1' checked><span> Dark  </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+            <input type="checkbox" name='email1' checked [(ngModel)]="imageResult.isGroomContain"><span>contain groom </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          </label>
+
+        <label class="btn active">
+          <input type="checkbox" name='email1' [(ngModel)]="imageResult.ischild" checked #p><span> Children </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
         <label class="btn active">
-          <input type="checkbox" name='email1' checked><span>Event groom </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
-        </label>
-        <label class="btn active">
-          <input type="checkbox" name='email1' checked><span> Children </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
-        </label>
-        <label class="btn active">
-            <input type="checkbox" name='email1' checked><span> Young </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
-          </label><label class="btn active">
-          <input type="checkbox" name='email1' checked><span> Adults </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' [(ngModel)]="imageResult.isAdult" checked  #l><span> Audults </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
        </div>
 </div>

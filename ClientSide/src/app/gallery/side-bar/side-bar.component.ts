@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilterImage } from 'src/app/models/filter-image';
 
 @Component({
   selector: 'app-side-bar',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
-
+imageResult:FilterImage=new FilterImage();
   constructor() { }
 
   ngOnInit() {
+
+  }
+  filter(){
+    this.imageResult;
+    this.imageResult.isAdult;
+    debugger
   }
 
 }
