@@ -7,18 +7,21 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { ImagesComponent } from './gallery/images/images.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SideBarComponent } from './gallery/side-bar/side-bar.component';
-
+import { HeaderComponent } from './gallery/header/header.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     GalleryComponent,
     ImagesComponent,
-    SideBarComponent
+    SideBarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     ImagesComponent
