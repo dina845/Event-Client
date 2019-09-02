@@ -6,41 +6,44 @@
   <div id="sideBar">
   <div class="row">
     <div class="col-xs-12">
+        <input type="button" (click)="filter(child.checked,isAdult.checked)" value="blblbklbkl" />
+
       <!-- סינון לפי -->
       <div class="btn-group btn-group-vertical" data-toggle="buttons">
           <label class="btn active"><b><span> filter images where : </span> </b> </label>
-        <label class="btn active">
-          <input type="checkbox" name='email1' checked ><span> Blurred </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        <label class="btn active"(click)="isBlur(Blur.checked)">
+          <input type="checkbox" name='email1'  #Blur ><span> Blurred </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
-        <label class="btn active">
-          <input type="checkbox" name='email1' ><span> Dark  </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        <label class="btn active"(click)="isDark(Dark.checked)">
+          <input type="checkbox" name='email1'  #Dark><span> Dark  </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
-        <label class="btn active">
-          <input type="checkbox" name='email1' checked  ><span>Closed eyes </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        <label class="btn active" (click)="isCloseEye(CloseEye.checked)">
+          <input type="checkbox" name='email1'  #CloseEye><span>Closed eyes </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
-        <label class="btn active">
-          <input type="checkbox" name='email1' checked ><span> Cut face </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        <label class="btn active" (click)="isCutFace(CutFace.checked)">
+          <input type="checkbox" name='email1'  #CutFace><span> Cut face </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
        </div>
+
 <!-- פילטור לפי -->
        <div class="btn-group btn-group-vertical" data-toggle="buttons">
           <label class="btn active"><b><span> Mapping images where : </span></b> </label>
-        <label class="btn active">
-          <input type="checkbox" name='email1' checked  ><span> Inside </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        <label class="btn active" (click)="isInside(Inside.checked)">
+          <input type="checkbox" name='email1'   #Inside (change)="filter()"><span> Inside </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
        
-        <label class="btn active">
-          <input type="checkbox" name='email1' checked ><span>Event groom </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        <label class="btn active"(click)="isGroomAlone(GroomAlone.checked)">
+          <input type="checkbox" name='email1'  #GroomAlone ><span>Event groom </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
-        <label class="btn active">
-            <input type="checkbox" name='email1' ><span>contain groom </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        <label class="btn active" (click)="isGroomContain(GroomContain.checked)">
+            <input type="checkbox" name='email1'  #GroomContain ><span>contain groom </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
           </label>
 
-        <label class="btn active">
-          <input type="checkbox" name='email1'checked ><span> Children </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        <label class="btn active" (click)="isChild(child.checked)">
+          <input type="checkbox" name='email1' #child  ><span> Children </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
-        <label class="btn active">
-          <input type="checkbox" name='email1'checked ><span> Audults </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        <label class="btn active" (click)="isAdult(isAdult.checked)">
+          <input type="checkbox" name='email1' #isAdult    #l><span> Audults </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
        </div>
 </div>
