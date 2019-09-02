@@ -6,7 +6,7 @@
           <h1 class="ti title">EVENT PHOTOS</h1>
         </div>
         <!-- העלאת קבצים -->
-        <div class="upload-btn-wrapper" *ngIf="selected==false">
+        <div class="upload-btn-wrapper" align="center" *ngIf="selected==false">
           <button class="btn">Upload your photos</button>
           <input type='file' name='myfile' (change)="handleFileInput($event.target.files)" multiple>
         </div>

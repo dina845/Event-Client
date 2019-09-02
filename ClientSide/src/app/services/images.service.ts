@@ -12,6 +12,6 @@ export class ImagesService {
   {
     debugger;
     console.log(formData);
-    return this.http.post(environment.baseRoute+'Image/file',formData);
+    return this.http.post(environment.baseRoute+'Image/InsertImages',formData);
   }
 }
