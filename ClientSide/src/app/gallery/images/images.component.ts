@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
 import { ImagesService } from 'src/app/services/images.service';
+import { Image } from 'src/app/models/image';
 
 @Component({
   selector: 'app-images',
@@ -41,9 +42,13 @@ export class ImagesComponent implements OnInit {
  
   InsertImages(_formData) {
     debugger;
-    this.imagesService.InsertImages(_formData).subscribe((res: any) => {
-      alert(res);
-      this.urls=this.imagesService.imageTemp["url"];
+    this.imagesService.InsertImages(_formData).subscribe((res) => {
+      debugger;
+      if(res){
+      // this.imagesService.imageMain=res;
+      // this.imagesService.imageTemp=res;
+      // this.urls=this.imagesService.imageTemp["url"];
+    }
     });
   }
 
