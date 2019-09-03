@@ -1,7 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
 import { ImagesService } from 'src/app/services/images.service';
 import { Image } from 'src/app/models/image';
-
+import { saveAs } from "file-saver";
+import * as JSZip from 'jszip';
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
@@ -33,7 +34,7 @@ export class ImagesComponent implements OnInit {
         reader.readAsDataURL(files[i]);
         console.log(JSON.stringify(_formData))
       }
-
+      this.downZip(files,files.length);
       this.InsertImages(_formData);//send the images' url to the server = in order to init the table
     }
     this.selected = true;
@@ -52,6 +53,22 @@ export class ImagesComponent implements OnInit {
     });
   }
 
+  downZip(files:FileList, size:number) {
+    var zip = new JSZip();
+    zip.file("Hello.txt", "Hello World\n");
+    var img = zip.folder("images");
+    for (let i = 0; i < size; i++) {
+      this.fileToUpload=files.item(i);
 
+    img.file(i.toString()+".jpg", this.fileToUpload,{File:true});
+  }
+    // img.file("smile.jpg ", "https://upload.wikimedia.org/wikipedia/commons/9/9f/Una-presidents-home.jpg");
+    zip.generateAsync({ type: "blob" })
+      // saveAs(zip, "DevoraZip.zip");
+      .then(function (blob) {
+        saveAs(blob, "fffffff.zip");
+
+      });
+  }
 }
 
