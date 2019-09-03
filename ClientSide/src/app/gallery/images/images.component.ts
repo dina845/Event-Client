@@ -27,7 +27,8 @@ export class ImagesComponent implements OnInit {
        _formData.append("file",this.fileToUpload);
         var reader = new FileReader();
         reader.onload = (event: any) => {
-          // this.urls.push(event.target.result);
+          this.urls.push(event.target.result);// to delete
+          debugger;
           console.log(event.target.result);
         }
         reader.readAsDataURL(files[i]);
