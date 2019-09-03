@@ -8,13 +8,20 @@ import { Image } from '../models/image';
   providedIn: 'root'
 })
 export class ImagesService {
-
-  constructor(private http:HttpClient) { }
+  imageMain: Image[];
+  imageTemp: Image[];
+  constructor(private http:HttpClient) { 
+    this.getImages().subscribe(res => {
+      this.imageMain = res;
+      this.imageTemp = res;
+    })
+  }
   InsertImages(formData): any
   {
     debugger;
     console.log(formData);
     return this.http.post(environment.baseRoute+'Image/InsertImages',formData);
+    
   }
   getImages():Observable<Image[]>{
     return this.http.get<Image[]>(environment.baseRoute+'Image/getImages');
