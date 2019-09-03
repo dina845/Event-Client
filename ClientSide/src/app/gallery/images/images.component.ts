@@ -26,7 +26,7 @@ export class ImagesComponent implements OnInit {
        _formData.append("file",this.fileToUpload);
         var reader = new FileReader();
         reader.onload = (event: any) => {
-          this.urls.push(event.target.result);
+          // this.urls.push(event.target.result);
           console.log(event.target.result);
         }
         reader.readAsDataURL(files[i]);
@@ -43,6 +43,7 @@ export class ImagesComponent implements OnInit {
     debugger;
     this.imagesService.InsertImages(_formData).subscribe((res: any) => {
       alert(res);
+      this.urls=this.imagesService.imageTemp["url"];
     });
   }
 
