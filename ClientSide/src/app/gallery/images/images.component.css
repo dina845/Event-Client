@@ -1,3 +1,13 @@
+.myImg{
+	display: inline-block;
+	position: absolute;
+	z-index: 1;
+}
+#icons
+{
+	/* position: relative; */
+	z-index: 10;
+}
 .menu,
 .nav-icon span {
 	transition: all .3s ease-in-out
@@ -158,7 +168,7 @@ body {
 }
 
 .header {
-	background-color: #485666;
+	/* background-color: #485666; */
 	padding: 8px 0;
 	position: static;
 	z-index: 2000
@@ -2307,4 +2317,13 @@ i.material-icons:after {
 i.material-icons:hover:after {
 	transform: scale(1);
 	box-shadow: 10px 0 20px rgba(0, 0, 0, 0.19), 6px 0 6px rgba(0, 0, 0, 0.23);
+}
+.tab[_ngcontent-c3] .effect[_ngcontent-c3] {
+    position: relative;
+    overflow: hidden;
+    max-height: 240px;
+    max-width: 350px;
+    /* background: #3085a3; */
+    text-align: center;
+    cursor: pointer;
 }
