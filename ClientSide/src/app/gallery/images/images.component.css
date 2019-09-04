@@ -2356,10 +2356,11 @@ h2 span {
 .column {
 	margin: 15px 15px 0;
 	padding: 0;
+	display: inline-block;
 }
-.column:last-child {
+/* .column:last-child {
 	padding-bottom: 60px;
-}
+} */
 .column::after {
 	content: '';
 	clear: both;
@@ -2422,4 +2423,6 @@ figure:hover+span {
 	cursor: pointer;
 }
 
-
+#images{
+	display: inline-block;
+}
