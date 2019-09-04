@@ -3,17 +3,18 @@
   <div class="wrapper tab-item col-6 col-lg-6" >
     <div class="wrapper " align="center">
       <h1 class="ti title">EVENT PHOTOS</h1>
-    </div>
+    
     
     <i (click)="downZip()" class="material-icons">
       arrow_downward
     </i>
     <!-- העלאת קבצים-->
-    <div class="upload-btn-wrapper" align="center" *ngIf="selected==false" style="cursor: pointer">
-      <!-- <div class="main-wrapper"> -->
-      <i class="material-icons" id="file-icon">attach_file</i>
-      <input type='file' name='myfile' (change)="handleFileInput($event.target.files)" multiple>
+    <!-- <div class="upload-btn-wrapper" align="center" *ngIf="selected==false" > -->
+      <!-- <div class="main-wrapper"> --><div class="upload-btn-wrapper">
+      <i class="material-icons" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
+      <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple >
     </div>
+  </div>
     </div>
 <!-- </section> -->
   <!-- הצגת הקבצים -->
@@ -23,10 +24,10 @@
     <!-- <div class="effect effect-eight"> -->
     <div class="hover01 column">
       <div>
-        <figure><img [src]="url.urlImage" width="100%" height="auto" /></figure>
+        <figure><img [src]="url.urlImage" width="100%" height="auto" class="geeks" /></figure>
         <span>Hover</span>
-        <div id="icons" style="float: inherit">
-          <a [href]="url.urlImage" [download]="url.nameImage"> <i class="material-icons">
+        <div id="icons" style="float: inherit" class="gfg">
+          <a [href]="url.urlImage" [download]="url.nameImage"> <i class="material-icons" title="download the image">
               get_app
             </i></a>
           <i class="material-icons">

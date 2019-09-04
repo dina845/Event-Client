@@ -11,6 +11,8 @@ import { HeaderComponent } from './gallery/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { ProgressBarComponent } from './gallery/progress-bar/progress-bar.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { GroomComponent } from './gallery/groom/groom.component';
+import { NgDragDropModule } from 'ng-drag-drop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     ImagesComponent,
     SideBarComponent,
     HeaderComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    GroomComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       "showSubtitle": false,
       "showInnerStroke": false,
       "startFromZero": false
-    })
+    }),
+    NgDragDropModule.forRoot()
   ],
   providers: [
     ImagesComponent
