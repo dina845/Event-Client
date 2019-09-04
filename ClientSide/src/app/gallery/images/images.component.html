@@ -1,51 +1,41 @@
-<section class="wrapper-full tab-container effectTab-header" id="style_8">
-  <div class="wrapper tab-item">
-      
-    <div class="custom-row">
-      <div class="wrapper " align="center">
-        <h1 class="ti title">EVENT PHOTOS</h1>
-          </div>‏
-          
-      </div>
-      
-      <!-- העלאת קבצים-->
-      <div class="upload-btn-wrapper" align="center" *ngIf="selected==false" style="cursor: pointer">
-        <!-- <div class="main-wrapper"> -->
-        <i class="material-icons" id="file-icon">attach_file</i>
- 
-        <!-- </div> -->
-        <!-- <button class="btn">Upload your photos</button> -->
-        <input type='file' name='myfile' (change)="handleFileInput($event.target.files)" multiple>
-      </div>
-      <!-- הצגת הקבצים -->
-      <div class="column-12 column-xs-12 tab">
-        <div class="custom-row">
-          <div *ngFor="let url of urls">
-            <div style="color: red" class="column-4 column-sm-6 column-xs-12 column-md-6 box-tab">
-              <div class="effect effect-eight">
-                <div>
-                  <div id="icons" style="float: inherit">
-                    <i class="material-icons">
-                      get_app
-                    </i>
-                   
-                    <i class="material-icons">
-                      delete
-                    </i> 
-                  </div>
-              <a class = "lightbox">             
-                 <img [src]="url" class="img-fluid myImg" width="100%" height="100%">
-              </a> 
-                </div>
-                <div style="color: orange" class="tab-text">
-                  <h2></h2>
-                  <div style="color: blueviolet; display: none;" class="icons-block"><a>press</a>
-                    <a href="#" class="social-icon-1"><i class="fa fa-facebook-official"></i></a>
-                    <a href="#" class="social-icon-2" style="color: green"><i class="fa fa-twitter-square"></i></a> <a
-                      href="#" class="social-icon-3"><i class="fa fa-youtube-square"></i></a> </div>
-                </div>
-              
-            </div>
-          </div>
+<div class="row justify-content-md-center">
+<!-- <section class="wrapper-full tab-container effectTab-header" id="style_8"> -->
+  <div class="wrapper tab-item col-6 col-lg-6" >
+    <div class="wrapper " align="center">
+      <h1 class="ti title">EVENT PHOTOS</h1>
+    </div>
+    
+    <i (click)="downZip()" class="material-icons">
+      arrow_downward
+    </i>
+    <!-- העלאת קבצים-->
+    <div class="upload-btn-wrapper" align="center" *ngIf="selected==false" style="cursor: pointer">
+      <!-- <div class="main-wrapper"> -->
+      <i class="material-icons" id="file-icon">attach_file</i>
+      <input type='file' name='myfile' (change)="handleFileInput($event.target.files)" multiple>
+    </div>
+    </div>
+<!-- </section> -->
+  <!-- הצגת הקבצים -->
+<div class="row">
+  <div *ngFor="let url of urls" id="images">
+    <!-- <div style="color: red" class="column-4 column-sm-6 column-xs-12 column-md-6 box-tab"> -->
+    <!-- <div class="effect effect-eight"> -->
+    <div class="hover01 column">
+      <div>
+        <figure><img [src]="url.urlImage" width="100%" height="auto" /></figure>
+        <span>Hover</span>
+        <div id="icons" style="float: inherit">
+          <a [href]="url.urlImage" [download]="url.nameImage"> <i class="material-icons">
+              get_app
+            </i></a>
+          <i class="material-icons">
+            delete
+          </i>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+</div>
+
