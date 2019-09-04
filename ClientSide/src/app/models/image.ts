@@ -1,7 +1,9 @@
+import { Url } from '../services/url';
+
 export class Image {
     id: number;
     name: string;
-    url: string;
+    url: Url;
     isBlur: boolean;
     isClosedEye: boolean;
     isDark: boolean;
