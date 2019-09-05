@@ -24,4 +24,8 @@ export class ImagesService {
     return this.http.get<Image[]>(environment.baseRoute + 'Image/getImages');
 
   }
+  InsertImagesGroom(formData) {
+    return this.http.post(environment.baseRoute + 'Image/InsertImagesGroom', formData);
+
+  }
 }

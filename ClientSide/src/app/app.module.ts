@@ -9,19 +9,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { SideBarComponent } from './gallery/side-bar/side-bar.component';
 import { HeaderComponent } from './gallery/header/header.component';
 import { FormsModule } from '@angular/forms';
+import { GroomComponent } from './gallery/groom/groom.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     GalleryComponent,
     ImagesComponent,
     SideBarComponent,
-    HeaderComponent
+    HeaderComponent,
+    GroomComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule
+ 
   ],
   providers: [
     ImagesComponent
