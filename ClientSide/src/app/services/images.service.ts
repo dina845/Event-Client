@@ -4,14 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, observable } from 'rxjs';
 import { Image } from '../models/image';
 import { Url } from './url';
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class ImagesService {
   imageMain: Image[];
   imageTemp: Image[];
+  numPersonTemp:number=0;
   public urls: Url[] = new Array;
   sizeUploadFiles:number;
 
@@ -33,5 +32,14 @@ export class ImagesService {
   InsertImagesGroom(formData) {
     return this.http.post(environment.baseRoute + 'Image/InsertImagesGroom', formData);
 
+  }
+  maxNumPerson()
+  {
+   var max:number=0
+   this.imageTemp.forEach(element => {
+     if(element.numPerson>max)
+     max=element.numPerson
+   });
+   this.numPersonTemp=max;
   }
 }

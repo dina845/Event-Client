@@ -58,6 +58,8 @@ export class ImagesComponent implements OnInit {
       if (res) {
         this.imagesService.imageMain=res;
         this.imagesService.imageTemp=res;
+        this.imagesService.maxNumPerson();
+        
         for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
           this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
         }
