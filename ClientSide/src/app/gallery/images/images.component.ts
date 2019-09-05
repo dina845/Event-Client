@@ -10,8 +10,7 @@ import { Url } from 'src/app/services/url';
   styleUrls: ['./images.component.css']
 })
 export class ImagesComponent implements OnInit {
-  constructor(private imagesService: ImagesService) { }
-  urls: Url[] = new Array;
+  constructor(public imagesService: ImagesService) { }
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
   fileToUpload: File;
@@ -35,7 +34,7 @@ export class ImagesComponent implements OnInit {
           this.currentUrl = new Url();
           this.currentUrl.urlImage = event.target.result;
           this.currentUrl.nameImage = this.fileToUpload.name;
-          this.urls.push(this.currentUrl);
+          // this.urls.push(this.currentUrl);
           debugger;
           console.log(event.target.result);
         }
@@ -55,8 +54,11 @@ export class ImagesComponent implements OnInit {
     this.imagesService.InsertImages(_formData).subscribe((res) => {
       debugger;
       if (res) {
-        // this.imagesService.imageMain=res;
-        // this.imagesService.imageTemp=res;
+        this.imagesService.imageMain=res;
+        this.imagesService.imageTemp=res;
+        for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
+          this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+        }
         // this.urls=this.imagesService.imageTemp["url"];
       }
     });

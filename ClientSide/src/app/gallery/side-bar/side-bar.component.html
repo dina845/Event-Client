@@ -29,9 +29,11 @@
        <div class="btn-group btn-group-vertical" data-toggle="buttons">
           <label class="btn active"><b><span> Mapping images where : </span></b> </label>
         <label class="btn active" (click)="isInside(Inside.checked)">
-          <input type="checkbox" name='email1'   #Inside (change)="filter()"><span> Inside </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1'   #Inside ><span> Inside </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
-       
+        <label class="btn active" (click)="isOutdoor(Outdoor.checked)">
+            <input type="checkbox" name='email1'   #Outdoor ><span> Outdoor </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          </label>
         <label class="btn active"(click)="isGroomAlone(GroomAlone.checked)">
           <input type="checkbox" name='email1'  #GroomAlone ><span>Event groom </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
@@ -45,7 +47,9 @@
         <label class="btn active" (click)="isAdult(isAdult.checked)">
           <input type="checkbox" name='email1' #isAdult    #l><span> Audults </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
+        <input type="number" #numPerson placeholder="Enter number of people in image" (change)="numPerson(numPerson)">
        </div>
+       
 </div>
 </div>
 <!-- </div> -->
