@@ -41,11 +41,7 @@ import { GroomComponent } from './gallery/groom/groom.component';
       "showInnerStroke": false,
       "startFromZero": false
     }),
-<<<<<<< HEAD
-    // NgDragDropModule.forRoot()
-=======
  
->>>>>>> 2834298ace77cac6fe53b0738f3c9f7c81ae9a23
   ],
   providers: [
     ImagesComponent
