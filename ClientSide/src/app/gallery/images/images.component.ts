@@ -13,9 +13,11 @@ export class ImagesComponent implements OnInit {
   constructor(public imagesService: ImagesService) { }
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
-  fileToUpload: File;
+  selectedGroom: boolean = false;
+  fileToUpload: File=null;
   currentUrl: Url;
   Files: FileList;
+  numImage:number=1;
   ngOnInit() {
 
   }
@@ -25,15 +27,15 @@ export class ImagesComponent implements OnInit {
     if (files && files[0]) {
       let _formData = new FormData();
       for (let i = 0; i < files.length; i++) {
-        var fileToUpload: File = null;
         this.fileToUpload = files.item(i);
-
         _formData.append("file", this.fileToUpload);
         var reader = new FileReader();
         reader.onload = (event: any) => {
           this.currentUrl = new Url();
           this.currentUrl.urlImage = event.target.result;
           this.currentUrl.nameImage = this.fileToUpload.name;
+          this.currentUrl.num="image-"+this.numImage;
+          this.numImage++;
           // this.urls.push(this.currentUrl);
           debugger;
           console.log(event.target.result);
@@ -80,6 +82,9 @@ export class ImagesComponent implements OnInit {
         saveAs(blob, "photos.zip");
 
       });
+  }
+  SelectGroom() {
+    this.selectedGroom = true;
   }
 }
 
