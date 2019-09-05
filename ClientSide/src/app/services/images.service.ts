@@ -13,6 +13,7 @@ export class ImagesService {
   imageMain: Image[];
   imageTemp: Image[];
   public urls: Url[] = new Array;
+  sizeUploadFiles:number;
 
   constructor(private http: HttpClient) {
     this.getImages().subscribe(res => {
@@ -20,9 +21,10 @@ export class ImagesService {
       this.imageTemp = res;
     })
   }
-  InsertImages(formData):Observable<Image[]> {
+  InsertImages(formData,sizeFiles):Observable<Image[]> {
+    this.sizeUploadFiles=sizeFiles;
     return this.http.post<Image[]>(environment.baseRoute + 'Image/InsertImages', formData);
-
+    
   }
   getImages(): Observable<Image[]> {
     return this.http.get<Image[]>(environment.baseRoute + 'Image/getImages');

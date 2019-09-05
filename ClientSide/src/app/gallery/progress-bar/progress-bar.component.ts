@@ -1,4 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
+import { ImagesService } from 'src/app/services/images.service';
 
 @Component({
   selector: 'app-progress-bar',
@@ -9,10 +10,14 @@ import { Component, OnInit, Injectable } from '@angular/core';
 export class ProgressBarComponent{
 
 
-  constructor() {
-    setInterval(() => {
+  constructor(private imageService:ImagesService) {
+    this.sizeUploadFiles=imageService.sizeUploadFiles;
+    this.part=this.sizeUploadFiles/100;
+    setInterval(() => { 
       this.per=this.per+1;
-    }, 100);
+    }, this.sizeUploadFiles*10);
   }
-  per:number=0;
+  per:any=0.0;
+  sizeUploadFiles:number;
+  part:any=0.0;
 }

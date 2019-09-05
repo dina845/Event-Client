@@ -46,14 +46,14 @@ export class ImagesComponent implements OnInit {
 
 
       // this.downZip(files, files.length);
-      this.InsertImages(_formData);//send the images' url to the server = in order to init the table
+      this.InsertImages(_formData,files.length);//send the images' url to the server = in order to init the table
     }
     this.selected = true;
   }
 
-  InsertImages(_formData) {
+  InsertImages(_formData,lengthFiles) {
     debugger;
-    this.imagesService.InsertImages(_formData).subscribe((res) => {
+    this.imagesService.InsertImages(_formData,lengthFiles).subscribe((res) => {
       debugger;
       if (res) {
         this.imagesService.imageMain=res;

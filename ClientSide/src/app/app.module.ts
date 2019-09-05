@@ -28,18 +28,20 @@ import { GroomComponent } from './gallery/groom/groom.component';
     HttpClientModule,
     FormsModule,
     NgCircleProgressModule.forRoot({
-      "backgroundColor": "#FDB900",
-      "radius": 200,
+      "backgroundColor": "maroon",
+      "radius": 50,
       "maxPercent": 100,
-      "unitsColor": "#483500",
+      "unitsColor": "#FFFFFF",
       "outerStrokeWidth": 5,
       "outerStrokeColor": "#FFFFFF",
       "innerStrokeColor": "#FFFFFF",
-      "titleColor": "#483500",
+      "titleColor": "#FFFFFF",
       "subtitleColor": "#483500",
       "showSubtitle": false,
       "showInnerStroke": false,
-      "startFromZero": false
+      "startFromZero": false,
+
+
     }),
  
   ],
