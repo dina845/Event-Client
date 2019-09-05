@@ -33,29 +33,30 @@
       </div>
     </div>
     <!-- הורדת ZIP -->
-    <i (click)="downZip()" class="material-icons">
+    <i (click)="downZip()" class="material-icons" id="downloadZip"  data-toggle="tooltip" data-placement="top"  title="download all the images">
       arrow_downward
     </i>
     <!-- העלאת קבצים-->
     <!-- <div class="upload-btn-wrapper" align="center" *ngIf="selected==false" > -->
-      <!-- <div class="main-wrapper"> --><div class="upload-btn-wrapper">
+      <!-- <div class="main-wrapper"> --><div class="upload-btn-wrapper"  *ngIf="selected==false" >
       <i class="material-icons" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
       <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple >
     </div>
   </div>
+  <!-- <img src="http://localhost:50637/UploadFile/9~1.jpg"> -->
     </div>
 <!-- </section> -->
   <!-- הצגת הקבצים -->
 <div class="row">
-  <div *ngFor="let url of urls" id="images">
+  <div *ngFor="let url of imagesService.urls" id="images">
     <!-- <div style="color: red" class="column-4 column-sm-6 column-xs-12 column-md-6 box-tab"> -->
     <!-- <div class="effect effect-eight"> -->
     <div class="hover01 column">
       <div>
-        <figure><img [src]="url.urlImage" width="100%" height="auto" class="geeks" /></figure>
+        <figure><img [src]="url" width="100%" height="auto" class="geeks" /></figure>
         <span>Hover</span>
         <div id="icons" style="float: inherit" class="gfg">
-          <a [href]="url.urlImage" [download]="url.nameImage"> <i class="material-icons" title="download the image">
+          <a [href]="url.urlImage" [download]="url.num"> <i class="material-icons" title="download the image">
               get_app
             </i></a>
           <i class="material-icons">

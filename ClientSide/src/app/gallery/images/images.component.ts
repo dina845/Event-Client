@@ -10,14 +10,14 @@ import { Url } from 'src/app/services/url';
   styleUrls: ['./images.component.css']
 })
 export class ImagesComponent implements OnInit {
-  constructor(private imagesService: ImagesService) { }
-  urls: Url[] = new Array;
+  constructor(public imagesService: ImagesService) { }
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
-  selectedGroom:boolean=false;
-  fileToUpload: File;
+  selectedGroom: boolean = false;
+  fileToUpload: File=null;
   currentUrl: Url;
   Files: FileList;
+  numImage:number=1;
   ngOnInit() {
 
   }
@@ -27,16 +27,16 @@ export class ImagesComponent implements OnInit {
     if (files && files[0]) {
       let _formData = new FormData();
       for (let i = 0; i < files.length; i++) {
-        var fileToUpload: File = null;
         this.fileToUpload = files.item(i);
-
         _formData.append("file", this.fileToUpload);
         var reader = new FileReader();
         reader.onload = (event: any) => {
           this.currentUrl = new Url();
           this.currentUrl.urlImage = event.target.result;
           this.currentUrl.nameImage = this.fileToUpload.name;
-          this.urls.push(this.currentUrl);
+          this.currentUrl.num="image-"+this.numImage;
+          this.numImage++;
+          // this.urls.push(this.currentUrl);
           debugger;
           console.log(event.target.result);
         }
@@ -56,8 +56,11 @@ export class ImagesComponent implements OnInit {
     this.imagesService.InsertImages(_formData).subscribe((res) => {
       debugger;
       if (res) {
-        // this.imagesService.imageMain=res;
-        // this.imagesService.imageTemp=res;
+        this.imagesService.imageMain=res;
+        this.imagesService.imageTemp=res;
+        for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
+          this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+        }
         // this.urls=this.imagesService.imageTemp["url"];
       }
     });
@@ -80,9 +83,8 @@ export class ImagesComponent implements OnInit {
 
       });
   }
-  SelectGroom()
-  {
-    this.selectedGroom=true;
+  SelectGroom() {
+    this.selectedGroom = true;
   }
 }
 

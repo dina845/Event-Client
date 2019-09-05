@@ -126,12 +126,23 @@ figure:hover+span {
 }
 .material-icons{
 	cursor: pointer;
+	color: maroon;
+	font-size: 1.5rem;
+	/* color: white; */
+	position: relative;
+	border-radius: 50%;
+	padding: 5px;
+	margin: 3px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
 }
 
 .upload-btn-wrapper {
 	position: relative;
 	overflow: hidden;
 	display: inline-block;
+	cursor: pointer;
+
   }
   
   .btn {
@@ -141,7 +152,10 @@ figure:hover+span {
 	padding: 8px 20px;
 	/* border-radius: 8px; */
 	font-size: 20px;
-	font-weight: bold;
+	font-weight: bold;	width: 50px;
+	height: 50px;
+	border: 2px solid #fff;
+	border-radius: 50%;
   }
   
   .upload-btn-wrapper input[type=file] {
@@ -149,5 +163,29 @@ figure:hover+span {
 	position: absolute;
 	left: 0;
 	top: 0;
-	opacity: 0;
+	cursor: pointer;
+	/* color: aqua;
+	z-index: 100;
+
+	opacity: 0; */
+  }
+  #downloadZip{
+	/* color: gray;
+	background-color: white;
+	padding: 8px 20px;
+	border-radius: 8px;
+	font-size: 20px;
+	font-weight: bold;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	cursor: pointer;
+	font-size: 100px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	cursor: pointer;
+
+	 */
+	 font-size: 8rem;
   }
