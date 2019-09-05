@@ -47,7 +47,7 @@
         <label class="btn active" (click)="isAdult(isAdult.checked)">
           <input type="checkbox" name='email1' #isAdult    #l><span> Audults </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
-        <input type="number" #numPerson placeholder="Enter number of people in image" (change)="numPerson(numPerson)">
+        <input type="number" [min]="0" [max]="imagesService.numPersonTemp" #numPerson placeholder="Enter number of people in image" (change)="numPerson(numPerson)">
        </div>
        
 </div>

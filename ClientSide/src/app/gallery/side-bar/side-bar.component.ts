@@ -11,6 +11,7 @@ import { ImagesComponent } from '../images/images.component';
 })
 export class SideBarComponent implements OnInit {
   filterImage: FilterImage = new FilterImage();
+  
   // m: boolean;
   // imageMain: Image[];
   // imageTemp: Image[];
@@ -53,6 +54,9 @@ export class SideBarComponent implements OnInit {
     for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
       this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
     }
+    
+    this.maxNumPerson();
+    
   }
   isBlur(blur) {
     this.filterImage.isBlur = blur;
@@ -71,6 +75,7 @@ export class SideBarComponent implements OnInit {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isDark == true);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
+
 
     }
     else
@@ -168,5 +173,9 @@ export class SideBarComponent implements OnInit {
     this.filterImage.numChild=num;
     this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.numPerson==num);
 
+  }
+  maxNumPerson()
+  {
+    this.imagesService.maxNumPerson
   }
 }
