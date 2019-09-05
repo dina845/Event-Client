@@ -25,6 +25,7 @@
     "file-saver": "^2.0.2",
     "jszip": "^3.2.2",
     "mdbootstrap": "^4.8.9",
+    "ng-circle-progress": "^1.5.0",
     "ng-drag-drop": "^5.0.0",
     "rxjs": "~6.3.3",
     "stream": "0.0.2",
