@@ -14,6 +14,7 @@ export class ImagesComponent implements OnInit {
   urls: Url[] = new Array;
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
+  selectedGroom:boolean=false;
   fileToUpload: File;
   currentUrl: Url;
   Files: FileList;
@@ -78,6 +79,10 @@ export class ImagesComponent implements OnInit {
         saveAs(blob, "photos.zip");
 
       });
+  }
+  SelectGroom()
+  {
+    this.selectedGroom=true;
   }
 }
 
