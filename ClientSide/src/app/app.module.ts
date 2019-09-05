@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ProgressBarComponent } from './gallery/progress-bar/progress-bar.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { GroomComponent } from './gallery/groom/groom.component';
-import { NgDragDropModule } from 'ng-drag-drop';
+// import { NgDragDropModule } from 'ng-drag-drop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +42,7 @@ import { NgDragDropModule } from 'ng-drag-drop';
       "showInnerStroke": false,
       "startFromZero": false
     }),
-    NgDragDropModule.forRoot()
+    // NgDragDropModule.forRoot()
   ],
   providers: [
     ImagesComponent
