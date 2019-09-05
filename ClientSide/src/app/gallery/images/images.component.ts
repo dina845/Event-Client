@@ -14,10 +14,10 @@ export class ImagesComponent implements OnInit {
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
   selectedGroom: boolean = false;
-  fileToUpload: File=null;
+  fileToUpload: File = null;
   currentUrl: Url;
   Files: FileList;
-  numImage:number=1;
+  numImage: number = 1;
   ngOnInit() {
 
   }
@@ -34,7 +34,7 @@ export class ImagesComponent implements OnInit {
           this.currentUrl = new Url();
           this.currentUrl.urlImage = event.target.result;
           this.currentUrl.nameImage = this.fileToUpload.name;
-          this.currentUrl.num="image-"+this.numImage;
+          this.currentUrl.num = "image-" + this.numImage;
           this.numImage++;
           // this.urls.push(this.currentUrl);
           debugger;
@@ -56,8 +56,8 @@ export class ImagesComponent implements OnInit {
     this.imagesService.InsertImages(_formData).subscribe((res) => {
       debugger;
       if (res) {
-        this.imagesService.imageMain=res;
-        this.imagesService.imageTemp=res;
+        this.imagesService.imageMain = res;
+        this.imagesService.imageTemp = res;
         for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
           this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
         }
@@ -83,6 +83,26 @@ export class ImagesComponent implements OnInit {
 
       });
   }
+  downZipUrl() {
+    var zip = new JSZip();
+    // zip.file("Hello.txt", "Hello World\n");
+    var img = zip.folder("images");
+    for (let i = 0; i < this.Files.length; i++) {
+      let a = this.imagesService.imageTemp.find(p => p.name == this.Files.item(i).name)
+      if (a) {
+        this.fileToUpload = this.Files.item(i);
+        img.file(this.fileToUpload.name, this.fileToUpload, { img: true });
+      }
+    }
+    // img.file("smile.jpg ", "https://upload.wikimedia.org/wikipedia/commons/9/9f/Una-presidents-home.jpg");
+    zip.generateAsync({ type: "blob" })
+      // saveAs(zip, "PhotoZip.zip")
+      .then(function (blob) {
+        saveAs(blob, "photos.zip");
+
+      });
+  }
+
   SelectGroom() {
     this.selectedGroom = true;
   }
