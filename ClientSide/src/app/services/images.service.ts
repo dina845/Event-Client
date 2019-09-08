@@ -30,7 +30,7 @@ export class ImagesService {
 
   }
   InsertImagesGroom(formData) {
-    return this.http.post(environment.baseRoute + 'Image/InsertImagesGroom', formData);
+    return this.http.post(environment.baseRoute + 'Image/InsertGroom', formData);
 
   }
   maxNumPerson()
