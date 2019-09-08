@@ -4,6 +4,7 @@ import { Image } from 'src/app/models/image';
 import { saveAs } from "file-saver";
 import * as JSZip from 'jszip';
 import { Url } from 'src/app/services/url';
+declare function f():any
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
@@ -19,7 +20,7 @@ export class ImagesComponent implements OnInit {
   Files: FileList;
   numImage: number = 1;
   ngOnInit() {
-
+    f();
   }
 
   handleFileInput(files: FileList) {
@@ -34,7 +35,7 @@ export class ImagesComponent implements OnInit {
           this.currentUrl = new Url();
           this.currentUrl.urlImage = event.target.result;
           this.currentUrl.nameImage = this.fileToUpload.name;
-          this.currentUrl.num = "image-" + this.numImage;
+          this.currentUrl.num = "image-" + this.numImage+".jpg";
           this.numImage++;
           // this.urls.push(this.currentUrl);
           debugger;
@@ -56,8 +57,10 @@ export class ImagesComponent implements OnInit {
     this.imagesService.InsertImages(_formData).subscribe((res) => {
       debugger;
       if (res) {
-        this.imagesService.imageMain = res;
-        this.imagesService.imageTemp = res;
+        this.imagesService.imageMain=res;
+        this.imagesService.imageTemp=res;
+        // this.imagesService.maxNumPerson();
+        
         for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
           this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
         }

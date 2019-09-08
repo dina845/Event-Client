@@ -35,10 +35,10 @@ label.btn span {
       display: none;
   }
   label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o{
-      color:deeppink;    display: inline;
+      color:maroon;    display: inline;
   }
   label:hover input[type="checkbox"] ~ i.fa {
-  color: deeppink;
+  color: maroon;
   }
   
   div[data-toggle="buttons"] label.active{

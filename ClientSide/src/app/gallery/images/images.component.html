@@ -1,3 +1,22 @@
+<!-- <div class="carousel-wrap">
+    <div class="owl-carousel">
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+      <div class="item"><img src="http://placehold.it/150x150"></div>
+    </div>
+  </div>
+ -->
+
+
 <div class="row justify-content-md-center">
   <!-- <section class="wrapper-full tab-container effectTab-header" id="style_8"> -->
   <div class="wrapper tab-item col-6 col-lg-6">
@@ -6,7 +25,7 @@
     </div>
     <!-- modal button-->
     <div *ngIf="selectedGroom==false">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+      <button type="button" class="btn1 upload-btn-wrapper1" data-toggle="modal" data-target="#exampleModalCenter">
         add groom's image
       </button>
     </div>
@@ -27,7 +46,7 @@
           </div>
           <div class="modal-footer">
             <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-            <button type="button" class="btn btn-primary" (click)="SelectGroom()" data-dismiss="modal">I finish</button>
+            <button type="button" class="btn1 btn-primary" (click)="SelectGroom()" data-dismiss="modal">I finished</button>
           </div>
         </div>
       </div>
@@ -52,10 +71,13 @@
     <!-- <div class="effect effect-eight"> -->
     <div class="hover01 column">
       <div>
-        <figure><img [src]="url" width="100%" height="auto" class="geeks" /></figure>
+     <a     data-fancybox="gallery" [href]="url" > <figure><img [src]="url" width="100%" height="auto" class="geeks" /></figure></a>
         <span>Hover</span>
         <div id="icons" style="float: inherit" class="gfg">
-          <a [href]="url.urlImage" [download]="url.num"> <i class="material-icons" title="download the image">
+              <!-- <a [href]="url" [download]="url.url"> <i class="material-icons" title="download the image"> -->
+              <!-- a [href]="url.urlImage" [download]="url.num"> -->
+          <a [href]="url" download="url.jpg"> <i class="material-icons" title="download the image">
+
               get_app
             </i></a>
           <i class="material-icons">

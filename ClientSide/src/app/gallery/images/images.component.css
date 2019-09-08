@@ -1,6 +1,6 @@
 
 body {
-	color: #333;
+	/* color: maroon; */
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
 }
@@ -8,6 +8,7 @@ h1,
 h1+p {
 	margin: 30px 15px 0;
 	font-weight: 300;
+	color: maroon;
 }
 h1+p a {
 	color: #333;
@@ -19,6 +20,7 @@ h2 {
 	margin: 60px 15px 0;
 	padding: 0;
 	font-weight: 300;
+	color: maroon;
 }
 h2 span {
 	margin-left: 1em;
@@ -188,4 +190,73 @@ figure:hover+span {
 
 	 */
 	 font-size: 8rem;
+  }
+  .upload-btn-wrapper1 {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+  }
+  
+  .btn1 {
+	border: 2px solid gray;
+	color: gray;
+	background-color: white;
+	padding: 8px 20px;
+	border-radius: 8px;
+	font-size: 20px;
+	font-weight: bold;
+  }
+  
+  .upload-btn-wrapper1 input[type=file] {
+	font-size: 100px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .carousel-wrap {
+	margin: 90px auto;
+	padding: 0 5%;
+	width: 80%;
+	position: relative;
+  }
+  
+  /* fix blank or flashing items on carousel */
+  .owl-carousel .item {
+	position: relative;
+	z-index: 100; 
+	-webkit-backface-visibility: hidden; 
+  }
+  
+  /* end fix */
+  .owl-nav > div {
+	margin-top: -26px;
+	position: absolute;
+	top: 50%;
+	color: #cdcbcd;
+  }
+  
+  .owl-nav i {
+	font-size: 52px;
+  }
+  
+  .owl-nav .owl-prev {
+	left: -30px;
+  }
+  
+  .owl-nav .owl-next {
+	right: -30px;
   }

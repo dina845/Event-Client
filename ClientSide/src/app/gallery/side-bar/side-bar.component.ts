@@ -50,6 +50,9 @@ export class SideBarComponent implements OnInit {
     for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
       this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
     }
+    
+    // this.maxNumPerson();
+    
   }
   isBlur(blur) {
     this.filterImage.isBlur = blur;
@@ -68,6 +71,7 @@ export class SideBarComponent implements OnInit {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isDark == true);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
+
 
     }
     else
@@ -167,4 +171,8 @@ export class SideBarComponent implements OnInit {
       this.filterAflerFalse();
     }
   }
+  // maxNumPerson()
+  // {
+  //   this.imagesService.maxNumPerson;
+  // }
 }
