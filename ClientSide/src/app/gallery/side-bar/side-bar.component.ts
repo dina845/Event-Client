@@ -82,6 +82,7 @@ export class SideBarComponent implements OnInit {
       this.filterAflerFalse();
   }
   isCloseEye(closeEye) {
+    debugger;
     this.filterImage.isCloseEye = closeEye;
     if (closeEye == false) {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isClosedEye == true);
@@ -170,9 +171,19 @@ export class SideBarComponent implements OnInit {
       this.filterAflerFalse();
   }
   numPerson(num){
-    this.filterImage.numChild=num;
-    this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.numPerson==num);
+    // this.filterImage.numChild=num;
+    // this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.numPerson==num);
 
+
+    if (num != "") {
+      this.filterImage.numChild = num;
+      this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.numPerson == num);
+      this.urlFilter();
+      }
+      else {
+      this.filterImage.numChild = undefined;
+      this.filterAflerFalse();
+      }
   }
   maxNumPerson()
   {

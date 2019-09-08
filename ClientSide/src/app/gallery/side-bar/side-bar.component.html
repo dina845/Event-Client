@@ -3,53 +3,66 @@
 <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <!-- <div class="container"> -->
-  <div id="sideBar">
+<div id="sideBar">
   <div class="row">
     <div class="col-xs-12">
-        <!-- <input type="button" (click)="filter(child.checked,isAdult.checked)" value="blblbklbkl" /> -->
+      <!-- <input type="button" (click)="filter(child.checked,isAdult.checked)" value="blblbklbkl" /> -->
 
       <!-- סינון לפי -->
       <div class="btn-group btn-group-vertical" data-toggle="buttons">
-          <label class="btn active"><b><span> filter images where : </span> </b> </label>
-        <label class="btn active"(click)="isBlur(Blur.checked)">
-          <input type="checkbox" name='email1'  #Blur ><span> Blurred </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        <label class="btn active"><b><span> filter images where : </span> </b> </label>
+        <label class="btn active" (click)="isBlur(Blur.checked)">
+          <input type="checkbox" name='email1' #Blur><span> Blurred </span><i class="fa fa-square-o fa-2x"></i><i
+            class="fa fa-check-square-o fa-2x"></i>
         </label>
-        <label class="btn active"(click)="isDark(Dark.checked)">
-          <input type="checkbox" name='email1'  #Dark><span> Dark  </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        <label class="btn active" (click)="isDark(Dark.checked)">
+          <input type="checkbox" name='email1' #Dark><span> Dark </span><i class="fa fa-square-o fa-2x"></i><i
+            class="fa fa-check-square-o fa-2x"></i>
         </label>
         <label class="btn active" (click)="isCloseEye(CloseEye.checked)">
-          <input type="checkbox" name='email1'  #CloseEye><span>Closed eyes </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' #CloseEye><span>Closed eyes </span><i class="fa fa-square-o fa-2x"></i><i
+            class="fa fa-check-square-o fa-2x"></i>
         </label>
         <label class="btn active" (click)="isCutFace(CutFace.checked)">
-          <input type="checkbox" name='email1'  #CutFace><span> Cut face </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' #CutFace><span> Cut face </span><i class="fa fa-square-o fa-2x"></i><i
+            class="fa fa-check-square-o fa-2x"></i>
         </label>
-       </div>
+      </div>
 
-<!-- פילטור לפי -->
-       <div class="btn-group btn-group-vertical" data-toggle="buttons">
-          <label class="btn active"><b><span> Mapping images where : </span></b> </label>
+      <!-- פילטור לפי -->
+      <div class="btn-group btn-group-vertical" data-toggle="buttons">
+        <label class="btn active"><b><span> Mapping images where : </span></b> </label>
         <label class="btn active" (click)="isInside(Inside.checked)">
-          <input type="checkbox" name='email1'   #Inside ><span> Inside </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' #Inside><span> Inside </span><i class="fa fa-square-o fa-2x"></i><i
+            class="fa fa-check-square-o fa-2x"></i>
         </label>
         <label class="btn active" (click)="isOutdoor(Outdoor.checked)">
-            <input type="checkbox" name='email1'   #Outdoor ><span> Outdoor </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
-          </label>
-        <label class="btn active"(click)="isGroomAlone(GroomAlone.checked)">
-          <input type="checkbox" name='email1'  #GroomAlone ><span>Event groom </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' #Outdoor><span> Outdoor </span><i class="fa fa-square-o fa-2x"></i><i
+            class="fa fa-check-square-o fa-2x"></i>
+        </label>
+        <label class="btn active" (click)="isGroomAlone(GroomAlone.checked)">
+          <input type="checkbox" name='email1' #GroomAlone><span>Event groom </span><i
+            class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
         </label>
         <label class="btn active" (click)="isGroomContain(GroomContain.checked)">
-            <input type="checkbox" name='email1'  #GroomContain ><span>contain groom </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
-          </label>
+          <input type="checkbox" name='email1' #GroomContain><span>contain groom </span><i
+            class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+        </label>
 
         <label class="btn active" (click)="isChild(child.checked)">
-          <input type="checkbox" name='email1' #child  ><span> Children </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' #child><span> Children </span><i class="fa fa-square-o fa-2x"></i><i
+            class="fa fa-check-square-o fa-2x"></i>
         </label>
         <label class="btn active" (click)="isAdult(isAdult.checked)">
-          <input type="checkbox" name='email1' #isAdult    #l><span> Audults </span><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i>
+          <input type="checkbox" name='email1' #isAdult #l><span> Audults </span><i class="fa fa-square-o fa-2x"></i><i
+            class="fa fa-check-square-o fa-2x"></i>
         </label>
-        <input type="number" [min]="0" [max]="imagesService.numPersonTemp" #numPerson placeholder="Enter number of people in image" (change)="numPerson(numPerson)">
-       </div>
-       
-</div>
-</div>
-<!-- </div> -->
+
+        <input type="number" #numPerson1 placeholder="Enter number of people in image"
+          (input)="numPerson(numPerson1.value)">‏
+
+      </div>
+
+    </div>
+  </div>
+  <!-- </div> -->
