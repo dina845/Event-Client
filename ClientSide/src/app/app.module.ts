@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ProgressBarComponent } from './gallery/progress-bar/progress-bar.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { GroomComponent } from './gallery/groom/groom.component';
+import { CheckboxDirective } from './directive/checkbox.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { GroomComponent } from './gallery/groom/groom.component';
     SideBarComponent,
     HeaderComponent,
     ProgressBarComponent,
-    GroomComponent
+    GroomComponent,
+    CheckboxDirective,
   ],
   imports: [
     BrowserModule,

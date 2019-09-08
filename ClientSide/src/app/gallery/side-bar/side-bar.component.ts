@@ -11,7 +11,7 @@ import { ImagesComponent } from '../images/images.component';
 })
 export class SideBarComponent implements OnInit {
   filterImage: FilterImage = new FilterImage();
-  
+
   // m: boolean;
   // imageMain: Image[];
   // imageTemp: Image[];
@@ -25,26 +25,28 @@ export class SideBarComponent implements OnInit {
   }
   filterAflerFalse() {
     this.imagesService.imageTemp = this.imagesService.imageMain;
-    if (this.filterImage.isBlur == false)
-      this.isBlur(false);
-    if (this.filterImage.isDark == false)
-      this.isDark(false);
-    if (this.filterImage.isCloseEye == false)
-      this.isCloseEye(false);
-    if (this.filterImage.isCutFace == false)
-      this.isCutFace(false);
-    if (this.filterImage.isInside == false)
-      this.isInside(false);
-      if (this.filterImage.isOutdoor == false)
-      this.isOutdoor(false);
-    if (this.filterImage.isGroomAlone == false)
-      this.isGroomAlone(false);
-    if (this.filterImage.isGroomContain == false)
-      this.isGroomContain(false);
-    if (this.filterImage.ischild == false)
-      this.isChild(false);
-    if (this.filterImage.isAdult == false)
-      this.isAdult(false);
+    if (this.filterImage.isBlur == true)
+      this.isBlur(true);
+    if (this.filterImage.isDark == true)
+      this.isDark(true);
+    if (this.filterImage.isCloseEye == true)
+      this.isCloseEye(true);
+    if (this.filterImage.isCutFace == true)
+      this.isCutFace(true);
+    if (this.filterImage.isInside == true)
+      this.isInside(true);
+    if (this.filterImage.isOutdoor == true)
+      this.isOutdoor(true);
+    if (this.filterImage.isGroomAlone == true)
+      this.isGroomAlone(true);
+    if (this.filterImage.isGroomContain == true)
+      this.isGroomContain(true);
+    if (this.filterImage.ischild == true)
+      this.isChild(true);
+    if (this.filterImage.isAdult == true)
+      this.isAdult(true);
+    if (this.filterImage.numChild != undefined)
+      this.numPerson(this.filterImage.numChild);
     // this.images.urls = this.imagesService.imageTemp["url"];
     this.urlFilter();
 
@@ -54,14 +56,14 @@ export class SideBarComponent implements OnInit {
     for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
       this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
     }
-    
+
     this.maxNumPerson();
-    
+
   }
   isBlur(blur) {
     this.filterImage.isBlur = blur;
 
-    if (blur == false) {
+    if (blur == true) {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isBlur == true);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
@@ -71,7 +73,7 @@ export class SideBarComponent implements OnInit {
   }
   isDark(dark) {
     this.filterImage.isDark = dark;
-    if (dark == false) {
+    if (dark == true) {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isDark == true);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
@@ -84,7 +86,7 @@ export class SideBarComponent implements OnInit {
   isCloseEye(closeEye) {
     debugger;
     this.filterImage.isCloseEye = closeEye;
-    if (closeEye == false) {
+    if (closeEye == true) {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isClosedEye == true);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
@@ -95,7 +97,7 @@ export class SideBarComponent implements OnInit {
   }
   isCutFace(cutFace) {
     this.filterImage.isCutFace = cutFace;
-    if (cutFace == false) {
+    if (cutFace == true) {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isCutFace == true);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
@@ -108,7 +110,7 @@ export class SideBarComponent implements OnInit {
 
   isInside(Inside) {
     this.filterImage.isInside = Inside;
-    if (Inside == false) {
+    if (Inside == true) {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isInside == true);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
@@ -119,17 +121,17 @@ export class SideBarComponent implements OnInit {
   }
   isOutdoor(Outdoor) {
     this.filterImage.isOutdoor = Outdoor;
-    if (Outdoor == false) {
+    if (Outdoor == true) {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isInside == false);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
     }
     else
-    this.filterAflerFalse();
+      this.filterAflerFalse();
   }
   isGroomAlone(GroomAlone) {
     this.filterImage.isGroomAlone = GroomAlone;
-    if (GroomAlone == false) {
+    if (GroomAlone == true) {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isGroom == true && p.numPerson == 1);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
@@ -140,7 +142,7 @@ export class SideBarComponent implements OnInit {
   }
   isGroomContain(GroomContain) {
     this.filterImage.isGroomContain = GroomContain;
-    if (GroomContain == false) {
+    if (GroomContain == true) {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isGroom == true && p.numPerson > 1);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
@@ -151,7 +153,7 @@ export class SideBarComponent implements OnInit {
   }
   isChild(child) {
     this.filterImage.ischild = child;
-    if (child == false) {
+    if (child == true) {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.hasChildren == true);
       this.urlFilter();
       // this.images.urls = this.imagesService.imageTemp["url"];
@@ -161,7 +163,7 @@ export class SideBarComponent implements OnInit {
   }
   isAdult(Adult) {
     this.filterImage.isAdult = Adult;
-    if (Adult == false) {
+    if (Adult == true) {
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.hasAdults == true);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
@@ -170,7 +172,7 @@ export class SideBarComponent implements OnInit {
     else
       this.filterAflerFalse();
   }
-  numPerson(num){
+  numPerson(num) {
     // this.filterImage.numChild=num;
     // this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.numPerson==num);
 
@@ -179,14 +181,13 @@ export class SideBarComponent implements OnInit {
       this.filterImage.numChild = num;
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.numPerson == num);
       this.urlFilter();
-      }
-      else {
+    }
+    else {
       this.filterImage.numChild = undefined;
       this.filterAflerFalse();
-      }
+    }
   }
-  maxNumPerson()
-  {
+  maxNumPerson() {
     this.imagesService.maxNumPerson
   }
 }
