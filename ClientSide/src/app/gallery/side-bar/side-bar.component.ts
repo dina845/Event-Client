@@ -3,6 +3,7 @@ import { FilterImage } from 'src/app/models/filter-image';
 import { Image } from 'src/app/models/image';
 import { ImagesService } from 'src/app/services/images.service';
 import { ImagesComponent } from '../images/images.component';
+import { Url } from 'src/app/services/url';
 
 @Component({
   selector: 'app-side-bar',
@@ -54,7 +55,10 @@ export class SideBarComponent implements OnInit {
   urlFilter() {
     this.imagesService.urls = new Array;
     for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
-      this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+      var u=new Url;
+      u=this.imagesService.imageTemp[i].url;
+      this.imagesService.urls.push(  u);
+      // debugger;
     }
 
     this.maxNumPerson();

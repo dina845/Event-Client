@@ -54,6 +54,7 @@ export class ImagesService {
   }
   img: Image;
   DeleteImage(url) {
+    debugger;
     this.img = new Image();
     this.img.url = url;
     return this.http.post(environment.baseRoute + 'Image/DeleteImage', this.img);

@@ -5,7 +5,9 @@ section{width:100%; max-width:1200px; margin:0px auto; display:table; position:r
 h1{margin:0px auto; display:table; font-size:26px; padding:40px 0px; color:white; text-align:center;}
 h1 span{font-weight:500;}
 
-header{width:100%; display:table; background-color:#0e1719; margin-bottom:50px;}
+header{width:100%; 
+    display:table; 
+    background-color:#0e1719;}
 #logo{float:left; font-size:24px; text-transform:uppercase; color:white; font-weight:600; padding:20px 0px;}
 nav{width:auto; float:right;}
 nav ul{display:table; float:right;}
@@ -37,7 +39,7 @@ section{max-width:95%;}
 }
 
 @media only screen and (max-width: 980px) {
-header{padding:20px 0px;}
+/* header{padding:20px 0px;} */
 /* #logo{padding:0px;} */
 input[type=checkbox] {position: absolute; top: -9999px; left: -9999px; background:none;}
 input[type=checkbox]:fous{background:none;}
@@ -61,7 +63,7 @@ h1 span{display:block;}
 }
 
 @media only screen and (max-width: 480px) {
-section {max-width: 90%;}
+section {max-width: 100%;}
 }
 
 @media only screen and (max-width: 360px) {
@@ -81,3 +83,9 @@ h1 {padding: 20px 0px;}
 #logo-take:hover{width: 10vw;height: auto;
     background-image: url("../../../assets/logo-take-color.png ");
 }
+/* header{
+    box-sizing: initial;
+}
+*, ::after, ::before {
+    box-sizing: inherit;
+} */

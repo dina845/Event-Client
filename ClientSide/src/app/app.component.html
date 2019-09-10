@@ -30,23 +30,24 @@
   </div>  
 </mat-card>   -->
 <!-- <app-progress-bar></app-progress-bar> -->
+<div class="conteiner">
 <div class="row">
    
-<app-header id="header" style="z-index: 100;"></app-header>
-</div>
-<div style="width: 100%;height:25vh;background-color: #0e1719;"></div>
+<app-header id="header" style="z-index: 100;" class="col-12"></app-header>
+</div></div>
+<router-outlet></router-outlet>
+
 <div class="row justify-content-between">
-  <img src="../assets/1771.jpg" width="100%" >
 <div class="col-3">
-        <app-side-bar id="side-bar"></app-side-bar>
+        <!-- <app-side-bar id="side-bar"></app-side-bar> -->
     </div>
     <!--  -->
     
     <!--  -->
     <div class="col-9">
-        <app-gallery></app-gallery>
+        <!-- <app-gallery></app-gallery> -->
 
-        <app-images style="z-index: 1"></app-images>
+        
         <app-recycle-bin></app-recycle-bin>
     </div>
 </div>

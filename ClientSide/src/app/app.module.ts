@@ -15,6 +15,7 @@ import { GroomComponent } from './gallery/groom/groom.component';
 import { CheckboxDirective } from './directive/checkbox.directive';
 import { RecycleBinComponent } from './gallery/recycle-bin/recycle-bin.component';
 
+import { HomeComponent } from './home/home.component';
 // import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { RecycleBinComponent } from './gallery/recycle-bin/recycle-bin.component
     GroomComponent,
     CheckboxDirective,
     RecycleBinComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
