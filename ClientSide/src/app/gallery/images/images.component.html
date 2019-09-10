@@ -1,28 +1,10 @@
-<!-- <div class="carousel-wrap">
-    <div class="owl-carousel">
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-      <div class="item"><img src="http://placehold.it/150x150"></div>
-    </div>
-  </div>
- -->
-
-
 <div class="row justify-content-md-center">
   <!-- <section class="wrapper-full tab-container effectTab-header" id="style_8"> -->
   <div class="wrapper tab-item col-6 col-lg-6">
     <div class="wrapper " align="center">
       <h1 class="ti title">EVENT PHOTOS</h1>
     </div>
+
     <!-- modal button-->
     <div *ngIf="selectedGroom==false">
       <button type="button" class="btn1 upload-btn-wrapper1" data-toggle="modal" data-target="#exampleModalCenter">
@@ -52,11 +34,12 @@
       </div>
     </div>
     <!-- הורדת ZIP -->
-    <i (click)="downZipUrl()" class="material-icons" id="downloadZip"  data-toggle="tooltip" data-placement="top"  title="download all the images">
+    <i (click)="downZip()" class="material-icons" id="downloadZip"  data-toggle="tooltip" data-placement="top"  title="download all the images">
       arrow_downward
     </i>
     <!-- העלאת קבצים-->
- <div class="upload-btn-wrapper"  *ngIf="selected==false" >
+    <!-- <div class="upload-btn-wrapper" align="center" *ngIf="selected==false" > -->
+      <!-- <div class="main-wrapper"> --><div class="upload-btn-wrapper"  *ngIf="selected==false" >
       <i class="material-icons" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
       <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple >
     </div>
@@ -71,13 +54,10 @@
     <!-- <div class="effect effect-eight"> -->
     <div class="hover01 column">
       <div>
-     <a     data-fancybox="gallery" [href]="url" > <figure><img [src]="url" width="100%" height="auto" class="geeks" /></figure></a>
+     <a data-fancybox="gallery" [href]="url">   <figure><img [src]="url" width="100%" height="auto" class="geeks" /></figure></a>
         <span>Hover</span>
         <div id="icons" style="float: inherit" class="gfg">
-              <!-- <a [href]="url" [download]="url.url"> <i class="material-icons" title="download the image"> -->
-              <!-- a [href]="url.urlImage" [download]="url.num"> -->
-          <a [href]="url" download="url.jpg"> <i class="material-icons" title="download the image">
-
+          <a [href]="url.urlImage" [download]="url.num"> <i class="material-icons" title="download the image">
               get_app
             </i></a>
           <i class="material-icons">
@@ -88,3 +68,4 @@
     </div>
   </div>
 </div>
+<button *ngIf="isShow" (click)="gotoTop()" id="scroll">👆</button>

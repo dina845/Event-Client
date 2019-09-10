@@ -1,3 +1,5 @@
+
+
 <!-- <div class="row">
         <div class="col align-self-start" id="side-bar">
         <app-side-bar></app-side-bar>
@@ -7,22 +9,43 @@
           <app-images></app-images>>
         </div>
       </div> -->
-<!-- <i class="fas fa-camera"></i>
+      <!-- <i class="fas fa-camera"></i>
     
     <i class="fas fa-user-circle"></i>
 
 -->
-<!-- <app-gallery></app-gallery> -->
+<!-- <mat-toolbar color="accent">  
+  <span>Manav Pandya - C#Corner</span>  
+  <span class="demo-toolbar"></span>  
+</mat-toolbar>  
+  
+<mat-card>  
+  <div class="container">  
+    <div class="row" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="false"  
+    style="height: 400px; overflow-y: scroll;">  
+      <div *ngFor="let item of myPhotosList" class="col-md-4" style="margin-top: 10px;">  
+        <img style="height: 220px;width: 315px;" src="{{item.url}}" />  
+      </div>  
+    </div>  
+  </div>  
+</mat-card>   -->
+<!-- <app-progress-bar></app-progress-bar> -->
 <div class="row">
-  <div class="col-12">
-    <app-header id="header"></app-header>
-  </div>
+   
+<app-header id="header" style="z-index: 100;"></app-header>
 </div>
+<div style="width: 100%;height:25vh;background-color: #0e1719;"></div>
 <div class="row justify-content-between">
-  <div class="col-2">
-    <app-side-bar id="side-bar"></app-side-bar>
-  </div>
-  <div class="col-10">
-    <app-images></app-images>
-  </div>
+  <img src="../assets/1771.jpg" width="100%" >
+<div class="col-3">
+        <app-side-bar id="side-bar"></app-side-bar>
+    </div>
+    <!--  -->
+    
+    <!--  -->
+    <div class="col-9">
+        <app-images style="z-index: 1"></app-images>
+    </div>
 </div>
+
+<app-gallery></app-gallery>
