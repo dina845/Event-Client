@@ -18,12 +18,13 @@ export class ImagesComponent implements OnInit {
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
   selectedGroom: boolean = false;
-  fileToUpload: File=null;
+  fileToUpload: File = null;
   currentUrl: Url;
   Files: FileList;
-  numImage:number=1;
+  numImage: number = 1;
+  img = "img.jpg";
   ngOnInit() {
-  
+
   }
 
   handleFileInput(files: FileList) {
@@ -38,7 +39,7 @@ export class ImagesComponent implements OnInit {
           this.currentUrl = new Url();
           this.currentUrl.urlImage = event.target.result;
           this.currentUrl.nameImage = this.fileToUpload.name;
-          this.currentUrl.num="image-"+this.numImage;
+          this.currentUrl.num = "image-" + this.numImage;
           this.numImage++;
           // this.urls.push(this.currentUrl);
           debugger;
@@ -50,21 +51,21 @@ export class ImagesComponent implements OnInit {
 
 
       // this.downZip(files, files.length);
-      this.InsertImages(_formData,files.length);//send the images' url to the server = in order to init the table
+      this.InsertImages(_formData, files.length);//send the images' url to the server = in order to init the table
     }
     this.selected = true;
   }
 
-  InsertImages(_formData,lengthFiles) {
+  InsertImages(_formData, lengthFiles) {
     debugger;
-    this.imagesService.gotImages=false;
-    this.imagesService.InsertImages(_formData,lengthFiles).subscribe((res) => {
+    this.imagesService.gotImages = false;
+    this.imagesService.InsertImages(_formData, lengthFiles).subscribe((res) => {
       debugger;
       if (res) {
-        this.imagesService.imageMain=res;
-        this.imagesService.imageTemp=res;
+        this.imagesService.imageMain = res;
+        this.imagesService.imageTemp = res;
         this.imagesService.maxNumPerson();
-        this.imagesService.gotImages=true;
+        this.imagesService.gotImages = true;
         for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
           this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
         }
@@ -90,8 +91,59 @@ export class ImagesComponent implements OnInit {
 
       });
   }
+  
+  downZip2() {
+    var imageData:ImageData;
+    // var imageData = new Array(width);
+
+    var image = new Image;
+    // image.url="../../../assets/1771.jpg";
+
+// for (var i = 0; i < width; i++) {
+//     imageData[i] = new Array(height);
+// }
+
+    // image.src = imageData
+    // var image:Image;
+    // image.url.urlImage="../../../assets/1771.jpg";
+    // image.url.nameImage="1771.jpg";
+    // imageData.data(image)
+    var zip = new JSZip();
+    // zip.file("Hello.txt", "Hello World\n");
+    var img = zip.folder("images");
+
+
+      img.file("thisfileToUpload.jpg", "../../../assets/1771.jpg", { url: true });
+  
+    // img.file("smile.jpg ", "https://upload.wikimedia.org/wikipedia/commons/9/9f/Una-presidents-home.jpg");
+    zip.generateAsync({ type: "blob" })
+      // saveAs(zip, "PhotoZip.zip")
+      .then(function (blob) {
+        saveAs(blob, "photos.zip");
+
+      });
+  }
   SelectGroom() {
     this.selectedGroom = true;
+  }
+
+  DeleteImg(url) {
+    debugger;
+    console.log(url);
+    this.imagesService.imageMain = this.imagesService.imageMain.filter(a => a.url != url);
+    this.imagesService.imageTemp = this.imagesService.imageTemp.filter(a => a.url != url);
+    this.imagesService.urls = this.imagesService.urls.filter(a => a != url);
+    // this.imagesService.urls = new Array;
+    // for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
+    //   this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+    // }
+    debugger;
+    this.imagesService.DeleteImage(url).subscribe(res => {
+      this.imagesService.getRecycleBin().subscribe(res => {
+        this.imagesService.recycleBin = res;
+      })
+    });
+    this.cdRef.detectChanges();
   }
 
 
@@ -101,14 +153,14 @@ export class ImagesComponent implements OnInit {
 
   @HostListener('window:scroll')
   checkScroll() {
-      
+
     // window의 scroll top
     // Both window.pageYOffset and document.documentElement.scrollTop returns the same result in all the cases. window.pageYOffset is not supported below IE 9.
 
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     console.log('[scroll]', scrollPosition);
-    
+
     if (scrollPosition >= this.topPosToStartShowing) {
       this.isShow = true;
     } else {
@@ -118,10 +170,10 @@ export class ImagesComponent implements OnInit {
 
   // TODO: Cross browsing
   gotoTop() {
-    window.scroll({ 
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth' 
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
     });
   }
 }

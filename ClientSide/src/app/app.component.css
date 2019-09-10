@@ -2,5 +2,8 @@
     position: fixed;
 }
 #header{
-    width: 100%;
+    /* width: 100%; */
 position: fixed;}
+.row{
+    padding-right: 0;
+}
