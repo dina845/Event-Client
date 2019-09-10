@@ -13,9 +13,8 @@ import { Url } from 'src/app/services/url';
 })
 
 export class ImagesComponent implements OnInit {
-  constructor(public imagesService: ImagesService) { }
- 
-
+  constructor(public imagesService: ImagesService,
+    private cdRef: ChangeDetectorRef) { }
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
   selectedGroom: boolean = false;
@@ -58,13 +57,14 @@ export class ImagesComponent implements OnInit {
 
   InsertImages(_formData,lengthFiles) {
     debugger;
+    this.imagesService.gotImages=false;
     this.imagesService.InsertImages(_formData,lengthFiles).subscribe((res) => {
       debugger;
       if (res) {
         this.imagesService.imageMain=res;
         this.imagesService.imageTemp=res;
         this.imagesService.maxNumPerson();
-        
+        this.imagesService.gotImages=true;
         for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
           this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
         }
