@@ -10,7 +10,8 @@ import { Url } from 'src/app/services/url';
   styleUrls: ['./images.component.css']
 })
 export class ImagesComponent implements OnInit {
-  constructor(public imagesService: ImagesService) { }
+  constructor(public imagesService: ImagesService,
+    private cdRef: ChangeDetectorRef) { }
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
   selectedGroom: boolean = false;
@@ -53,13 +54,14 @@ export class ImagesComponent implements OnInit {
 
   InsertImages(_formData,lengthFiles) {
     debugger;
+    this.imagesService.gotImages=false;
     this.imagesService.InsertImages(_formData,lengthFiles).subscribe((res) => {
       debugger;
       if (res) {
         this.imagesService.imageMain=res;
         this.imagesService.imageTemp=res;
         this.imagesService.maxNumPerson();
-        
+        this.imagesService.gotImages=true;
         for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
           this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
         }
@@ -87,6 +89,24 @@ export class ImagesComponent implements OnInit {
   }
   SelectGroom() {
     this.selectedGroom = true;
+  }
+  DeleteImg(url){
+    debugger; 
+    console.log(url);
+    this.imagesService.imageMain=this.imagesService.imageMain.filter(a=>a.url!=url);
+    this.imagesService.imageTemp=this.imagesService.imageTemp.filter(a=>a.url!=url);
+    this.imagesService.urls=this.imagesService.urls.filter(a=>a!=url);
+    // this.imagesService.urls = new Array;
+    // for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
+    //   this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+    // }
+    debugger;
+    this.imagesService.DeleteImage(url).subscribe(res=>{
+      this.imagesService.getRecycleBin().subscribe(res=>{
+        this.imagesService.recycleBin=res;
+      })
+    });
+    this.cdRef.detectChanges();
   }
 }
 
