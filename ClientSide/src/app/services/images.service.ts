@@ -10,7 +10,8 @@ import { Url } from './url';
 export class ImagesService {
   imageMain: Image[];
   imageTemp: Image[];
-  recycleBin: Image[];
+  recycleBin: Image[]=null;
+  showCycle:boolean=false;
   firstRecycleBin: Image;
   numPersonTemp: number = 0;
   public urls: Url[] = new Array;

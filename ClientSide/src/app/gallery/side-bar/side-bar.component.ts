@@ -24,6 +24,9 @@ export class SideBarComponent implements OnInit {
     //   this.imageTemp = res;
     // })
   }
+  showCycle(){
+    this.imagesService.showCycle=!this.imagesService.showCycle;;
+  }
   filterAflerFalse() {
     this.imagesService.imageTemp = this.imagesService.imageMain;
     if (this.filterImage.isBlur == true)

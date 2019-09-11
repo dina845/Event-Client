@@ -101,3 +101,12 @@ left: 0;
         width: 0px;
         /* background-image: url("https://comps.canstockphoto.co.il/%D7%9C%D7%91%D7%9F-%D7%97%D7%A5-%D7%A8%D7%A7%D7%A2-%D7%90%D7%99%D7%A7%D7%95%D7%9F-%D7%95%D7%A7%D7%98%D7%95%D7%A8-%D7%A7%D7%9C%D7%99%D7%A4-%D7%90%D7%A8%D7%98_csp53096769.jpg"); */
     }
+    .not-checked{
+        color: white;
+        font-size: 50px;
+    
+    }
+    .checked{
+        color: maroon;
+        font-size: 80px;
+    }
