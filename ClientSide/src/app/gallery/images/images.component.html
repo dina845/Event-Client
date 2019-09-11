@@ -36,13 +36,16 @@
     </div>
     
     <!-- הורדת ZIP -->
-    <i (click)="downZip()" class="material-icons" id="downloadZip"  data-toggle="tooltip" data-placement="top"  title="download all the images">
+    <i (click)="downZip()" class="material-icons md-36" id="downloadZip"  data-toggle="tooltip" data-placement="top"  title="download all the images">
       arrow_downward
     </i>
+    
     <!-- העלאת קבצים-->
     <!-- <div class="upload-btn-wrapper" align="center" *ngIf="selected==false" > -->
-      <!-- <div class="main-wrapper"> --><div class="upload-btn-wrapper"  >
-      <i class="material-icons" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
+      <!-- <div class="main-wrapper"> -->
+        <span class="spanText">Upload Your Images</span>
+        <div class="upload-btn-wrapper"  >
+      <i class="material-icons md-36" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
       <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple >
     </div>
   </div>
@@ -72,3 +75,20 @@
   </div>
 </div>
 <button *ngIf="isShow" (click)="gotoTop()" id="scroll">👆</button>
+<!-- button -->
+<div class="custom-file-upload">
+<label for="file-upload" class="custom-file-upload1">
+    <i  id="file-icon" class="fa fa-cloud-upload"  for="upload" title="upload the event's photos"></i>Upload Files
+</label>
+<input id="file-upload" type="file"id="upload" name='myfile'(change)="handleFileInput($event.target.files)"multiple/>
+</div> 
+
+
+<div class="upload-btn-wrapper"  >
+    <i class="material-icons md-36" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
+    <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple >
+  </div>
+<!-- <div class="upload-btn-wrapper"  >
+    <i class="material-icons" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
+    <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" >
+  </div> -->
