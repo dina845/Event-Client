@@ -46,7 +46,9 @@ import { HomeComponent } from './home/home.component';
       "showInnerStroke": false,
       "startFromZero": false,
 
-
+     
+      // HttpClientModule,
+      // CookieModule.forRoot()
     })
     // ,NgxPageScrollCoreModule,
  
