@@ -98,18 +98,23 @@
             </span>
           </div> -->
         </div>
-        <!-- sidebar-header  -->
+        <!-- sidebar-header  --> 
+       
         <div class="sidebar-search">
-          <div>
+          <div> 
+            <!-- <a href="#recyclebin"> -->
             <div class="input-group">
-              <input type="text" class="form-control search-menu" placeholder="Search...">
-              <div class="input-group-append">
+             
+             <input type="button"(click)="showCycle()" class="form-control search-menu" value="show the cycle bin">
+             
+             <div class="input-group-append">
                 <span class="input-group-text">
-                  <i class="fa fa-search" aria-hidden="true"></i>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
                 </span>
               </div>
             </div>
-          </div>
+          <!-- </a> -->
+          </div> 
         </div>
         <!-- sidebar-search  -->
         <div class="sidebar-menu">
@@ -128,14 +133,14 @@
                   </label>
                 </a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#">
                   <i class="fa fa-eye" [ngClass]="{'checked': Dark.checked==true, 'not-checked':Dark.checked==false}"></i>
                   <label class="btn active" (click)="isDark(Dark.checked)">
                     <input type="checkbox" name='email1' #Dark><span> Dark </span>
                   </label>
                 </a>
-              </li>
+              </li> -->
               <li>
                 <a href="#">
                   <i class="fa fa-eye"  [ngClass]="{'checked': CloseEye.checked==true, 'not-checked':CloseEye.checked==false}"></i>

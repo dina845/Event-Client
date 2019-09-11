@@ -20,7 +20,9 @@ const httpOptions : any    = {
 export class ImagesService {
   imageMain: Image[];
   imageTemp: Image[];
-  recycleBin: Image[];
+  recycleBin: Image[]=null;
+  showCycle:boolean=false;
+  firstRecycleBin: Image;
   numPersonTemp: number = 0;
   public urls: Url[] = new Array;
   sizeUploadFiles: number;
@@ -33,11 +35,11 @@ export class ImagesService {
       for (var i = 0; i < this.imageTemp.length; i++) {
         this.urls.push(this.imageTemp[i].url);
       } 
-
       this.getRecycleBin().subscribe(res => {
         this.recycleBin = res;
+       
       });
-    })
+    });
 
   }
   InsertImages(formData, sizeFiles): Observable<Image[]> {

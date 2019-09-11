@@ -13,6 +13,8 @@ import { ProgressBarComponent } from './gallery/progress-bar/progress-bar.compon
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { GroomComponent } from './gallery/groom/groom.component';
 import { CheckboxDirective } from './directive/checkbox.directive';
+import { RecycleBinComponent } from './gallery/recycle-bin/recycle-bin.component';
+
 import { HomeComponent } from './home/home.component';
 // import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 @NgModule({
@@ -25,6 +27,7 @@ import { HomeComponent } from './home/home.component';
     ProgressBarComponent,
     GroomComponent,
     CheckboxDirective,
+    RecycleBinComponent,
     HomeComponent,
   ],
   imports: [
