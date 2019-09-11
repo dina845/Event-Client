@@ -1,5 +1,4 @@
 
-<span class="title1">-------------------------------recycle-bin-------------------------------</span>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -7,6 +6,8 @@
 
 
 
+<div *ngIf="imageService.recycleBin!=null &&imageService.showCycle==true">
+    <span class="title1">-------------------------------recycle-bin-------------------------------</span>
 
 <div class="container-fluid">
     <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
@@ -30,6 +31,7 @@
                   </div>
                 </div>
             </div>
+        </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
