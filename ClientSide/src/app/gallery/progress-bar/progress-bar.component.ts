@@ -15,7 +15,7 @@ export class ProgressBarComponent{
     this.part=this.sizeUploadFiles/100;
     setInterval(() => { 
       this.per=this.per+1;
-    }, this.sizeUploadFiles*51);
+    }, this.sizeUploadFiles*60);
   }
   per:any=0.0;
   sizeUploadFiles:number;

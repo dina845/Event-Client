@@ -219,7 +219,7 @@
                 <i class="fa fa-sort-numeric-up"
                   [ngClass]="{'checked': CloseEye.checked==true, 'not-checked':CloseEye.checked==false}"></i>
                 <input type="number" #numPerson1 placeholder="number of people"
-                  (input)="numPerson(numPerson1.value)">
+                  (change)="numPerson(numPerson1.value)"  (input)="numPerson(numPerson1.value)">
 
               </a>
             </li>
