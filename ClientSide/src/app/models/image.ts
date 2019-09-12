@@ -10,10 +10,12 @@ export class Image {
     isCutFace: boolean;
     isGroom: boolean;
     isLight: boolean;
-    isInside: boolean;
+    isIndoors: boolean;
+    isOutdoors: boolean;
     hasChildren: boolean;
-    hasYoung: boolean;
-    hasAdults: boolean;
+ 
+    
     numPerson: number;
     isInRecycleBin: boolean;
 }
+

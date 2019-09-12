@@ -33,7 +33,7 @@ export class ImagesComponent implements OnInit {
   img = "img.jpg";
   getRequests = [];
   ngOnInit() {
-
+this.imagesService.isHome=false;
   }
 
   handleFileInput(files: FileList) {
@@ -75,6 +75,7 @@ export class ImagesComponent implements OnInit {
         this.imagesService.imageTemp = res;
         this.imagesService.maxNumPerson();
         this.imagesService.gotImages = true;
+        this.imagesService.urls=new Array();
         for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
           this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
         }
@@ -84,7 +85,10 @@ export class ImagesComponent implements OnInit {
   }
 
  
-
+  SelectGroom() {
+    this.imagesService.selectedGroom = true;
+  }
+ 
   DeleteImg(url) {
     debugger;
     console.log(url);

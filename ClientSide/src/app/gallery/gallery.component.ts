@@ -9,7 +9,7 @@ import { ImagesService } from '../services/images.service';
 export class GalleryComponent implements OnInit {
 
   flag:boolean=false;
-  constructor(private ImageService:ImagesService) { }
+  constructor(private imagesService:ImagesService) { }
 
   ngOnInit() {
   }

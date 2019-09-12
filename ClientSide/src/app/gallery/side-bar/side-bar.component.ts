@@ -4,7 +4,9 @@ import { Image } from 'src/app/models/image';
 import { ImagesService } from 'src/app/services/images.service';
 import { ImagesComponent } from '../images/images.component';
 import { Url } from 'src/app/services/url';
-
+import { HttpClient } from "@angular/common/http";
+import { forkJoin } from "rxjs";
+import * as JSZip from 'jszip';
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
@@ -12,11 +14,17 @@ import { Url } from 'src/app/services/url';
 })
 export class SideBarComponent implements OnInit {
   filterImage: FilterImage = new FilterImage();
-
+  public get http(): HttpClient {
+    return this._http;
+  }
+public set http(value: HttpClient) {
+  this._http = value;
+}
+getRequests = [];
   // m: boolean;
   // imageMain: Image[];
   // imageTemp: Image[];
-  constructor(private imagesService: ImagesService) { }
+  constructor(private imagesService: ImagesService,private _http: HttpClient) { }
 
   ngOnInit() {
     // this.imagesService.getImages().subscribe(res => {
@@ -25,7 +33,7 @@ export class SideBarComponent implements OnInit {
     // })
   }
   showCycle(){
-    this.imagesService.showCycle=!this.imagesService.showCycle;;
+    this.imagesService.showCycle=!this.imagesService.showCycle;
   }
   filterAflerFalse() {
     this.imagesService.imageTemp = this.imagesService.imageMain;
@@ -37,9 +45,9 @@ export class SideBarComponent implements OnInit {
       this.isCloseEye(true);
     if (this.filterImage.isCutFace == true)
       this.isCutFace(true);
-    if (this.filterImage.isInside == true)
+    if (this.filterImage.isIndoors == true)
       this.isInside(true);
-    if (this.filterImage.isOutdoor == true)
+    if (this.filterImage.isOutdoors == true)
       this.isOutdoor(true);
     if (this.filterImage.isGroomAlone == true)
       this.isGroomAlone(true);
@@ -47,8 +55,8 @@ export class SideBarComponent implements OnInit {
       this.isGroomContain(true);
     if (this.filterImage.ischild == true)
       this.isChild(true);
-    if (this.filterImage.isAdult == true)
-      this.isAdult(true);
+    // if (this.filterImage.isAdult == true)
+    //   this.isAdult(true);
     if (this.filterImage.numChild != undefined)
       this.numPerson(this.filterImage.numChild);
     // this.images.urls = this.imagesService.imageTemp["url"];
@@ -116,9 +124,9 @@ export class SideBarComponent implements OnInit {
 
 
   isInside(Inside) {
-    this.filterImage.isInside = Inside;
+    this.filterImage.isIndoors = Inside;
     if (Inside == true) {
-      this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isInside == true);
+      this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isIndoors == true);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
 
@@ -127,9 +135,9 @@ export class SideBarComponent implements OnInit {
       this.filterAflerFalse();
   }
   isOutdoor(Outdoor) {
-    this.filterImage.isOutdoor = Outdoor;
+    this.filterImage.isOutdoors = Outdoor;
     if (Outdoor == true) {
-      this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isInside == false);
+      this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isOutdoors == true);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
     }
@@ -150,7 +158,7 @@ export class SideBarComponent implements OnInit {
   isGroomContain(GroomContain) {
     this.filterImage.isGroomContain = GroomContain;
     if (GroomContain == true) {
-      this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isGroom == true && p.numPerson > 1);
+      this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isGroom == true );
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
 
@@ -168,17 +176,17 @@ export class SideBarComponent implements OnInit {
     else
       this.filterAflerFalse();
   }
-  isAdult(Adult) {
-    this.filterImage.isAdult = Adult;
-    if (Adult == true) {
-      this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.hasAdults == true);
-      // this.images.urls = this.imagesService.imageTemp["url"];
-      this.urlFilter();
+  // isAdult(Adult) {
+  //   this.filterImage.isAdult = Adult;
+  //   if (Adult == true) {
+  //     this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.hasAdults == true);
+  //     // this.images.urls = this.imagesService.imageTemp["url"];
+  //     this.urlFilter();
 
-    }
-    else
-      this.filterAflerFalse();
-  }
+  //   }
+  //   else
+  //     this.filterAflerFalse();
+  // }
   numPerson(num) {
     // this.filterImage.numChild=num;
     // this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.numPerson==num);
@@ -196,5 +204,48 @@ export class SideBarComponent implements OnInit {
   }
   maxNumPerson() {
     this.imagesService.maxNumPerson
+  }
+  downloadZip() {
+    var data: string[] = [""];
+    for (let index = 0; index < this.imagesService.imageTemp.length; index++) {
+      data.push(this.imagesService.imageTemp[index].url.toString());
+
+    }
+    debugger;
+    //  this. data= this.service.urls[0].urlImage;
+    this.createGetRequets(data);
+
+    forkJoin(...this.getRequests)
+      .subscribe((res) => {
+        var zip = new JSZip();
+
+        res.forEach((f, i) => {
+          zip.file(`image${i}.jpg`, f);
+        });
+
+        /* With file saver */
+        // zip
+        //   .generateAsync({ type: 'blob' })
+        //   .then(blob => saveAs(blob, 'image.zip'));
+
+        /* Without file saver */
+        zip
+          .generateAsync({ type: 'blob' })
+          .then(blob => {
+            const a: any = document.createElement('a');
+            document.body.appendChild(a);
+
+            a.style = 'display: none';
+            const url = window.URL.createObjectURL(blob);
+            a.href = url;
+            a.download = 'pp.zip';
+            a.click();
+            window.URL.revokeObjectURL(url);
+          });
+      });
+  }
+
+  private createGetRequets(data: string[]) {
+    data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
   }
 }

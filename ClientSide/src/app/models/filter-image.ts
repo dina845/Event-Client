@@ -3,8 +3,8 @@ export class FilterImage {
     isDark:Boolean;
     isCloseEye:Boolean;
     isCutFace:Boolean;
-    isInside:Boolean;
-    isOutdoor:Boolean;
+    isIndoors:Boolean;
+    isOutdoors:Boolean;
     isGroomAlone:Boolean;
     isGroomContain:Boolean;
     ischild:Boolean;

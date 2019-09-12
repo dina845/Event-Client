@@ -21,9 +21,11 @@ export class ImagesService {
   imageMain: Image[];
   imageTemp: Image[];
   recycleBin: Image[]=null;
+  isHome:boolean=true;
   showCycle:boolean=false;
   firstRecycleBin: Image;
   numPersonTemp: number = 0;
+  selectedGroom: any;
   public urls: Url[] = new Array;
   sizeUploadFiles: number;
   gotImages: boolean = false;
@@ -37,7 +39,10 @@ export class ImagesService {
       } 
       this.getRecycleBin().subscribe(res => {
         this.recycleBin = res;
-       
+        this.hasGroom().subscribe(res=>{
+          this.selectedGroom=res;
+        })
+    
       });
     });
 
@@ -46,6 +51,9 @@ export class ImagesService {
     this.sizeUploadFiles = sizeFiles;
     return this.http.post<Image[]>(environment.baseRoute + 'Image/InsertImages', formData);
 
+  }
+  hasGroom(){
+    return this.http.get(environment.baseRoute+'Image/HasGroom');
   }
   getImages(): Observable<Image[]> {
     const headers = new HttpHeaders()

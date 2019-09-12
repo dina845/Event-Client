@@ -36,7 +36,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     FormsModule,
     NgCircleProgressModule.forRoot({
-      "backgroundColor": "maroon",
+      // "backgroundColor": "maroon",
       "radius": 50,
       "maxPercent": 100,
       "unitsColor": "#FFFFFF",

@@ -226,7 +226,7 @@ figure:hover+span {
     right: 5px;
     font-size: 20px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 15px;
     outline: none;
 }
 /* button */
@@ -238,8 +238,14 @@ figure:hover+span {
     display: inline-block;
     padding: 6px 12px;
 	cursor: pointer;
-	float: right;
+
 }
 .spanText{
 	color: maroon;
+}
+#up{
+	position: fixed;
+    z-index: 100;
+    margin-left: 45vw;
+    /* margin-top: 59vh; */
 }

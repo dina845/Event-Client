@@ -1,18 +1,15 @@
 <div class="row justify-content-md-center">
-  <!-- <section class="wrapper-full tab-container effectTab-header" id="style_8"> -->
   <div class="wrapper tab-item col-6 col-lg-6">
-  
+    <!-- progress-bar -->
 
+    
     <!-- modal button-->
-    <div *ngIf="selectedGroom==false">
+    <div *ngIf="imagesService.selectedGroom==false">
       <button type="button" class="btn1 upload-btn-wrapper1" data-toggle="modal" data-target="#exampleModalCenter">
         add groom's image
       </button>
     </div>
-    <!-- progress-bar -->
-    <div *ngIf="imagesService.gotImages==false">
-        <app-progress-bar></app-progress-bar>
-     </div>  
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -28,44 +25,44 @@
             <app-groom></app-groom>
           </div>
           <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-            <button type="button" class="btn1 btn-primary" (click)="SelectGroom()" data-dismiss="modal">I finished</button>
+            <button type="button" class="btn1 btn-primary" (click)="SelectGroom()" data-dismiss="modal">I
+              finished</button>
           </div>
         </div>
       </div>
     </div>
-
+    <!-- upload  files -->
+    <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up">
+      <i class="fa fa-cloud-upload" id="file-icon" for="upload" title="upload the event's photos"></i>
+      <input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
+    </div>
     <!-- הורדת ZIP -->
-    <i (click)="downloadZip()" class="material-icons" id="downloadZip"  data-toggle="tooltip" data-placement="top"  title="download all the images">
+    <!-- <i (click)="downloadZip()" class="material-icons" id="downloadZip" data-toggle="tooltip" data-placement="top"
+      title="download all the images">
       arrow_downward
-    </i>
-   
-    <!-- העלאת קבצים-->
-    <!-- <div class="upload-btn-wrapper" align="center" *ngIf="selected==false" > -->
-      <!-- <div class="main-wrapper"> -->
-        <span class="spanText">Upload Your Images</span>
-        <div class="upload-btn-wrapper"  >
-      <i class="material-icons md-36" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
-      <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple >
-    </div>
+    </i> -->
+
+  
   </div>
-  <!-- <img src="http://localhost:50637/UploadFile/9~1.jpg"> -->
-    </div>
-<!-- </section> -->
-  <!-- הצגת הקבצים -->
+
+</div>
+
+<!-- הצגת הקבצים -->
 <div class="row">
   <div *ngFor="let url of imagesService.urls" id="images">
     <!-- <div style="color: red" class="column-4 column-sm-6 column-xs-12 column-md-6 box-tab"> -->
     <!-- <div class="effect effect-eight"> -->
     <div class="hover01 column">
       <div>
-     <a data-fancybox="gallery" [href]="url">   <figure><img [src]="url" width="100%" height="auto" class="geeks" /></figure></a>
+        <a data-fancybox="gallery" [href]="url">
+          <figure><img [src]="url" width="100%" height="auto" class="geeks" /></figure>
+        </a>
         <span>Hover</span>
         <div id="icons" style="float: inherit" class="gfg">
           <a [href]="url" download="url.jpg"> <i class="material-icons" title="download the image">
               get_app
             </i></a>
-           
+
           <i class="material-icons" (click)="DeleteImg(url)">
             delete
           </i>
@@ -74,21 +71,21 @@
     </div>
   </div>
 </div>
-<button *ngIf="isShow" (click)="gotoTop()" id="scroll">👆</button>
+<div></div>
+<button *ngIf="isShow" (click)="gotoTop()" id="scroll"><i class="fa fa-angle-up"></i></button>
+<!-- <button *ngIf="isShow" (click)="gotoTop()" id="scroll">👆</button> -->
 <!-- button -->
-<div class="custom-file-upload">
+<!-- <div class="custom-file-upload">
 <label for="file-upload" class="custom-file-upload1">
     <i  id="file-icon" class="fa fa-cloud-upload"  for="upload" title="upload the event's photos"></i>Upload Files
 </label>
 <input id="file-upload" type="file"id="upload" name='myfile'(change)="handleFileInput($event.target.files)"multiple/>
-</div> 
+</div>  -->
 
 
-<div class="upload-btn-wrapper"  >
-    <i class="material-icons md-36" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
-    <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple >
-  </div>
+
 <!-- <div class="upload-btn-wrapper"  >
     <i class="material-icons" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
     <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" >
   </div> -->
+  <app-recycle-bin id="bin"></app-recycle-bin>

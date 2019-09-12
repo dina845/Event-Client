@@ -8,8 +8,8 @@
     <div class="col-xs-12">
       <input type="button" (click)="filter(child.checked,isAdult.checked)" value="blblbklbkl" /> -->
 
-      <!-- סינון לפי -->
-      <!-- <div class="btn-group btn-group-vertical" data-toggle="buttons">
+  <!-- סינון לפי -->
+  <!-- <div class="btn-group btn-group-vertical" data-toggle="buttons">
         <label class="btn active"><b><span> filter images where : </span> </b> </label>
         <label class="btn active" (click)="isBlur(Blur.checked)">
           <input type="checkbox" name='email1' #Blur><span> Blurred </span><i class="fa fa-square-o fa-2x"></i><i
@@ -29,8 +29,8 @@
         </label>
       </div> -->
 
-      <!-- פילטור לפי -->
-      <!-- <div class="btn-group btn-group-vertical" data-toggle="buttons">
+  <!-- פילטור לפי -->
+  <!-- <div class="btn-group btn-group-vertical" data-toggle="buttons">
         <label class="btn active"><b><span> Mapping images where : </span></b> </label>
         <label class="btn active" (click)="isInside(Inside.checked)">
           <input type="checkbox" name='email1' #Inside><span> Inside </span><i class="fa fa-square-o fa-2x"></i><i
@@ -98,42 +98,43 @@
             </span>
           </div> -->
         </div>
-        <!-- sidebar-header  --> 
-       
+        <!-- sidebar-header  -->
+
+
+
         <div class="sidebar-search">
-          <div> 
-            <!-- <a href="#recyclebin"> -->
-            <div class="input-group">
-             
-             <input type="button"(click)="showCycle()" class="form-control search-menu" value="show the cycle bin">
-             
-             <div class="input-group-append">
-                <span class="input-group-text">
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </span>
-              </div>
+          <div>
+            <div class="input-group-append">
+              <span class="input-group-text" (click)="showCycle()">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </span>
+              <span class="input-group-text" (click)="downloadZip()">
+                <i (click)="downloadZip()" class="fa fa-download" id="downloadZip" data-toggle="tooltip"
+                  data-placement="top" title="download all the images"></i>
+              </span>
             </div>
-          <!-- </a> -->
-          </div> 
-        </div>
+          </div>
+        </div>‏
+
         <!-- sidebar-search  -->
         <div class="sidebar-menu">
           <ul>
 
             <!-- <input type="number" [min]="0" [max]="imagesService.numPersonTemp" #numPerson placeholder="Enter number of people in image" (change)="numPerson(numPerson)"> -->
-     
-              <li class="header-menu">
-                <span>filter image</span>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-sun" [ngClass]="{'checked': Blur.checked==true, 'not-checked':Blur.checked==false}" (click)="isBlur(Blur.checked)"></i>
-                  <label class="btn active" (click)="isBlur(Blur.checked)">
-                    <input type="checkbox" name='email1' #Blur><span> Blurred </span>
-                  </label>
-                </a>
-              </li>
-              <!-- <li>
+
+            <li class="header-menu">
+              <span>filter image</span>
+            </li>
+            <li>
+              <a >
+                <i class="fa fa-sun" [ngClass]="{'checked': Blur.checked==true, 'not-checked':Blur.checked==false}"
+                  (click)="isBlur(Blur.checked)"></i>
+                <label class="btn active" (click)="isBlur(Blur.checked)">
+                  <input type="checkbox" name='email1' #Blur><span> Blurred </span>
+                </label>
+              </a>
+            </li>
+            <!-- <li>
                 <a href="#">
                   <i class="fa fa-eye" [ngClass]="{'checked': Dark.checked==true, 'not-checked':Dark.checked==false}"></i>
                   <label class="btn active" (click)="isDark(Dark.checked)">
@@ -141,48 +142,53 @@
                   </label>
                 </a>
               </li> -->
-              <li>
-                <a href="#">
-                  <i class="fa fa-eye"  [ngClass]="{'checked': CloseEye.checked==true, 'not-checked':CloseEye.checked==false}"></i>
-                  <label class="btn active" (click)="isCloseEye(CloseEye.checked)">
-                    <input type="checkbox" name='email1' #CloseEye><span>Closed eyes </span>
-                  </label>
-                </a>
-              </li>
-  
-         
+            <li>
+              <a >
+                <i class="fa fa-eye"
+                  [ngClass]="{'checked': CloseEye.checked==true, 'not-checked':CloseEye.checked==false}"></i>
+                <label class="btn active" (click)="isCloseEye(CloseEye.checked)">
+                  <input type="checkbox" name='email1' #CloseEye><span>Closed eyes </span>
+                </label>
+              </a>
+            </li>
+
+
 
 
             <li class="header-menu">
               <span>mapping image</span>
             </li>
             <li>
-              <a href="#">
-                <i class="fa fa-home" [ngClass]="{'checked': Inside.checked==true, 'not-checked':Inside.checked==false}"></i>
+              <a >
+                <i class="fa fa-home"
+                  [ngClass]="{'checked': Inside.checked==true, 'not-checked':Inside.checked==false}"></i>
                 <label class="btn active" (click)="isInside(Inside.checked)">
-                  <input type="checkbox" name='email1' #Inside><span> Inside </span>
+                  <input type="checkbox" name='email1' #Inside><span> Indoor </span>
                 </label>
               </a>
             </li>
             <li>
-              <a href="#">
-                <i class="fa fa-sun" [ngClass]="{'checked': Outdoor.checked==true, 'not-checked':Outdoor.checked==false}"></i>
+              <a >
+                <i class="fa fa-sun"
+                  [ngClass]="{'checked': Outdoor.checked==true, 'not-checked':Outdoor.checked==false}"></i>
                 <label class="btn active" (click)="isOutdoor(Outdoor.checked)">
                   <input type="checkbox" name='email1' #Outdoor><span> Outdoor </span>
                 </label>
               </a>
             </li>
             <li>
-              <a href="#">
-                <i class="fa fa-black-tie" [ngClass]="{'checked': GroomAlone.checked==true, 'not-checked':GroomAlone.checked==false}"></i>
+              <a >
+                <i class="fa fa-user"
+                  [ngClass]="{'checked': GroomAlone.checked==true, 'not-checked':GroomAlone.checked==false}"></i>
                 <label class="btn active" (click)="isGroomAlone(GroomAlone.checked)">
                   <input type="checkbox" name='email1' #GroomAlone><span>Event groom </span>
                 </label>
               </a>
             </li>
             <li>
-              <a href="#">
-                <i class="fa fa-folder" [ngClass]="{'checked': GroomContain.checked==true, 'not-checked':GroomContain.checked==false}"></i>
+              <a >
+                <i class="fa fa-users"
+                  [ngClass]="{'checked': GroomContain.checked==true, 'not-checked':GroomContain.checked==false}"></i>
                 <label class="btn active" (click)="isGroomContain(GroomContain.checked)">
                   <input type="checkbox" name='email1' #GroomContain><span>contain groom</span>
                 </label>
@@ -190,14 +196,15 @@
               </a>
             </li>
             <li>
-              <a href="#">
-                <i class="fa fa-child" [ngClass]="{'checked': child.checked==true, 'not-checked':child.checked==false}"></i>
+              <a >
+                <i class="fa fa-child"
+                  [ngClass]="{'checked': child.checked==true, 'not-checked':child.checked==false}"></i>
                 <label class="btn active" (click)="isChild(child.checked)">
                   <input type="checkbox" name='email1' #child><span> Children </span>
                 </label>
               </a>
             </li>
-            <li>
+            <!-- <li>
               <a href="#">
                 <i class="fa fa-male" [ngClass]="{'checked': Adult.checked==true, 'not-checked':Adult.checked==false}"></i>
 
@@ -205,15 +212,14 @@
                   <input type="checkbox" name='email1' #Adult #l><span> Audults </span>
                 </label>
               </a>
-            </li>
+            </li> -->
             <li>
-              <a >
-                <i class="fa fa-folder" [ngClass]="{'checked': CloseEye.checked==true, 'not-checked':CloseEye.checked==false}"></i>
-
-              
-                  <input type="number" #numPerson1 placeholder="Enter number of people in image"
+              <a>
+                <i class="fa fa-sort-numeric-up"
+                  [ngClass]="{'checked': CloseEye.checked==true, 'not-checked':CloseEye.checked==false}"></i>
+                <input type="number" #numPerson1 placeholder="number of people"
                   (input)="numPerson(numPerson1.value)">
-               
+
               </a>
             </li>
           </ul>
@@ -222,21 +228,21 @@
       </div>
       <!-- sidebar-content  -->
       <div class="sidebar-footer">
-        <a href="#">
+        <a >
           <i class="fa fa-bell"></i>
-          <span class="badge badge-pill badge-warning notification">3</span>
+          <span class="badge badge-pill badge-warning notification">0</span>
         </a>
-        <a href="#">
+        <a >
           <i class="fa fa-envelope"></i>
-          <span class="badge badge-pill badge-success notification">7</span>
+          <span class="badge badge-pill badge-success notification">BETA</span>
         </a>
-        <a href="#">
+        <!-- <a href="#">
           <i class="fa fa-cog"></i>
           <span class="badge-sonar"></span>
         </a>
         <a href="#">
           <i class="fa fa-power-off"></i>
-        </a>
+        </a> -->
       </div>
     </nav>
     <!-- sidebar-wrapper  -->

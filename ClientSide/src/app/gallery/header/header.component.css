@@ -14,7 +14,7 @@ nav ul{display:table; float:right;}
 nav ul li{float:left;}
 nav ul li:last-child{padding-right:0px;}
 nav ul li a{color:white; font-size:18px; padding: 25px 20px; display:inline-block; transition: all 0.5s ease 0s;}
-nav ul li a:hover{background-color:white; color:#7c7c7c; transition: all 0.5s ease 0s;}
+nav ul li a:hover{ color:#7c7c7c; transition: all 0.5s ease 0s;}
 nav ul li a:hover i{color:#7c7c7c; transition: all 0.5s ease 0s;}
 nav ul li a i{padding-right:10px; color:white; transition: all 0.5s ease 0s;}
 
@@ -69,7 +69,16 @@ section {max-width: 100%;}
 @media only screen and (max-width: 360px) {
 h1{font-size:20px;}
 label{padding:5px 0px;}
-#logo{font-size: 10px;padding-left: 5vw;}
+ .logoRegular{
+    width: 7vw;height: auto;cursor: pointer;
+}
+.logoBig{
+    width: 7vw;height: auto;cursor: pointer;
+   
+}
+#logo{
+    font-size: 30px;padding-left: 10vw;
+}
 nav{top:47px;}
 }
 
@@ -89,3 +98,9 @@ h1 {padding: 20px 0px;}
 *, ::after, ::before {
     box-sizing: inherit;
 } */
+*, ::after, ::before {
+    box-sizing:unset;
+}
+.col-9{
+  margin-left: 25vw;
+  }
