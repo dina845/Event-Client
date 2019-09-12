@@ -3,7 +3,12 @@
         <app-side-bar id="side-bar" style="z-index:2;  position: fixed;"></app-side-bar>
     </div>
     <div class="col-9">
-        <app-images style="z-index: 1;margin-left: 25vw;
-    "></app-images>
+        <div *ngIf="imagesService.gotImages==false">
+            <app-progress-bar></app-progress-bar>
+        </div>
+        <div *ngIf="imagesService.gotImages==true">
+            <app-images style="z-index: 1;margin-left: 25vw;"></app-images>
+        </div>
+
     </div>
 </div>

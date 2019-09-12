@@ -69,7 +69,16 @@ section {max-width: 100%;}
 @media only screen and (max-width: 360px) {
 h1{font-size:20px;}
 label{padding:5px 0px;}
-#logo{font-size: 10px;padding-left: 5vw;}
+ .logoRegular{
+    width: 7vw;height: auto;cursor: pointer;
+}/*
+.logoBig{
+    display: none;
+   
+} */
+#logo{
+    font-size: 30px;padding-left: 10vw;
+}
 nav{top:47px;}
 }
 
