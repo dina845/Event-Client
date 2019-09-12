@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Input, HostListener } from '@angular/core';
+
 import { FilterImage } from 'src/app/models/filter-image';
 import { Image } from 'src/app/models/image';
 import { ImagesService } from 'src/app/services/images.service';
@@ -7,19 +9,21 @@ import { Url } from 'src/app/services/url';
 import { HttpClient } from "@angular/common/http";
 import { forkJoin } from "rxjs";
 import * as JSZip from 'jszip';
+
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
-  filterImage: FilterImage = new FilterImage();
   public get http(): HttpClient {
     return this._http;
   }
 public set http(value: HttpClient) {
   this._http = value;
 }
+  filterImage: FilterImage = new FilterImage();
+
 getRequests = [];
   // m: boolean;
   // imageMain: Image[];

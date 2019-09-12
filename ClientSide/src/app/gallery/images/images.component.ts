@@ -15,12 +15,12 @@ import { Url } from 'src/app/services/url';
 })
 
 export class ImagesComponent implements OnInit {
-    public get http(): HttpClient {
-      return this._http;
-    }
-  public set http(value: HttpClient) {
-    this._http = value;
-  }
+  //   public get http(): HttpClient {
+  //     return this._http;
+  //   }
+  // public set http(value: HttpClient) {
+  //   this._http = value;
+  // }
   constructor(private _http: HttpClient, public imagesService: ImagesService,
     private cdRef: ChangeDetectorRef) { }
   public num = [1, 2, 3, 4, 5];
@@ -109,49 +109,49 @@ this.imagesService.isHome=false;
   }
 
 
-  downloadZip() {
-    var data: string[] = [""];
-    for (let index = 0; index < this.imagesService.imageTemp.length; index++) {
-      data.push(this.imagesService.imageTemp[index].url.toString());
+  // downloadZip() {
+  //   var data: string[] = [""];
+  //   for (let index = 0; index < this.imagesService.imageTemp.length; index++) {
+  //     data.push(this.imagesService.imageTemp[index].url.toString());
 
-    }
-    debugger;
-    //  this. data= this.service.urls[0].urlImage;
-    this.createGetRequets(data);
+  //   }
+  //   debugger;
+  //   //  this. data= this.service.urls[0].urlImage;
+  //   this.createGetRequets(data);
 
-    forkJoin(...this.getRequests)
-      .subscribe((res) => {
-        var zip = new JSZip();
+  //   forkJoin(...this.getRequests)
+  //     .subscribe((res) => {
+  //       var zip = new JSZip();
 
-        res.forEach((f, i) => {
-          zip.file(`image${i}.jpg`, f);
-        });
+  //       res.forEach((f, i) => {
+  //         zip.file(`image${i}.jpg`, f);
+  //       });
 
-        /* With file saver */
-        // zip
-        //   .generateAsync({ type: 'blob' })
-        //   .then(blob => saveAs(blob, 'image.zip'));
+  //       /* With file saver */
+  //       // zip
+  //       //   .generateAsync({ type: 'blob' })
+  //       //   .then(blob => saveAs(blob, 'image.zip'));
 
-        /* Without file saver */
-        zip
-          .generateAsync({ type: 'blob' })
-          .then(blob => {
-            const a: any = document.createElement('a');
-            document.body.appendChild(a);
+  //       /* Without file saver */
+  //       zip
+  //         .generateAsync({ type: 'blob' })
+  //         .then(blob => {
+  //           const a: any = document.createElement('a');
+  //           document.body.appendChild(a);
 
-            a.style = 'display: none';
-            const url = window.URL.createObjectURL(blob);
-            a.href = url;
-            a.download = 'pp.zip';
-            a.click();
-            window.URL.revokeObjectURL(url);
-          });
-      });
-  }
+  //           a.style = 'display: none';
+  //           const url = window.URL.createObjectURL(blob);
+  //           a.href = url;
+  //           a.download = 'pp.zip';
+  //           a.click();
+  //           window.URL.revokeObjectURL(url);
+  //         });
+  //     });
+  // }
 
-  private createGetRequets(data: string[]) {
-    data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
-  }
+  // private createGetRequets(data: string[]) {
+  //   data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
+  // }
 
 
 
