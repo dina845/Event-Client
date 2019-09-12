@@ -1,22 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Input, HostListener } from '@angular/core';
+
 import { FilterImage } from 'src/app/models/filter-image';
 import { Image } from 'src/app/models/image';
 import { ImagesService } from 'src/app/services/images.service';
 import { ImagesComponent } from '../images/images.component';
 import { Url } from 'src/app/services/url';
-
+import * as JSZip from 'jszip';
+import { forkJoin } from "rxjs";
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
+  public get http(): HttpClient {
+    return this._http;
+  }
+public set http(value: HttpClient) {
+  this._http = value;
+}
   filterImage: FilterImage = new FilterImage();
-
+  getRequests = [];
   // m: boolean;
   // imageMain: Image[];
   // imageTemp: Image[];
-  constructor(private imagesService: ImagesService) { }
+  constructor(private imagesService: ImagesService,private _http:HttpClient) { }
 
   ngOnInit() {
     // this.imagesService.getImages().subscribe(res => {
@@ -196,5 +206,47 @@ export class SideBarComponent implements OnInit {
   }
   maxNumPerson() {
     this.imagesService.maxNumPerson
+  }
+  downloadZip() {
+    var data: string[] = [""];
+    for (let index = 0; index < this.imagesService.imageTemp.length; index++) {
+      data.push(this.imagesService.imageTemp[index].url.toString());
+
+    }
+    debugger;
+    //  this. data= this.service.urls[0].urlImage;
+    this.createGetRequets(data);
+
+    forkJoin(...this.getRequests)
+      .subscribe((res) => {
+        var zip = new JSZip();
+
+        res.forEach((f, i) => {
+          zip.file(`image${i}.jpg`, f);
+        });
+
+        /* With file saver */
+        // zip
+        //   .generateAsync({ type: 'blob' })
+        //   .then(blob => saveAs(blob, 'image.zip'));
+
+        /* Without file saver */
+        zip
+          .generateAsync({ type: 'blob' })
+          .then(blob => {
+            const a: any = document.createElement('a');
+            document.body.appendChild(a);
+
+            a.style = 'display: none';
+            const url = window.URL.createObjectURL(blob);
+            a.href = url;
+            a.download = 'pp.zip';
+            a.click();
+            window.URL.revokeObjectURL(url);
+          });
+      });
+  }
+  private createGetRequets(data: string[]) {
+    data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
   }
 }
