@@ -72,7 +72,7 @@ getRequests = [];
     for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
       var u=new Url;
       u=this.imagesService.imageTemp[i].url;
-      this.imagesService.urls.push(  u);
+      this.imagesService.urls.push(u);
       // debugger;
     }
 
@@ -194,17 +194,14 @@ getRequests = [];
   numPerson(num) {
     // this.filterImage.numChild=num;
     // this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.numPerson==num);
-
-
-    if (num != "") {
+    this.filterImage.numChild = undefined;
+    this.filterAflerFalse();
+    if (num != "") { 
       this.filterImage.numChild = num;
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.numPerson == num);
       this.urlFilter();
     }
-    else {
-      this.filterImage.numChild = undefined;
-      this.filterAflerFalse();
-    }
+    
   }
   maxNumPerson() {
     this.imagesService.maxNumPerson

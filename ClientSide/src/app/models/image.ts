@@ -13,8 +13,6 @@ export class Image {
     isIndoors: boolean;
     isOutdoors: boolean;
     hasChildren: boolean;
- 
-    
     numPerson: number;
     isInRecycleBin: boolean;
 }
