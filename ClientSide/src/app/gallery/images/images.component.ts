@@ -6,6 +6,7 @@ import * as JSZip from 'jszip';
 import { HttpClient } from "@angular/common/http";
 import { forkJoin } from "rxjs";
 import { Url } from 'src/app/services/url';
+import { ToastrService } from 'ngx-toastr';
 // import { PageScrollService } from 'ngx-page-scroll-core';
 // import { DOCUMENT } from '@angular/common';
 @Component({
@@ -22,7 +23,7 @@ export class ImagesComponent implements OnInit {
   //   this._http = value;
   // }
   constructor(private _http: HttpClient, public imagesService: ImagesService,
-    private cdRef: ChangeDetectorRef) { }
+    private cdRef: ChangeDetectorRef,private toastr:ToastrService) { }
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
   selectedGroom: boolean = false;
@@ -33,7 +34,7 @@ export class ImagesComponent implements OnInit {
   img = "img.jpg";
   getRequests = [];
   ngOnInit() {
-this.imagesService.isHome=false;
+    this.imagesService.isHome = false;
   }
 
   handleFileInput(files: FileList) {
@@ -70,25 +71,31 @@ this.imagesService.isHome=false;
     this.imagesService.gotImages = false;
     this.imagesService.InsertImages(_formData, lengthFiles).subscribe((res) => {
       debugger;
-      if (res) {
-        this.imagesService.imageMain = res;
-        this.imagesService.imageTemp = res;
+      if (res.Status == false) {
+        console.log(res.Message);
+        this.toastr.error(res.Message);
+      }
+      else {
+        this.imagesService.imageMain = res.Value;
+        this.imagesService.imageTemp = res.Value;
         this.imagesService.maxNumPerson();
         this.imagesService.gotImages = true;
-        this.imagesService.urls=new Array();
+        this.imagesService.urls = new Array();
         for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
           this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
         }
-        // this.urls=this.imagesService.imageTemp["url"];
       }
+
+      // this.urls=this.imagesService.imageTemp["url"];
+
     });
   }
 
- 
+
   SelectGroom() {
     this.imagesService.selectedGroom = true;
   }
- 
+
   DeleteImg(url) {
     debugger;
     console.log(url);
@@ -101,9 +108,17 @@ this.imagesService.isHome=false;
     // }
     debugger;
     this.imagesService.DeleteImage(url).subscribe(res => {
-      this.imagesService.getRecycleBin().subscribe(res => {
-        this.imagesService.recycleBin = res;
-      })
+      if (res.Status == true)
+        this.imagesService.getRecycleBin().subscribe(res => {
+          if (res.Status == true)
+            this.imagesService.recycleBin = res.Value;
+          else {
+            console.log(res.Message);
+          }
+        })
+      else {
+        console.log(res.Message);
+      }
     });
     this.cdRef.detectChanges();
   }
@@ -156,7 +171,7 @@ this.imagesService.isHome=false;
 
 
   // scroll------------------------
-  isShow: boolean;
+  isShow: boolean = false;
   topPosToStartShowing = 100;
 
   @HostListener('window:scroll')

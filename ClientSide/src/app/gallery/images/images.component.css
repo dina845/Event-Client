@@ -224,10 +224,11 @@ figure:hover+span {
 	position: fixed;
     bottom: 5px;
     right: 5px;
-    font-size: 20px;
+    font-size: 3vw;
     text-align: center;
     border-radius: 15px;
-    outline: none;
+	outline: none;
+	color: gray;
 }
 /* button */
 .custom-file-upload input[type="file"] {

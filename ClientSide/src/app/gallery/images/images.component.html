@@ -91,7 +91,12 @@
   </div>
 </div>
 <div></div>
-<button *ngIf="isShow" (click)="gotoTop()" id="scroll"><i class="fa fa-angle-up"></i></button>
+<div *ngIf="isShow">
+  <i  class="fa fa-chevron-circle-up"  (click)="gotoTop()" id="scroll" ></i>
+</div>
+<!-- fab -->
+
+<!-- <button *ngIf="isShow" (click)="gotoTop()" id="scroll"><i class="fa fa-angle-up"></i></button> -->
 <!-- <button *ngIf="isShow" (click)="gotoTop()" id="scroll">👆</button> -->
 <!-- button -->
 <!-- <div class="custom-file-upload">

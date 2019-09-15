@@ -77,7 +77,7 @@
   box-shadow: none;
   }
   #sideBar{
-      color: yellow;
+      color: gray;
   }
   label.btn.active{
       padding: 0px,0px;
@@ -599,4 +599,10 @@ button, input, optgroup, select, textarea {
   font-size: inherit;
   line-height: inherit;
   width: 11vw;
+  }
+  .fa.fa-trash{
+    color: maroon;
+  }
+  .fa fa-download{
+    color: maroon;
   }

@@ -16,7 +16,11 @@ import { CheckboxDirective } from './directive/checkbox.directive';
 import { RecycleBinComponent } from './gallery/recycle-bin/recycle-bin.component';
 
 import { HomeComponent } from './home/home.component';
+import {ToastrModule} from 'ngx-toastr';
 // import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +39,8 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    CommonModule,
+    BrowserAnimationsModule,
     NgCircleProgressModule.forRoot({
       // "backgroundColor": "maroon",
       "radius": 50,
@@ -52,7 +58,23 @@ import { HomeComponent } from './home/home.component';
      
       // HttpClientModule,
       // CookieModule.forRoot()
-    })
+    }),
+    
+ToastrModule.forRoot(
+  {
+  positionClass: 'toast-top-center',
+  tapToDismiss: true,
+  progressBar: true,
+  progressAnimation: 'increasing',
+  maxOpened: 3,
+  autoDismiss: true,
+  preventDuplicates: true,
+  resetTimeoutOnDuplicate: true,
+  newestOnTop: false,
+  timeOut: 5000,
+  extendedTimeOut: 1500,
+  enableHtml: true
+  })
     // ,NgxPageScrollCoreModule,
  
   ],

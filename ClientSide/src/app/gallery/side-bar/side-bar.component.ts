@@ -224,6 +224,7 @@ export class SideBarComponent implements OnInit {
 
     }
     debugger;
+    this.getRequests=new Array;
     //  this. data= this.service.urls[0].urlImage;
     this.getRequests = new Array();
     this.createGetRequets(data);
@@ -260,6 +261,7 @@ export class SideBarComponent implements OnInit {
   }
 
   private createGetRequets(data: string[]) {
+   
     data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
   }
 }
