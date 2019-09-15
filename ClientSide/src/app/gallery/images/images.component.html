@@ -10,6 +10,25 @@
       </button>
     </div>
 
+    <nav class="container" id="con" style="max-width: 68px"> 
+        <a class="buttons" tooltip="Share" ><i class="fa fa-plus"></i></a>
+      
+      <a  class="buttons" tooltip="Google+">
+          <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up">
+              <i class="fa fa-cloud-upload" id="file-icon" for="upload" title="upload the event's photos"></i>
+              <input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
+            </div>
+      </a>
+      
+      <a  class="buttons" tooltip="Twitter">
+         
+      </a>
+      
+      <a  class="buttons" tooltip="Facebook"></a>
+  
+  
+    </nav>
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -32,10 +51,10 @@
       </div>
     </div>
     <!-- upload  files -->
-    <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up">
+    <!-- <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up">
       <i class="fa fa-cloud-upload" id="file-icon" for="upload" title="upload the event's photos"></i>
       <input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
-    </div>
+    </div> -->
     <!-- הורדת ZIP -->
     <!-- <i (click)="downloadZip()" class="material-icons" id="downloadZip" data-toggle="tooltip" data-placement="top"
       title="download all the images">
@@ -89,3 +108,12 @@
     <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" >
   </div> -->
   <app-recycle-bin id="bin"></app-recycle-bin>
+  <body>
+      <h1>Simple Share FAB</h1>
+      <p class="credits">
+          <!-- <a href="https://codepen.io/koenigsegg1" target="_blank" > -->
+            <!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/343394/profile/profile-80_3.jpg" /></a><br />Pen by Kyle Lavery (@koenigsegg1)</p> -->
+      
+     
+      
+    </body>

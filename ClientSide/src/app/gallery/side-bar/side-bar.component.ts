@@ -19,16 +19,16 @@ export class SideBarComponent implements OnInit {
   public get http(): HttpClient {
     return this._http;
   }
-public set http(value: HttpClient) {
-  this._http = value;
-}
+  public set http(value: HttpClient) {
+    this._http = value;
+  }
   filterImage: FilterImage = new FilterImage();
 
-getRequests = [];
+  getRequests = [];
   // m: boolean;
   // imageMain: Image[];
   // imageTemp: Image[];
-  constructor(private imagesService: ImagesService,private _http: HttpClient) { }
+  constructor(private imagesService: ImagesService, private _http: HttpClient) { }
 
   ngOnInit() {
     // this.imagesService.getImages().subscribe(res => {
@@ -36,8 +36,8 @@ getRequests = [];
     //   this.imageTemp = res;
     // })
   }
-  showCycle(){
-    this.imagesService.showCycle=!this.imagesService.showCycle;
+  showCycle() {
+    this.imagesService.showCycle = !this.imagesService.showCycle;
   }
   filterAflerFalse() {
     this.imagesService.imageTemp = this.imagesService.imageMain;
@@ -70,8 +70,8 @@ getRequests = [];
   urlFilter() {
     this.imagesService.urls = new Array;
     for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
-      var u=new Url;
-      u=this.imagesService.imageTemp[i].url;
+      var u = new Url;
+      u = this.imagesService.imageTemp[i].url;
       this.imagesService.urls.push(u);
       // debugger;
     }
@@ -162,7 +162,7 @@ getRequests = [];
   isGroomContain(GroomContain) {
     this.filterImage.isGroomContain = GroomContain;
     if (GroomContain == true) {
-      this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isGroom == true );
+      this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.isGroom == true);
       // this.images.urls = this.imagesService.imageTemp["url"];
       this.urlFilter();
 
@@ -196,17 +196,28 @@ getRequests = [];
     // this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.numPerson==num);
     this.filterImage.numChild = undefined;
     this.filterAflerFalse();
-    if (num != "") { 
+    if (num != "") {
       this.filterImage.numChild = num;
       this.imagesService.imageTemp = this.imagesService.imageTemp.filter(p => p.numPerson == num);
       this.urlFilter();
     }
-    
+
   }
   maxNumPerson() {
     this.imagesService.maxNumPerson
   }
   downloadZip() {
+    var name = "";
+    this.filterImage.isAdult == true ? name += "_Adult":null;
+    this.filterImage.isBlur == true ? name += "_Blur":null;
+    this.filterImage.isCloseEye == true ? name += "_CloseEye":null;
+    this.filterImage.isCutFace == true ? name += "_CutFace":null;
+    this.filterImage.isDark == true ? name += "_Dark":null;
+    this.filterImage.isGroomAlone == true ? name += "_GroomAlone":null;
+    this.filterImage.isGroomContain == true ? name += "_GroomContain":null;
+    this.filterImage.isIndoors == true ? name += "_Indoors":null;
+    this.filterImage.isOutdoors == true ? name += "_Outdoors":null;
+    this.filterImage.ischild == true ? name += "_child":null;
     var data: string[] = [""];
     for (let index = 0; index < this.imagesService.imageTemp.length; index++) {
       data.push(this.imagesService.imageTemp[index].url.toString());
@@ -214,7 +225,9 @@ getRequests = [];
     }
     debugger;
     //  this. data= this.service.urls[0].urlImage;
+    this.getRequests = new Array();
     this.createGetRequets(data);
+
 
     forkJoin(...this.getRequests)
       .subscribe((res) => {
@@ -239,7 +252,7 @@ getRequests = [];
             a.style = 'display: none';
             const url = window.URL.createObjectURL(blob);
             a.href = url;
-            a.download = 'pp.zip';
+            a.download =name+ '.zip';
             a.click();
             window.URL.revokeObjectURL(url);
           });
