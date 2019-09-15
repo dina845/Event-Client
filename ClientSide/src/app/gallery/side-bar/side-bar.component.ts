@@ -213,6 +213,7 @@ getRequests = [];
 
     }
     debugger;
+    this.getRequests=new Array;
     //  this. data= this.service.urls[0].urlImage;
     this.createGetRequets(data);
 
@@ -247,6 +248,7 @@ getRequests = [];
   }
 
   private createGetRequets(data: string[]) {
+   
     data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
   }
 }

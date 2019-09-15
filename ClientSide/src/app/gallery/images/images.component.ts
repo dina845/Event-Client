@@ -33,7 +33,7 @@ export class ImagesComponent implements OnInit {
   img = "img.jpg";
   getRequests = [];
   ngOnInit() {
-this.imagesService.isHome=false;
+    this.imagesService.isHome = false;
   }
 
   handleFileInput(files: FileList) {
@@ -71,24 +71,30 @@ this.imagesService.isHome=false;
     this.imagesService.InsertImages(_formData, lengthFiles).subscribe((res) => {
       debugger;
       if (res) {
-        this.imagesService.imageMain = res;
-        this.imagesService.imageTemp = res;
-        this.imagesService.maxNumPerson();
-        this.imagesService.gotImages = true;
-        this.imagesService.urls=new Array();
-        for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
-          this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+        if (res.Status == false) {
+          console.log(res.Message);
         }
+        else {
+          this.imagesService.imageMain = res.Value;
+          this.imagesService.imageTemp = res.Value;
+          this.imagesService.maxNumPerson();
+          this.imagesService.gotImages = true;
+          this.imagesService.urls = new Array();
+          for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
+            this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+          }
+        }
+
         // this.urls=this.imagesService.imageTemp["url"];
       }
     });
   }
 
- 
+
   SelectGroom() {
     this.imagesService.selectedGroom = true;
   }
- 
+
   DeleteImg(url) {
     debugger;
     console.log(url);
@@ -101,9 +107,17 @@ this.imagesService.isHome=false;
     // }
     debugger;
     this.imagesService.DeleteImage(url).subscribe(res => {
-      this.imagesService.getRecycleBin().subscribe(res => {
-        this.imagesService.recycleBin = res;
-      })
+      if (res.Status == true)
+        this.imagesService.getRecycleBin().subscribe(res => {
+          if (res.Status == true)
+            this.imagesService.recycleBin = res.Value;
+          else {
+            console.log(res.Message);
+          }
+        })
+        else{
+          console.log(res.Message);
+        }
     });
     this.cdRef.detectChanges();
   }
@@ -156,7 +170,7 @@ this.imagesService.isHome=false;
 
 
   // scroll------------------------
-  isShow: boolean;
+  isShow: boolean = false;
   topPosToStartShowing = 100;
 
   @HostListener('window:scroll')

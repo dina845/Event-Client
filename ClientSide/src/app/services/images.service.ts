@@ -4,8 +4,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, observable } from 'rxjs';
 import { Image } from '../models/image';
 import { Url } from './url';
+import { WebResult } from '../models/web-result';
 
-const httpOptions : any    = {
+const httpOptions: any = {
   headers: new HttpHeaders({
     //'Content-Type':  'application/json',
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -20,9 +21,9 @@ const httpOptions : any    = {
 export class ImagesService {
   imageMain: Image[];
   imageTemp: Image[];
-  recycleBin: Image[]=null;
-  isHome:boolean=true;
-  showCycle:boolean=false;
+  recycleBin: Image[] = null;
+  isHome: boolean = true;
+  showCycle: boolean = false;
   firstRecycleBin: Image;
   numPersonTemp: number = 0;
   selectedGroom: any;
@@ -31,42 +32,57 @@ export class ImagesService {
   gotImages: boolean = false;
   constructor(private http: HttpClient) {
     this.getImages().subscribe(res => {
-      this.imageMain = res;
-      this.imageTemp = res;
-      this.gotImages = true;
-      for (var i = 0; i < this.imageTemp.length; i++) {
-        this.urls.push(this.imageTemp[i].url);
-      } 
+      if (res.Status == false) {
+        console.log(res.Message);
+      }
+      else {
+        this.imageMain = res.Value;
+        this.imageTemp = res.Value;
+        this.gotImages = true;
+        for (var i = 0; i < this.imageTemp.length; i++) {
+          this.urls.push(this.imageTemp[i].url);
+        }
+      }
       this.getRecycleBin().subscribe(res => {
-        this.recycleBin = res;
-        this.hasGroom().subscribe(res=>{
-          this.selectedGroom=res;
+        if (res.Status == false) {
+          console.log(res.Message);
+        }
+        else{
+          this.recycleBin = res.Value;
+        }
+        this.hasGroom().subscribe(res => {
+          if (res.Status == false) {
+            console.log(res.Message);
+          }
+          else{
+            this.selectedGroom = res;
+          }
         })
-    
+
       });
     });
 
   }
-  InsertImages(formData, sizeFiles): Observable<Image[]> {
+  InsertImages(formData, sizeFiles): Observable<WebResult<Image[]>> {
     this.sizeUploadFiles = sizeFiles;
-    return this.http.post<Image[]>(environment.baseRoute + 'Image/InsertImages', formData);
+    return this.http.post<WebResult<Image[]>>(environment.baseRoute + 'Image/InsertImages', formData);
 
   }
-  hasGroom(){
-    return this.http.get(environment.baseRoute+'Image/HasGroom');
+  hasGroom() {
+    return this.http.get<WebResult<any>>(environment.baseRoute + 'Image/HasGroom');
   }
-  getImages(): Observable<Image[]> {
+  getImages(): Observable<WebResult<Image[]>> {
     const headers = new HttpHeaders()
-    .append('Content-Type', 'application/json')
-    .append('Access-Control-Allow-Headers', 'Content-Type')
-    .append('Access-Control-Allow-Methods', 'GET')
-    .append('Access-Control-Allow-Origin', '*');
-  // return this.http.get<Account>(baseUrl + 'accounts',  {headers});
-    return this.http.get<Image[]>( environment.baseRoute +'Image/getImages',{headers});
+      .append('Content-Type', 'application/json')
+      .append('Access-Control-Allow-Headers', 'Content-Type')
+      .append('Access-Control-Allow-Methods', 'GET')
+      .append('Access-Control-Allow-Origin', '*');
+    // return this.http.get<Account>(baseUrl + 'accounts',  {headers});
+    return this.http.get<WebResult<Image[]>>(environment.baseRoute + 'Image/getImages', { headers });
 
   }
   InsertImagesGroom(formData) {
-    return this.http.post(environment.baseRoute + 'Image/InsertGroom', formData);
+    return this.http.post<WebResult<any>>(environment.baseRoute + 'Image/InsertGroom', formData);
 
   }
   maxNumPerson() {
@@ -82,9 +98,9 @@ export class ImagesService {
     debugger;
     this.img = new Image();
     this.img.url = url;
-    return this.http.post(environment.baseRoute + 'Image/DeleteImage', this.img);
+    return this.http.post<WebResult<any>>(environment.baseRoute + 'Image/DeleteImage', this.img);
   }
-  getRecycleBin(): Observable<Image[]> {
-    return this.http.get<Image[]>(environment.baseRoute + 'Image/getRecycleBin');
+  getRecycleBin(): Observable<WebResult<Image[]>> {
+    return this.http.get<WebResult<Image[]>>(environment.baseRoute + 'Image/getRecycleBin');
   }
 }
