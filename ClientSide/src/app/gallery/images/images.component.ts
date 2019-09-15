@@ -6,6 +6,7 @@ import * as JSZip from 'jszip';
 import { HttpClient } from "@angular/common/http";
 import { forkJoin } from "rxjs";
 import { Url } from 'src/app/services/url';
+import { ToastrService } from 'ngx-toastr';
 // import { PageScrollService } from 'ngx-page-scroll-core';
 // import { DOCUMENT } from '@angular/common';
 @Component({
@@ -22,7 +23,7 @@ export class ImagesComponent implements OnInit {
   //   this._http = value;
   // }
   constructor(private _http: HttpClient, public imagesService: ImagesService,
-    private cdRef: ChangeDetectorRef) { }
+    private cdRef: ChangeDetectorRef,private toastr:ToastrService) { }
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
   selectedGroom: boolean = false;
@@ -70,23 +71,23 @@ export class ImagesComponent implements OnInit {
     this.imagesService.gotImages = false;
     this.imagesService.InsertImages(_formData, lengthFiles).subscribe((res) => {
       debugger;
-      if (res) {
-        if (res.Status == false) {
-          console.log(res.Message);
-        }
-        else {
-          this.imagesService.imageMain = res.Value;
-          this.imagesService.imageTemp = res.Value;
-          this.imagesService.maxNumPerson();
-          this.imagesService.gotImages = true;
-          this.imagesService.urls = new Array();
-          for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
-            this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
-          }
-        }
-
-        // this.urls=this.imagesService.imageTemp["url"];
+      if (res.Status == false) {
+        console.log(res.Message);
+        this.toastr.error(res.Message);
       }
+      else {
+        this.imagesService.imageMain = res.Value;
+        this.imagesService.imageTemp = res.Value;
+        this.imagesService.maxNumPerson();
+        this.imagesService.gotImages = true;
+        this.imagesService.urls = new Array();
+        for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
+          this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+        }
+      }
+
+      // this.urls=this.imagesService.imageTemp["url"];
+
     });
   }
 
@@ -115,9 +116,9 @@ export class ImagesComponent implements OnInit {
             console.log(res.Message);
           }
         })
-        else{
-          console.log(res.Message);
-        }
+      else {
+        console.log(res.Message);
+      }
     });
     this.cdRef.detectChanges();
   }

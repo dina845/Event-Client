@@ -5,6 +5,7 @@ import { Observable, observable } from 'rxjs';
 import { Image } from '../models/image';
 import { Url } from './url';
 import { WebResult } from '../models/web-result';
+import { ToastrService } from 'ngx-toastr';
 
 const httpOptions: any = {
   headers: new HttpHeaders({
@@ -30,9 +31,10 @@ export class ImagesService {
   public urls: Url[] = new Array;
   sizeUploadFiles: number;
   gotImages: boolean = false;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private toastr:ToastrService) {
     this.getImages().subscribe(res => {
       if (res.Status == false) {
+        this.toastr.error(res.Message);
         console.log(res.Message);
       }
       else {
@@ -45,6 +47,7 @@ export class ImagesService {
       }
       this.getRecycleBin().subscribe(res => {
         if (res.Status == false) {
+          this.toastr.error(res.Message);
           console.log(res.Message);
         }
         else {
@@ -53,6 +56,7 @@ export class ImagesService {
         this.hasGroom().subscribe(res => {
           if (res.Status == false) {
             this.selectedGroom=false;
+            this.toastr.error(res.Message);
             console.log(res.Message);
           }
           else {
