@@ -47,15 +47,16 @@ export class ImagesService {
         if (res.Status == false) {
           console.log(res.Message);
         }
-        else{
+        else {
           this.recycleBin = res.Value;
         }
         this.hasGroom().subscribe(res => {
           if (res.Status == false) {
+            this.selectedGroom=false;
             console.log(res.Message);
           }
-          else{
-            this.selectedGroom = res;
+          else {
+            this.selectedGroom = res.Value;
           }
         })
 
