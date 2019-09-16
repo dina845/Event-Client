@@ -1,19 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500);
 
 *{text-decoration:none; list-style:none; margin:0px; padding:0px; outline:none;}
-body{margin:0px; padding:0px; font-family: 'Open Sans', sans-serif;}
+body{margin:0px; padding:0px; font-family: Roboto;font-weight: 300;}
 section{width:100%; max-width:1200px; margin:0px auto; display:table; position:relative;}
-h1{margin:0px auto; display:table; font-size:26px; padding:40px 0px; color:white; text-align:center;}
-h1 span{font-weight:500;}
+h1{margin:0px auto; display:table; font-size:26px; padding:40px 0px; color:white; text-align:center;font-family: Roboto;}
+h1 span{font-weight:500;font-family: Roboto;font-weight: 300;}
 
 header{width:100%; 
     display:table; 
-    background-color:#0e1719;}
+    background-color:#0e1719;font-family: Roboto;font-weight: 300;}
 #logo{float:left; font-size:24px; text-transform:uppercase; color:white; font-weight:600; padding:20px 0px;}
 nav{width:auto; float:right;}
 nav ul{display:table; float:right;}
 nav ul li{float:left;}
 nav ul li:last-child{padding-right:0px;}
-nav ul li a{color:white; font-size:18px; padding: 25px 20px; display:inline-block; transition: all 0.5s ease 0s;}
+nav ul li a{color:white; font-family: Roboto;font-size:18px; padding: 25px 20px; display:inline-block; transition: all 0.5s ease 0s;}
 nav ul li a:hover{ color:#7c7c7c; transition: all 0.5s ease 0s;}
 nav ul li a:hover i{color:#7c7c7c; transition: all 0.5s ease 0s;}
 nav ul li a i{padding-right:10px; color:white; transition: all 0.5s ease 0s;}

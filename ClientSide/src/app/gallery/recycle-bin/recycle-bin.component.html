@@ -4,7 +4,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 
-<div *ngIf="imageService.recycleBin!=null &&imageService.showCycle==true" id="reBin">
+<div *ngIf="imageService.recycleBin!=null &&imageService.recycleBin.length>0&&imageService.showCycle==true" id="reBin">
     <!-- <span class="title1">---------------Recycle-bin---------------</span> -->
     <div class="container-fluid">
         <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">

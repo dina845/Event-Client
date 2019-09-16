@@ -51,15 +51,15 @@
       </div>
     </div>
     <!-- upload  files -->
-    <!-- <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up">
+    <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up">
       <i class="fa fa-cloud-upload" id="file-icon" for="upload" title="upload the event's photos"></i>
       <input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
-    </div> -->
+    </div>
     <!-- הורדת ZIP -->
-    <!-- <i (click)="downloadZip()" class="material-icons" id="downloadZip" data-toggle="tooltip" data-placement="top"
+    <i (click)="downloadZip()" class="material-icons" id="downloadZip" data-toggle="tooltip" data-placement="top"
       title="download all the images">
       arrow_downward
-    </i> -->
+    </i>
 
   
   </div>
@@ -82,7 +82,7 @@
               get_app
             </i></a>
 
-          <i class="material-icons" (click)="DeleteImg(url)">
+          <i class="material-icons" (click)="imagesService.DeleteImg(url)">
             delete
           </i>
         </div>

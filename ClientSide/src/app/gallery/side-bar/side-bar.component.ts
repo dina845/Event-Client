@@ -28,7 +28,7 @@ export class SideBarComponent implements OnInit {
   // m: boolean;
   // imageMain: Image[];
   // imageTemp: Image[];
-  constructor(private imagesService: ImagesService, private _http: HttpClient) { }
+  constructor(private imagesService: ImagesService, private cdRef: ChangeDetectorRef, private _http: HttpClient) { }
 
   ngOnInit() {
     // this.imagesService.getImages().subscribe(res => {
@@ -206,25 +206,65 @@ export class SideBarComponent implements OnInit {
   maxNumPerson() {
     this.imagesService.maxNumPerson
   }
+  isClearBlur: boolean = true;
+  isClearEyes: boolean = true;
+  // change
+  clearBlur() {
+    // this.imagesService.imageTemp=
+    // if (this.isClearBlur) {
+    debugger
+    if (this.isClearBlur) {
+      this.imagesService.imageTemp.forEach(e => {
+        if (e.isBlur == true)
+
+          this.imagesService.DeleteImg(e.url);
+      });
+    }
+    else
+      this.imagesService.recycleBin.forEach(e => {
+        if (e.isBlur == true)
+
+        this.imagesService.undoDelete(e);
+      });
+    this.isClearBlur = !this.isClearBlur;
+  }
+
+  clearCloseEyes() {
+    debugger
+
+    if (this.isClearEyes) {
+      this.imagesService.imageTemp.forEach(e => {
+        if (e.isClosedEye == true)
+
+          this.imagesService.DeleteImg(e.url);
+      });
+    }
+    else
+      this.imagesService.recycleBin.forEach(e => {
+        if (e.isClosedEye == true)
+          this.imagesService.undoDelete(e);
+      });
+    this.isClearEyes = !this.isClearEyes;
+  }
   downloadZip() {
     var name = "";
-    this.filterImage.isAdult == true ? name += "_Adult":null;
-    this.filterImage.isBlur == true ? name += "_Blur":null;
-    this.filterImage.isCloseEye == true ? name += "_CloseEye":null;
-    this.filterImage.isCutFace == true ? name += "_CutFace":null;
-    this.filterImage.isDark == true ? name += "_Dark":null;
-    this.filterImage.isGroomAlone == true ? name += "_GroomAlone":null;
-    this.filterImage.isGroomContain == true ? name += "_GroomContain":null;
-    this.filterImage.isIndoors == true ? name += "_Indoors":null;
-    this.filterImage.isOutdoors == true ? name += "_Outdoors":null;
-    this.filterImage.ischild == true ? name += "_child":null;
+    this.filterImage.isAdult == true ? name += "_Adult" : null;
+    this.filterImage.isBlur == true ? name += "_Blur" : null;
+    this.filterImage.isCloseEye == true ? name += "_CloseEye" : null;
+    this.filterImage.isCutFace == true ? name += "_CutFace" : null;
+    this.filterImage.isDark == true ? name += "_Dark" : null;
+    this.filterImage.isGroomAlone == true ? name += "_GroomAlone" : null;
+    this.filterImage.isGroomContain == true ? name += "_GroomContain" : null;
+    this.filterImage.isIndoors == true ? name += "_Indoors" : null;
+    this.filterImage.isOutdoors == true ? name += "_Outdoors" : null;
+    this.filterImage.ischild == true ? name += "_child" : null;
     var data: string[] = [""];
     for (let index = 0; index < this.imagesService.imageTemp.length; index++) {
       data.push(this.imagesService.imageTemp[index].url.toString());
 
     }
     debugger;
-    this.getRequests=new Array;
+    this.getRequests = new Array;
     //  this. data= this.service.urls[0].urlImage;
     this.getRequests = new Array();
     this.createGetRequets(data);
@@ -253,7 +293,7 @@ export class SideBarComponent implements OnInit {
             a.style = 'display: none';
             const url = window.URL.createObjectURL(blob);
             a.href = url;
-            a.download =name+ '.zip';
+            a.download = name + '.zip';
             a.click();
             window.URL.revokeObjectURL(url);
           });
@@ -261,7 +301,7 @@ export class SideBarComponent implements OnInit {
   }
 
   private createGetRequets(data: string[]) {
-   
+
     data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
   }
 }

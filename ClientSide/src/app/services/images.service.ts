@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ChangeDetectorRef } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, observable } from 'rxjs';
@@ -31,7 +31,9 @@ export class ImagesService {
   public urls: Url[] = new Array;
   sizeUploadFiles: number;
   gotImages: boolean = false;
-  constructor(private http: HttpClient,private toastr:ToastrService) {
+  constructor(private http: HttpClient,private toastr:ToastrService
+    // ,private cdRef: ChangeDetectorRef,
+    ) {
     this.getImages().subscribe(res => {
       if (res.Status == false) {
         this.toastr.error(res.Message);
@@ -52,6 +54,7 @@ export class ImagesService {
         }
         else {
           this.recycleBin = res.Value;
+          debugger;
         }
         this.hasGroom().subscribe(res => {
           if (res.Status == false) {
@@ -108,4 +111,47 @@ export class ImagesService {
   getRecycleBin(): Observable<WebResult<Image[]>> {
     return this.http.get<WebResult<Image[]>>(environment.baseRoute + 'Image/getRecycleBin');
   }
+  DeleteImg(url) {
+    debugger;
+    console.log(url);
+    this.imageMain = this.imageMain.filter(a => a.url != url);
+    this.imageTemp = this.imageTemp.filter(a => a.url != url);
+    this.urls = this.urls.filter(a => a != url);
+    // this.imagesService.urls = new Array;
+    // for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
+    //   this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+    // }
+    debugger;
+    this.DeleteImage(url).subscribe(res => {
+      if (res.Status == true)
+        this.getRecycleBin().subscribe(res => {
+          if (res.Status == true)
+            this.recycleBin = res.Value;
+          else {
+            console.log(res.Message);
+          }
+        })
+      else {
+        console.log(res.Message);
+      }
+    });
+    // this.cdRef.detectChanges();
+  }
+  undoDelete(img:Image)
+  {
+    
+    debugger;
+    img.isInRecycleBin = false;
+    this.imageMain.push(img);
+    this.imageTemp.push(img);
+    // this.currentUrl.urlImage = img.url.urlImage;
+    // this.currentUrl.nameImage = img.url.nameImage;
+    this.urls.push(img.url);
+    debugger
+    this.recycleBin= this.recycleBin.filter(image=>image.url!=img.url);
+
+    // this.cdRef.detectChanges();
+    return this.http.post<WebResult<any>>(environment.baseRoute+'Image/UndoDelete',img)
+  }
+
 }

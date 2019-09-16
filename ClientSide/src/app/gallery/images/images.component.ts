@@ -9,6 +9,8 @@ import { Url } from 'src/app/services/url';
 import { ToastrService } from 'ngx-toastr';
 // import { PageScrollService } from 'ngx-page-scroll-core';
 // import { DOCUMENT } from '@angular/common';
+import {Injectable, ApplicationRef } from '@angular/core';
+
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
@@ -96,32 +98,32 @@ export class ImagesComponent implements OnInit {
     this.imagesService.selectedGroom = true;
   }
 
-  DeleteImg(url) {
-    debugger;
-    console.log(url);
-    this.imagesService.imageMain = this.imagesService.imageMain.filter(a => a.url != url);
-    this.imagesService.imageTemp = this.imagesService.imageTemp.filter(a => a.url != url);
-    this.imagesService.urls = this.imagesService.urls.filter(a => a != url);
-    // this.imagesService.urls = new Array;
-    // for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
-    //   this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
-    // }
-    debugger;
-    this.imagesService.DeleteImage(url).subscribe(res => {
-      if (res.Status == true)
-        this.imagesService.getRecycleBin().subscribe(res => {
-          if (res.Status == true)
-            this.imagesService.recycleBin = res.Value;
-          else {
-            console.log(res.Message);
-          }
-        })
-      else {
-        console.log(res.Message);
-      }
-    });
-    this.cdRef.detectChanges();
-  }
+  // DeleteImg(url) {
+  //   debugger;
+  //   console.log(url);
+  //   this.imagesService.imageMain = this.imagesService.imageMain.filter(a => a.url != url);
+  //   this.imagesService.imageTemp = this.imagesService.imageTemp.filter(a => a.url != url);
+  //   this.imagesService.urls = this.imagesService.urls.filter(a => a != url);
+  //   // this.imagesService.urls = new Array;
+  //   // for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
+  //   //   this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+  //   // }
+  //   debugger;
+  //   this.imagesService.DeleteImage(url).subscribe(res => {
+  //     if (res.Status == true)
+  //       this.imagesService.getRecycleBin().subscribe(res => {
+  //         if (res.Status == true)
+  //           this.imagesService.recycleBin = res.Value;
+  //         else {
+  //           console.log(res.Message);
+  //         }
+  //       })
+  //     else {
+  //       console.log(res.Message);
+  //     }
+  //   });
+  //   this.cdRef.detectChanges();
+  // }
 
 
   // downloadZip() {
