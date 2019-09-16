@@ -7,6 +7,7 @@ import { Url } from './url';
 import { WebResult } from '../models/web-result';
 import { ToastrService } from 'ngx-toastr';
 
+
 const httpOptions: any = {
   headers: new HttpHeaders({
     //'Content-Type':  'application/json',
@@ -31,9 +32,11 @@ export class ImagesService {
   public urls: Url[] = new Array;
   sizeUploadFiles: number;
   gotImages: boolean = false;
-  constructor(private http: HttpClient,private toastr:ToastrService
+  // constructor(private http: HttpClient,private toastr:ToastrService
     // ,private cdRef: ChangeDetectorRef,
-    ) {
+    // ) {
+  currentUrl: Url = new Url;
+  constructor(private http: HttpClient,private toastr:ToastrService) {
     this.getImages().subscribe(res => {
       if (res.Status == false) {
         this.toastr.error(res.Message);
@@ -147,7 +150,6 @@ export class ImagesService {
     // this.currentUrl.urlImage = img.url.urlImage;
     // this.currentUrl.nameImage = img.url.nameImage;
     this.urls.push(img.url);
-    debugger
     this.recycleBin= this.recycleBin.filter(image=>image.url!=img.url);
 
     // this.cdRef.detectChanges();

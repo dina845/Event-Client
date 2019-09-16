@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ImagesService } from 'src/app/services/images.service';
+import { Image } from 'src/app/models/image';
+import { Url } from 'src/app/services/url';
 
 @Component({
   selector: 'app-recycle-bin',
@@ -8,9 +10,26 @@ import { ImagesService } from 'src/app/services/images.service';
 })
 export class RecycleBinComponent implements OnInit {
 
-  constructor(private imageService:ImagesService) { }
-
+  constructor(private imageService: ImagesService) { }
+  currentUrl: Url = null;
   ngOnInit() {
+  }
+  undoDelete(img: Image) {
+    this.imageService.undoDelete(img).subscribe(res => {
+     
+      // if (res.Status == true)
+      //   this.imageService.getRecycleBin().subscribe(res => {
+      //     if (res.Status == true)
+      //       this.imageService.recycleBin = res.Value;
+      //     else {
+      //       console.log(res.Message);
+      //     }
+      //   })
+      // else {
+      //   console.log(res.Message);
+      // }
+    });
+  
   }
 
 }
