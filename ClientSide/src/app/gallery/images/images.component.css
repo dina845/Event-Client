@@ -391,3 +391,17 @@ p.credits {
 con{
 	max-width: 10;
 }
+/* .fa-plus{
+	font-size: 3vw;
+    margin-left: 10px;
+    margin-top: 8px;
+    color: gray;
+} */
+.buttons[_ngcontent-c5]:not(:first-child) {
+    width: 54px;
+    height: 54px;
+    margin: 20px auto 0;
+    margin-right: 0;
+    opacity: 0;
+	transform: translateY(50px);
+}

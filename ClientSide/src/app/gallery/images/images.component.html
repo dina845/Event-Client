@@ -2,7 +2,7 @@
   <div class="wrapper tab-item col-6 col-lg-6">
     <!-- progress-bar -->
 
-    
+
     <!-- modal button-->
     <div *ngIf="imagesService.selectedGroom==false">
       <button type="button" class="btn1 upload-btn-wrapper1" data-toggle="modal" data-target="#exampleModalCenter">
@@ -10,23 +10,48 @@
       </button>
     </div>
 
-    <nav class="container" id="con" style="max-width: 68px"> 
-        <a class="buttons" tooltip="Share" ><i class="fa fa-plus"></i></a>
-      
-      <a  class="buttons" tooltip="Google+">
-          <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up">
-              <i class="fa fa-cloud-upload" id="file-icon" for="upload" title="upload the event's photos"></i>
-              <input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
-            </div>
+    <nav class="container" id="con" style="height: 30vh;width: 10vw;">
+      <!-- plus -->
+      <a class="buttons" tooltip="Share"><i class="material-icons" style="
+       font-size: 4vw;
+    margin-left: -4px;
+    margin-top: -2px;
+    color: white;;">add</i></a>
+      <a class="buttons" tooltip="Upload Files">
+        <!-- <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up"> -->
+        <i id="file-icon" for="upload" title="upload the event's photos" class="material-icons" style="
+      font-size: 2.5vw;
+    color: white;
+    margin-left: 5px;
+    margin-top: 4.5px;">backup</i>
+        <input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)"
+          multiple>
+        <!-- </div> -->
       </a>
-      
-      <a  class="buttons" tooltip="Twitter">
-         
+      <a class="buttons" tooltip="Change groom" data-toggle="modal" data-target="#exampleModalCenter">
+        <!-- change groom's image -->
+        <i class="fa fa-user" style="
+        font-size: 2vw;
+    color: white;
+    margin-left: 13px;
+    margin-top: 11px;
+"></i>
       </a>
-      
-      <a  class="buttons" tooltip="Facebook"></a>
-  
-  
+      <!-- icons ,aterial
+<i class="material-icons">
+backup
+</i>
+ -->
+      <!-- <a class="buttons" tooltip="Change groom">
+        <button type="button" class="btn1 upload-btn-wrapper1" data-toggle="modal" data-target="#exampleModalCenter">
+          change groom
+        </button>
+      </a> -->
+
+
+      <a class="buttons" tooltip="google"></a>
+
+
     </nav>
 
     <!-- Modal -->
@@ -61,7 +86,7 @@
       arrow_downward
     </i> -->
 
-  
+
   </div>
 
 </div>
@@ -92,7 +117,7 @@
 </div>
 <div></div>
 <div *ngIf="isShow">
-  <i  class="fa fa-chevron-circle-up"  (click)="gotoTop()" id="scroll" ></i>
+  <i class="fa fa-chevron-circle-up" (click)="gotoTop()" id="scroll"></i>
 </div>
 <!-- fab -->
 
@@ -112,13 +137,14 @@
     <i class="material-icons" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
     <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" >
   </div> -->
-  <app-recycle-bin id="bin"></app-recycle-bin>
-  <body>
-      <h1>Simple Share FAB</h1>
-      <p class="credits">
-          <!-- <a href="https://codepen.io/koenigsegg1" target="_blank" > -->
-            <!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/343394/profile/profile-80_3.jpg" /></a><br />Pen by Kyle Lavery (@koenigsegg1)</p> -->
-      
-     
-      
-    </body>
+<app-recycle-bin id="bin"></app-recycle-bin>
+
+<body>
+  <h1>Simple Share FAB</h1>
+  <p class="credits">
+    <!-- <a href="https://codepen.io/koenigsegg1" target="_blank" > -->
+    <!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/343394/profile/profile-80_3.jpg" /></a><br />Pen by Kyle Lavery (@koenigsegg1)</p> -->
+
+
+
+</body>

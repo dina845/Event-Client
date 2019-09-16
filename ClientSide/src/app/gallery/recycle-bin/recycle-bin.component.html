@@ -16,6 +16,9 @@
                             <a title="image 1" class="thumb">
                                 <img class="img-fluid mx-auto d-block" src="{{imageService.recycleBin[0].url}}"
                                     alt="slide 1">
+                                    <i class="material-icons">
+                                        delete_forever
+                                        </i>
                             </a>
                         </div>
                     </div>
@@ -26,6 +29,9 @@
                             <a title="image {{item}}" class="thumb">
                                 <img class="img-fluid mx-auto d-block" src="{{imageService.recycleBin[i].url}}"
                                     alt="slide 2">
+                                    <i class="material-icons" (click)="undoDelete(imageService.recycleBin[i])">
+                                        delete_forever
+                                        </i>
                             </a>
                         </div>
                     </div>

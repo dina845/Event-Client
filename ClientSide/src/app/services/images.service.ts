@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+// import { Injectable,ChangeDetectorRef } from '@angular/core';
+
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, observable } from 'rxjs';
@@ -6,6 +8,7 @@ import { Image } from '../models/image';
 import { Url } from './url';
 import { WebResult } from '../models/web-result';
 import { ToastrService } from 'ngx-toastr';
+
 
 const httpOptions: any = {
   headers: new HttpHeaders({
@@ -31,6 +34,7 @@ export class ImagesService {
   public urls: Url[] = new Array;
   sizeUploadFiles: number;
   gotImages: boolean = false;
+  currentUrl: Url = new Url;
   constructor(private http: HttpClient,private toastr:ToastrService) {
     this.getImages().subscribe(res => {
       if (res.Status == false) {
@@ -107,5 +111,20 @@ export class ImagesService {
   }
   getRecycleBin(): Observable<WebResult<Image[]>> {
     return this.http.get<WebResult<Image[]>>(environment.baseRoute + 'Image/getRecycleBin');
+  }
+  undoDelete(img:Image)
+  {
+    
+    debugger;
+    img.isInRecycleBin = false;
+    this.imageMain.push(img);
+    this.imageTemp.push(img);
+    // this.currentUrl.urlImage = img.url.urlImage;
+    // this.currentUrl.nameImage = img.url.nameImage;
+    this.urls.push(img.url);
+    this.recycleBin= this.recycleBin.filter(image=>image.url!=img.url);
+
+    // this.cdRef.detectChanges();
+    return this.http.post<WebResult<any>>(environment.baseRoute+'Image/UndoDelete',img)
   }
 }
