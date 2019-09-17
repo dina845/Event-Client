@@ -13,17 +13,17 @@
     <nav class="container" id="con" style="height: 30vh;width: 10vw;">
       <!-- plus -->
       <a class="buttons" tooltip="Share"><i class="material-icons" style="
-       font-size: 4vw;
-    margin-left: -4px;
-    margin-top: -2px;
-    color: white;;">add</i></a>
+          font-size: 4vw;
+    margin-left: 2px;
+    margin-top: 5px;
+    color: maroon;">add</i></a>
       <a class="buttons" tooltip="Upload Files">
         <!-- <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up"> -->
         <i id="file-icon" for="upload" title="upload the event's photos" class="material-icons" style="
-      font-size: 2.5vw;
-    color: white;
-    margin-left: 5px;
-    margin-top: 4.5px;">backup</i>
+         font-size: 2.5vw;
+    color: maroon;
+    margin-left: 12px;
+    margin-top: 11.5px">backup</i>
         <input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)"
           multiple>
         <!-- </div> -->
@@ -32,7 +32,7 @@
         <!-- change groom's image -->
         <i class="fa fa-user" style="
         font-size: 2vw;
-    color: white;
+    color: maroon;
     margin-left: 13px;
     margin-top: 11px;
 "></i>
@@ -76,15 +76,15 @@ backup
       </div>
     </div>
     <!-- upload  files -->
-    <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up">
+    <!-- <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up">
       <i class="fa fa-cloud-upload" id="file-icon" for="upload" title="upload the event's photos"></i>
       <input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
-    </div>
+    </div> -->
     <!-- הורדת ZIP -->
-    <i (click)="downloadZip()" class="material-icons" id="downloadZip" data-toggle="tooltip" data-placement="top"
+    <!-- <i (click)="downloadZip()" class="material-icons" id="downloadZip" data-toggle="tooltip" data-placement="top"
       title="download all the images">
       arrow_downward
-    </i>
+    </i> -->
 
 
   </div>
@@ -103,11 +103,11 @@ backup
         </a>
         <span>Hover</span>
         <div id="icons" style="float: inherit" class="gfg">
-          <a [href]="url" download="url.jpg"> <i class="material-icons" title="download the image">
+          <a [href]="url" download="url.jpg"> <i class="material-icons icon" title="download the image">
               get_app
             </i></a>
 
-          <i class="material-icons" (click)="imagesService.DeleteImg(url)">
+          <i class="material-icons icon" (click)="imagesService.DeleteImg(url)">
             delete
           </i>
         </div>
@@ -139,12 +139,3 @@ backup
   </div> -->
 <app-recycle-bin id="bin"></app-recycle-bin>
 
-<body>
-  <h1>Simple Share FAB</h1>
-  <p class="credits">
-    <!-- <a href="https://codepen.io/koenigsegg1" target="_blank" > -->
-    <!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/343394/profile/profile-80_3.jpg" /></a><br />Pen by Kyle Lavery (@koenigsegg1)</p> -->
-
-
-
-</body>
