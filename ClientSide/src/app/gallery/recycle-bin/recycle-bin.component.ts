@@ -10,7 +10,7 @@ import { Url } from 'src/app/services/url';
 })
 export class RecycleBinComponent implements OnInit {
 
-  constructor(private imageService: ImagesService) { }
+  constructor(public imageService: ImagesService) { }
   currentUrl: Url = null;
   ngOnInit() {
   }

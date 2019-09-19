@@ -14,19 +14,32 @@
         </div>
         <div class="sidebar-search">
           <div>
-            <div class="input-group-append">
+              <div class="sidebar-footer2">
+                  <i class="fa fa-plus"></i>
+
+                  <!-- <div class="upload-btn-wrapper" style="float: right">
+                      <i class="fa fa-cloud-upload" id="file-icon" for="upload" title="upload the event's photos"></i>
+                      <input type='file' id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
+                    </div> -->
               <!-- <a href="#fake" class="enter"> -->
-                <span class="group-text" (click)="showCycle()">
-                  show the cycle bin
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </span>
-              <!-- </a> -->
-              <!-- <a href="#fake" class="enter"> -->
-                <span class="group-text" (click)="downloadZip()">
+                 <!-- <a>
+                      <i class="fa fa-trash" ></i>
+                      <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
+                    </a>
+                
+                  <a>
+                      <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
+                      <span class="badge badge-pill badge-success notification poin" (click)="downloadZip()">Download-Zip</span>
+                    </a> -->
+                  <!-- <a>
+                      <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
+                      <span class="badge badge-pill badge-warning notification" (click)="downloadZip()">Download-Zip</span>
+                    </a> -->
+                <!-- <span class="group-text" (click)="downloadZip()">
                   download zip
                   <i (click)="downloadZip()" class="fa fa-download" id="downloadZip" data-toggle="tooltip"
                     data-placement="top" title="download all the images"></i>
-                </span>
+                </span> -->
               <!-- </a> -->
         
             </div>
@@ -136,23 +149,26 @@
       </div>
       <!-- sidebar-content  -->
       <div class="sidebar-footer">
-        <a>
+          <a>
+              <i class="fa fa-trash" ></i>
+              <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
+            </a>
+        
+          <a>
+              <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
+              <span class="badge badge-pill badge-success notification poin" (click)="downloadZip()">Download-Zip</span>
+            </a>
+        <!-- <a>
           <i class="fa fa-bell"></i>
           <span class="badge badge-pill badge-warning notification">0</span>
         </a>
         <a>
           <i class="fa fa-envelope"></i>
           <span class="badge badge-pill badge-success notification">BETA</span>
-        </a>
-        <!-- <a href="#">
-          <i class="fa fa-cog"></i>
-          <span class="badge-sonar"></span>
         </a> -->
-        <!--  -->
-        <!-- <a href="#">
-          <i class="fa fa-power-off"></i>
-        </a> -->
+       
       </div>
+      
     </nav>
     <!-- sidebar-wrapper  -->
     <main class="page-content">
