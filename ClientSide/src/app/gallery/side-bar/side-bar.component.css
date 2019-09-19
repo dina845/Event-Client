@@ -220,8 +220,10 @@
   /*----------------sidebar-content----------------*/
   
   .sidebar-content {
-    max-height: calc(100% - 30px);
-    height: calc(100% - 30px);
+    max-height: calc(100% -8vh);
+    height: calc(100% - 8vh);
+    /* border-top: 1px solid #464a52; */
+
     overflow-y: auto;
     position: relative;
     background-color: black;
@@ -406,9 +408,10 @@
   .sidebar-footer {
     position: absolute;
     width: 100%;
-    bottom: 0vh;
+    bottom:1.5vh;
     left: -3.5vw;
     display: flex;
+    height: 4vh;
   }
   
   .sidebar-footer > a {
@@ -571,8 +574,7 @@
   .chiller-theme .sidebar-footer {
       /* background: #1e2229; */
       /* background: #3a3f48; */
-      box-shadow: 0px -1px 5px #282c33;
-      border-top: 1px solid #464a52;
+      /* box-shadow: 0px -1px 5px #282c33; */
   }
   
   .chiller-theme .sidebar-footer>a:first-child {
@@ -610,6 +612,7 @@ button, input, optgroup, select, textarea {
   font-size: inherit;
   line-height: inherit;
   width: 11vw;
+
   }
   /* .fa.fa-trash{
     color: maroon;
@@ -777,4 +780,37 @@ button, input, optgroup, select, textarea {
 }
 .sidebar-search{
   margin-top: 5vh;
+}
+.filter{
+  
+  margin-top: 6vh;
+}
+.black{
+  background-color:white;
+  color: maroon;
+}
+.marrom{
+  background-color: maroon;
+  color: maroon;
+}
+button[_ngcontent-c4], input[_ngcontent-c4], optgroup[_ngcontent-c4], select[_ngcontent-c4], textarea[_ngcontent-c4] {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 11vw;
+  background-color: gray;
+  color: white;
+}
+button[_ngcontent-c3], input[_ngcontent-c3], optgroup[_ngcontent-c3], select[_ngcontent-c3], textarea[_ngcontent-c3] {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 11vw;
+  background-color: gray;
+  color: white;
+}
+.fa-trash,.fa-download{
+
 }
