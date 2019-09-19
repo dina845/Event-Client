@@ -299,6 +299,7 @@
   .sidebar-wrapper .sidebar-search > div {
     padding: 10px 20px;
   }
+
   
   /*----------------------sidebar-menu-------------------------*/
   
@@ -773,4 +774,7 @@ button, input, optgroup, select, textarea {
   left: -3vw;
   bottom: 73.5vh;
   display: flex;
+}
+.sidebar-search{
+  margin-top: 5vh;
 }

@@ -9,20 +9,23 @@
           <a href="#">filters</a>
 
         </div>
-        <div class="sidebar-header">
+        <!-- <div class="sidebar-header">
 
-        </div>
+        </div> -->
         <div class="sidebar-search">
-          <div>
-              <div class="sidebar-footer2">
-                  <i class="fa fa-plus"></i>
+          
+          <!-- plus -->
+         
+         
+          <!-- <div class="sidebar-footer2">
+                  <i class="fa fa-user"></i> -->
 
-                  <!-- <div class="upload-btn-wrapper" style="float: right">
+          <!-- <div class="upload-btn-wrapper" style="float: right">
                       <i class="fa fa-cloud-upload" id="file-icon" for="upload" title="upload the event's photos"></i>
                       <input type='file' id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
                     </div> -->
-              <!-- <a href="#fake" class="enter"> -->
-                 <!-- <a>
+          <!-- <a href="#fake" class="enter"> -->
+          <!-- <a>
                       <i class="fa fa-trash" ></i>
                       <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
                     </a>
@@ -31,19 +34,19 @@
                       <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
                       <span class="badge badge-pill badge-success notification poin" (click)="downloadZip()">Download-Zip</span>
                     </a> -->
-                  <!-- <a>
+          <!-- <a>
                       <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
                       <span class="badge badge-pill badge-warning notification" (click)="downloadZip()">Download-Zip</span>
                     </a> -->
-                <!-- <span class="group-text" (click)="downloadZip()">
+          <!-- <span class="group-text" (click)="downloadZip()">
                   download zip
                   <i (click)="downloadZip()" class="fa fa-download" id="downloadZip" data-toggle="tooltip"
                     data-placement="top" title="download all the images"></i>
                 </span> -->
-              <!-- </a> -->
-        
-            </div>
-          </div>
+          <!-- </a> -->
+
+          <!-- </div> -->
+
         </div>‏
         <!-- <a href="#fake" class="enter">ENTER</a> -->
         <!-- sidebar-search  -->
@@ -63,7 +66,8 @@
                   <input type="checkbox" name='email1' #Blur><span> Blurred </span>
                 </label>
                 <span class="badge badge-pill badge-success notification" (click)="clearBlur()"
-                  [ngClass]="{'clear':isClearBlur==true,'not-clear':isClearBlur==false}"><span *ngIf="!isClearBlur">cancel</span><span *ngIf="isClearBlur">clear</span></span>
+                  [ngClass]="{'clear':isClearBlur==true,'not-clear':isClearBlur==false}"><span
+                    *ngIf="!isClearBlur">cancel</span><span *ngIf="isClearBlur">clear</span></span>
               </a>
             </li>
 
@@ -76,7 +80,8 @@
 
                 </label>
                 <span class="badge badge-pill badge-success notification" (click)="clearCloseEyes()"
-                  [ngClass]="{'clear':isClearEyes==true,'not-clear':isClearEyes==false}"><span *ngIf="!isClearEyes">cancel</span><span *ngIf="isClearEyes">clear</span></span>
+                  [ngClass]="{'clear':isClearEyes==true,'not-clear':isClearEyes==false}"><span
+                    *ngIf="!isClearEyes">cancel</span><span *ngIf="isClearEyes">clear</span></span>
 
               </a>
             </li>
@@ -149,15 +154,15 @@
       </div>
       <!-- sidebar-content  -->
       <div class="sidebar-footer">
-          <a>
-              <i class="fa fa-trash" ></i>
-              <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
-            </a>
-        
-          <a>
-              <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
-              <span class="badge badge-pill badge-success notification poin" (click)="downloadZip()">Download-Zip</span>
-            </a>
+        <a>
+          <i class="fa fa-trash"></i>
+          <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
+        </a>
+
+        <a>
+          <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
+          <span class="badge badge-pill badge-success notification poin" (click)="downloadZip()">Download-Zip</span>
+        </a>
         <!-- <a>
           <i class="fa fa-bell"></i>
           <span class="badge badge-pill badge-warning notification">0</span>
@@ -166,9 +171,9 @@
           <i class="fa fa-envelope"></i>
           <span class="badge badge-pill badge-success notification">BETA</span>
         </a> -->
-       
+
       </div>
-      
+
     </nav>
     <!-- sidebar-wrapper  -->
     <main class="page-content">
