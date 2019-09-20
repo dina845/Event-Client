@@ -96,6 +96,7 @@ export class ImagesComponent implements OnInit {
 
   SelectGroom() {
     this.imagesService.selectedGroom = true;
+    this.imagesService.isUploadingGroom=true;
   }
   Reset(){
     debugger;

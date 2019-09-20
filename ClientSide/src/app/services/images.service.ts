@@ -27,6 +27,7 @@ export class ImagesService {
   recycleBin: Image[] = null;
   isHome: boolean = true;
   showCycle: boolean = false;
+  isUploadingGroom:boolean=false;
   firstRecycleBin: Image;
   numPersonTemp: number = 0;
   selectedGroom: any;

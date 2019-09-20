@@ -111,16 +111,24 @@
               </a>
             </li>
             <li>
-              <a>
+                <a *ngIf="imagesService.isUploadingGroom==false">
+                    <i class="fa fa-user"
+                      [ngClass]="{'checked': GroomAlone.checked==true, 'not-checked':GroomAlone.checked==false}"></i>
+                    <label class="btn active" (click)="isGroomAlone(GroomAlone.checked)">
+                      <input type="checkbox" name='email1' #GroomAlone><span>Event groom </span>
+                    </label>
+                  </a>
+              <a  *ngIf="imagesService.isUploadingGroom==true">
                 <i class="fa fa-user"
-                  [ngClass]="{'checked': GroomAlone.checked==true, 'not-checked':GroomAlone.checked==false}"></i>
-                <label class="btn active" (click)="isGroomAlone(GroomAlone.checked)">
-                  <input type="checkbox" name='email1' #GroomAlone><span>Event groom </span>
+                  [ngClass]="{'not-checked':GroomAlone.checked==false}"></i>
+                <label class="btn active" >
+                  <input type="checkbox" name='email1' #GroomAlone ><span  data-tooltip="Updating data"
+                  data-tooltip-location="top">Event groom </span>
                 </label>
               </a>
             </li>
             <li>
-              <a>
+              <a *ngIf="imagesService.isUploadingGroom==false">
                 <i class="fa fa-users"
                   [ngClass]="{'checked': GroomContain.checked==true, 'not-checked':GroomContain.checked==false}"></i>
                 <label class="btn active" (click)="isGroomContain(GroomContain.checked)">
@@ -128,6 +136,15 @@
                 </label>
 
               </a>
+              <a *ngIf="imagesService.isUploadingGroom==true">
+                  <i class="fa fa-users"
+                    [ngClass]="{'not-checked':GroomContain.checked==false}"></i>
+                  <label class="btn active" >
+                    <input type="checkbox" name='email1' #GroomContain><span  data-tooltip="Updating data"
+                    data-tooltip-location="top">Contain groom</span>
+                  </label>
+  
+                </a>
             </li>
             <li>
               <a>
@@ -182,3 +199,4 @@
     </main>
     <!-- page-content" -->
   </div>
+  
