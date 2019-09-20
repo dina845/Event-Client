@@ -341,4 +341,5 @@ this.gotoBotton();
 
     data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
   }
+  
 }

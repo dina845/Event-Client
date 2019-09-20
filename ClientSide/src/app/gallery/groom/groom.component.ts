@@ -30,11 +30,13 @@ export class GroomComponent implements OnInit {
 
       }
       this.imagesService.InsertImagesGroom(_formData).subscribe(res => {
+
         if (res.Status == false) {
           console.log(res.Message);
           // this.toastr.error(res.Message);
         }
         else {
+          this.imagesService.isUploadingGroom=false;
           debugger;
           this.imagesService.imageMain = res.Value;
           console.log(res.Value);
