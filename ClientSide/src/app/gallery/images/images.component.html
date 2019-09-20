@@ -37,6 +37,14 @@
     margin-top: 11px;
 "></i>
       </a>
+      <a class="buttons" tooltip="Reset" (click)="Reset()">
+        <i class="fa fa-user" style="
+        font-size: 2vw;
+    color: maroon;
+    margin-left: 13px;
+    margin-top: 11px;
+" (click)="Reset()"></i>
+      </a>
       <!-- icons ,aterial
 <i class="material-icons">
 backup
@@ -138,4 +146,3 @@ backup
     <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" >
   </div> -->
 <app-recycle-bin id="bin"></app-recycle-bin>
-

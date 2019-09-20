@@ -23,6 +23,7 @@ const httpOptions: any = {
 export class ImagesService {
   imageMain: Image[];
   imageTemp: Image[];
+  isLoading:Boolean=false;
   recycleBin: Image[] = null;
   isHome: boolean = true;
   showCycle: boolean = false;
@@ -37,6 +38,7 @@ export class ImagesService {
     // ) {
   currentUrl: Url = new Url;
   constructor(private http: HttpClient,private toastr:ToastrService) {
+    this.isLoading=true;
     this.getImages().subscribe(res => {
       if (res.Status == false) {
         this.toastr.error(res.Message);
@@ -46,9 +48,11 @@ export class ImagesService {
         this.imageMain = res.Value;
         this.imageTemp = res.Value;
         this.gotImages = true;
+        this.isLoading=false;
         for (var i = 0; i < this.imageTemp.length; i++) {
           this.urls.push(this.imageTemp[i].url);
         }
+
       }
       this.getRecycleBin().subscribe(res => {
         if (res.Status == false) {
@@ -154,6 +158,9 @@ export class ImagesService {
 
     // this.cdRef.detectChanges();
     return this.http.post<WebResult<any>>(environment.baseRoute+'Image/UndoDelete',img)
+  }
+  reset(){
+    return this.http.get<WebResult<any>>(environment.baseRoute+'Image/Reset');
   }
 
 }

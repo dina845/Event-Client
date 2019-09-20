@@ -58,7 +58,7 @@ export class ImagesComponent implements OnInit {
           console.log(event.target.result);
         }
         reader.readAsDataURL(files[i]);
-        console.log(JSON.stringify(_formData));
+        //console.log(JSON.stringify(_formData));
       }
 
 
@@ -96,6 +96,16 @@ export class ImagesComponent implements OnInit {
 
   SelectGroom() {
     this.imagesService.selectedGroom = true;
+  }
+  Reset(){
+    debugger;
+    this.imagesService.reset().subscribe((res)=>{
+      if(res.Status==true){
+        this.imagesService.imageMain = null;
+        this.imagesService.imageTemp = null;
+        this.imagesService.urls = null;
+      }
+    });
   }
 
   // DeleteImg(url) {
