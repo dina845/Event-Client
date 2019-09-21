@@ -26,7 +26,6 @@
     "jszip": "^3.2.2",
     "mdbootstrap": "^4.8.9",
     "ng-circle-progress": "^1.5.0",
-    "ng-drag-drop": "^5.0.0",
     "ngx-infinite-scroll": "^8.0.0",
     "ngx-page-scroll": "^7.0.0",
     "ngx-toastr": "^10.2.0",

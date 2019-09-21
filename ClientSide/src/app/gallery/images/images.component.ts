@@ -99,7 +99,6 @@ export class ImagesComponent implements OnInit {
     this.imagesService.isUploadingGroom=true;
   }
   Reset(){
-    debugger;
     this.imagesService.reset().subscribe((res)=>{
       if(res.Status==true){
         this.imagesService.imageMain = null;

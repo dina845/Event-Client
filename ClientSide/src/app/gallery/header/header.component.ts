@@ -59,5 +59,17 @@ public set http(value: HttpClient) {
   //     behavior: 'smooth'
   //   });
   // }
+  Reset(){
+    if(confirm("Are you sure to reset all yor images? ")) {
+      this.imageService.reset().subscribe((res)=>{
+        if(res.Status==true){
+          this.imageService.imageMain = null;
+          this.imageService.imageTemp = null;
+          this.imageService.urls = null;
+        }
+      });
+    }
+    
+  }
 }
 
