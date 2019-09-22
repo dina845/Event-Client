@@ -28,7 +28,7 @@ export class SideBarComponent implements OnInit {
   // m: boolean;
   // imageMain: Image[];
   // imageTemp: Image[];
-  constructor(private imagesService: ImagesService, private cdRef: ChangeDetectorRef, private _http: HttpClient) { }
+  constructor(public imagesService: ImagesService, public cdRef: ChangeDetectorRef, public _http: HttpClient) { }
 
   ngOnInit() {
     // this.imagesService.getImages().subscribe(res => {
@@ -293,6 +293,8 @@ this.gotoBotton();
     this.filterImage.isIndoors == true ? name += "_Indoors" : null;
     this.filterImage.isOutdoors == true ? name += "_Outdoors" : null;
     this.filterImage.ischild == true ? name += "_child" : null;
+    if(name=="")
+    name="All";
     var data: string[] = [""];
     for (let index = 0; index < this.imagesService.imageTemp.length; index++) {
       data.push(this.imagesService.imageTemp[index].url.toString());
@@ -339,4 +341,5 @@ this.gotoBotton();
 
     data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
   }
+  
 }

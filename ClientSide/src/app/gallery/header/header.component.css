@@ -88,11 +88,16 @@ h1 {padding: 20px 0px;}
 }
 #logo-take{
     width: 10vw;height: auto;
-    background-image: url("../../../assets/logo-take.png");
+    background-image: url("https://storage.googleapis.com/assetstakeapeek/logo-take.png");
 }
+/* storage */
 #logo-take:hover{width: 10vw;height: auto;
     background-image: url("../../../assets/logo-take-color.png ");
 }
+
+/* #logo-take:hover{width: 10vw;height: auto;
+    background-image: url("../../../assets/logo-take-color.png ");
+} */
 /* header{
     box-sizing: initial;
 }

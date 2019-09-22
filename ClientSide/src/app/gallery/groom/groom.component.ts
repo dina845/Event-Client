@@ -8,7 +8,7 @@ import { ImagesService } from 'src/app/services/images.service';
 })
 export class GroomComponent implements OnInit {
 
-  constructor(private imagesService:ImagesService) { }
+  constructor(public imagesService: ImagesService) { }
   fileToUpload: File = null;
   url: string;
   ngOnInit() {
@@ -18,7 +18,7 @@ export class GroomComponent implements OnInit {
     if (files && files[0]) {
       let _formData = new FormData();
       this.fileToUpload = files[0];
-      _formData.append("file", this.fileToUpload,"groom.jpg");
+      _formData.append("file", this.fileToUpload);
       var reader = new FileReader();
       reader.onload = (event: any) => {
         this.url = event.target.result;
@@ -29,9 +29,27 @@ export class GroomComponent implements OnInit {
         console.log(JSON.stringify(_formData))
 
       }
-this.imagesService.InsertImagesGroom(_formData).subscribe(res=>{
+      this.imagesService.InsertImagesGroom(_formData).subscribe(res => {
 
-})
+        if (res.Status == false) {
+          console.log(res.Message);
+          // this.toastr.error(res.Message);
+        }
+        else {
+          this.imagesService.isUploadingGroom=false;
+          debugger;
+          this.imagesService.imageMain = res.Value;
+          console.log(res.Value);
+          this.imagesService.imageTemp = res.Value;
+          this.imagesService.maxNumPerson();
+          this.imagesService.gotImages = true;
+          this.imagesService.urls = new Array();
+          for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
+            this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+          }
+        }
+      })
+      
 
     }
   }

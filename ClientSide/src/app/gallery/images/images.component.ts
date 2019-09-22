@@ -24,8 +24,8 @@ export class ImagesComponent implements OnInit {
   // public set http(value: HttpClient) {
   //   this._http = value;
   // }
-  constructor(private _http: HttpClient, public imagesService: ImagesService,
-    private cdRef: ChangeDetectorRef,private toastr:ToastrService) { }
+  constructor(public _http: HttpClient, public imagesService: ImagesService,
+    public cdRef: ChangeDetectorRef,public toastr:ToastrService) { }
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
   selectedGroom: boolean = false;
@@ -58,7 +58,7 @@ export class ImagesComponent implements OnInit {
           console.log(event.target.result);
         }
         reader.readAsDataURL(files[i]);
-        console.log(JSON.stringify(_formData));
+        //console.log(JSON.stringify(_formData));
       }
 
 
@@ -96,6 +96,16 @@ export class ImagesComponent implements OnInit {
 
   SelectGroom() {
     this.imagesService.selectedGroom = true;
+    this.imagesService.isUploadingGroom=true;
+  }
+  Reset(){
+    this.imagesService.reset().subscribe((res)=>{
+      if(res.Status==true){
+        this.imagesService.imageMain = null;
+        this.imagesService.imageTemp = null;
+        this.imagesService.urls = null;
+      }
+    });
   }
 
   // DeleteImg(url) {

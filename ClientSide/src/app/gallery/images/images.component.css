@@ -46,7 +46,7 @@ h2 span {
 	float: left;
 	/* width: 20vw;
 	height:15vw; */
-	margin: 0 0 0 25px;
+	margin: 0 0 0 0;
 	padding: 2px;
 }
 .column div:first-child {
@@ -405,3 +405,9 @@ con{
     opacity: 0;
 	transform: translateY(50px);
 }
+.deletedown{
+float: left;
+}
+/* tooltip */
+
+

@@ -4,15 +4,15 @@
 
 
     <!-- modal button-->
-    <div *ngIf="imagesService.selectedGroom==false">
+    <!-- <div *ngIf="imagesService.selectedGroom==false">
       <button type="button" class="btn1 upload-btn-wrapper1" data-toggle="modal" data-target="#exampleModalCenter">
         add groom's image
       </button>
-    </div>
+    </div> -->
 
     <nav class="container" id="con" style="height: 30vh;width: 10vw;">
       <!-- plus -->
-      <a class="buttons" tooltip="Share"><i class="material-icons" style="
+      <a class="buttons" ><i class="material-icons" style="
           font-size: 4vw;
     margin-left: 2px;
     margin-top: 5px;
@@ -28,7 +28,7 @@
           multiple>
         <!-- </div> -->
       </a>
-      <a class="buttons" tooltip="Change groom" data-toggle="modal" data-target="#exampleModalCenter">
+      <a class="buttons" tooltip="Groom's image" data-toggle="modal" data-target="#exampleModalCenter">
         <!-- change groom's image -->
         <i class="fa fa-user" style="
         font-size: 2vw;
@@ -37,6 +37,7 @@
     margin-top: 11px;
 "></i>
       </a>
+     
       <!-- icons ,aterial
 <i class="material-icons">
 backup
@@ -102,7 +103,7 @@ backup
           <figure><img [src]="url" width="100%" height="auto" class="geeks" /></figure>
         </a>
         <span>Hover</span>
-        <div id="icons" style="float: inherit" class="gfg">
+        <div id="icons"  class="deletedown">
           <a [href]="url" download="url.jpg"> <i class="material-icons icon" title="download the image">
               get_app
             </i></a>
@@ -140,3 +141,4 @@ backup
   <div style="background-color: gray;width: 100vw;box-shadow: black">
 <app-recycle-bin id="bin"></app-recycle-bin></div>
 
+<!-- <app-recycle-bin id="bin"></app-recycle-bin> -->

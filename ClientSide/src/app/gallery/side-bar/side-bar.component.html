@@ -9,37 +9,57 @@
           <a href="#">filters</a>
 
         </div>
-        <div class="sidebar-header">
+   
+        <!-- <div class="sidebar-header">
 
-        </div>
-        <div class="sidebar-search">
-          <div>
-            <div class="input-group-append">
-              <!-- <a href="#fake" class="enter"> -->
-                <span class="group-text" (click)="showCycle()">
-                  show the cycle bin
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </span>
-              <!-- </a> -->
-              <!-- <a href="#fake" class="enter"> -->
-                <span class="group-text" (click)="downloadZip()">
+        </div> -->
+        <!-- <div class="sidebar-search"> -->
+          
+          <!-- plus -->
+         
+         
+          <!-- <div class="sidebar-footer2">
+                  <i class="fa fa-user"></i> -->
+
+          <!-- <div class="upload-btn-wrapper" style="float: right">
+                      <i class="fa fa-cloud-upload" id="file-icon" for="upload" title="upload the event's photos"></i>
+                      <input type='file' id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
+                    </div> -->
+          <!-- <a href="#fake" class="enter"> -->
+          <!-- <a>
+                      <i class="fa fa-trash" ></i>
+                      <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
+                    </a>
+                
+                  <a>
+                      <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
+                      <span class="badge badge-pill badge-success notification poin" (click)="downloadZip()">Download-Zip</span>
+                    </a> -->
+          <!-- <a>
+                      <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
+                      <span class="badge badge-pill badge-warning notification" (click)="downloadZip()">Download-Zip</span>
+                    </a> -->
+          <!-- <span class="group-text" (click)="downloadZip()">
                   download zip
                   <i (click)="downloadZip()" class="fa fa-download" id="downloadZip" data-toggle="tooltip"
                     data-placement="top" title="download all the images"></i>
-                </span>
-              <!-- </a> -->
-        
-            </div>
-          </div>
-        </div>‏
+                </span> -->
+          <!-- </a> -->
+
+          <!-- </div> -->
+
+        <!-- </div>‏ -->
         <!-- <a href="#fake" class="enter">ENTER</a> -->
         <!-- sidebar-search  -->
         <div class="sidebar-menu">
+         
           <ul>
-
+              <div class="hover" style="    margin-top: 10vh;"><span style=""><i class="material-icons" style=" color:  rgb(184, 175, 53)
+                ;font-size:30px; animation: swing ease-in-out 0.6s 30000 ;">add</i></span><a class="social-link" href="https://twitter.com/twitter" target="_blank"><i class="material-icons">backup</i></a><a class="social-link" href="https://codepen.io/joshuaward/" target="_blank"><i class="fab fa-codepen"></i></a><a class="social-link" href="https://www.instagram.com/joshuaward/" target="_blank"><i class="fab fa-instagram"></i></a><a class="social-link" href="https://github.com/joshuaward" target="_blank"><i class="fab fa-github"></i></a></div>
+              
             <!-- <input type="number" [min]="0" [max]="imagesService.numPersonTemp" #numPerson placeholder="Enter number of people in image" (change)="numPerson(numPerson)"> -->
 
-            <li class="header-menu">
+            <li class="filter">
               <span>filter image</span>
             </li>
             <li>
@@ -50,7 +70,8 @@
                   <input type="checkbox" name='email1' #Blur><span> Blurred </span>
                 </label>
                 <span class="badge badge-pill badge-success notification" (click)="clearBlur()"
-                  [ngClass]="{'clear':isClearBlur==true,'not-clear':isClearBlur==false}"><span *ngIf="!isClearBlur">cancel</span><span *ngIf="isClearBlur">clear</span></span>
+                  [ngClass]="{'clear':isClearBlur==true,'not-clear':isClearBlur==false}"><span
+                    *ngIf="!isClearBlur">cancel</span><span *ngIf="isClearBlur">clear</span></span>
               </a>
             </li>
 
@@ -63,7 +84,8 @@
 
                 </label>
                 <span class="badge badge-pill badge-success notification" (click)="clearCloseEyes()"
-                  [ngClass]="{'clear':isClearEyes==true,'not-clear':isClearEyes==false}"><span *ngIf="!isClearEyes">cancel</span><span *ngIf="isClearEyes">clear</span></span>
+                  [ngClass]="{'clear':isClearEyes==true,'not-clear':isClearEyes==false}"><span
+                    *ngIf="!isClearEyes">cancel</span><span *ngIf="isClearEyes">clear</span></span>
 
               </a>
             </li>
@@ -93,16 +115,24 @@
               </a>
             </li>
             <li>
-              <a>
+                <a *ngIf="imagesService.isUploadingGroom==false">
+                    <i class="fa fa-user"
+                      [ngClass]="{'checked': GroomAlone.checked==true, 'not-checked':GroomAlone.checked==false}"></i>
+                    <label class="btn active" (click)="isGroomAlone(GroomAlone.checked)">
+                      <input type="checkbox" name='email1' #GroomAlone><span>Event groom </span>
+                    </label>
+                  </a>
+              <a  *ngIf="imagesService.isUploadingGroom==true">
                 <i class="fa fa-user"
-                  [ngClass]="{'checked': GroomAlone.checked==true, 'not-checked':GroomAlone.checked==false}"></i>
-                <label class="btn active" (click)="isGroomAlone(GroomAlone.checked)">
-                  <input type="checkbox" name='email1' #GroomAlone><span>Event groom </span>
+                  [ngClass]="{'not-checked':GroomAlone.checked==false}"></i>
+                <label class="btn active" >
+                  <input type="checkbox" name='email1' #GroomAlone ><span  data-tooltip="Updating data"
+                  data-tooltip-location="top">Event groom </span>
                 </label>
               </a>
             </li>
             <li>
-              <a>
+              <a *ngIf="imagesService.isUploadingGroom==false">
                 <i class="fa fa-users"
                   [ngClass]="{'checked': GroomContain.checked==true, 'not-checked':GroomContain.checked==false}"></i>
                 <label class="btn active" (click)="isGroomContain(GroomContain.checked)">
@@ -110,6 +140,15 @@
                 </label>
 
               </a>
+              <a *ngIf="imagesService.isUploadingGroom==true">
+                  <i class="fa fa-users"
+                    [ngClass]="{'not-checked':GroomContain.checked==false}"></i>
+                  <label class="btn active" >
+                    <input type="checkbox" name='email1' #GroomContain><span  data-tooltip="Updating data"
+                    data-tooltip-location="top">Contain groom</span>
+                  </label>
+  
+                </a>
             </li>
             <li>
               <a>
@@ -137,22 +176,25 @@
       <!-- sidebar-content  -->
       <div class="sidebar-footer">
         <a>
+          <i class="fa fa-trash"></i>
+          <span class="badge badge-pill badge-warning notification poin black" (click)="showCycle()">Cycle-Bin</span>
+        </a>
+
+        <a>
+          <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
+          <span class="badge badge-pill badge-success notification poin black" (click)="downloadZip()">Download</span>
+        </a>
+        <!-- <a>
           <i class="fa fa-bell"></i>
           <span class="badge badge-pill badge-warning notification">0</span>
         </a>
         <a>
           <i class="fa fa-envelope"></i>
           <span class="badge badge-pill badge-success notification">BETA</span>
-        </a>
-        <!-- <a href="#">
-          <i class="fa fa-cog"></i>
-          <span class="badge-sonar"></span>
         </a> -->
-        <!--  -->
-        <!-- <a href="#">
-          <i class="fa fa-power-off"></i>
-        </a> -->
+
       </div>
+
     </nav>
     <!-- sidebar-wrapper  -->
     <main class="page-content">
@@ -161,3 +203,4 @@
     </main>
     <!-- page-content" -->
   </div>
+  

@@ -12,7 +12,7 @@ import { ImagesService } from 'src/app/services/images.service';
 export class HeaderComponent implements OnInit {
 
   isScroll:boolean=false;
-  constructor(private scrollService:ScrollService,private _http: HttpClient,private imageService:ImagesService) { }
+  constructor(public scrollService:ScrollService,public _http: HttpClient,public imageService:ImagesService) { }
   public get http(): HttpClient {
     return this._http;
   }
@@ -59,5 +59,17 @@ public set http(value: HttpClient) {
   //     behavior: 'smooth'
   //   });
   // }
+  Reset(){
+    if(confirm("Are you sure to reset all yor images? ")) {
+      this.imageService.reset().subscribe((res)=>{
+        if(res.Status==true){
+          this.imageService.imageMain = null;
+          this.imageService.imageTemp = null;
+          this.imageService.urls = null;
+        }
+      });
+    }
+    
+  }
 }
 

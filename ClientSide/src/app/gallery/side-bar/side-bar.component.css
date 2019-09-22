@@ -1,5 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500);
 
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 /* #sideBar{
    /* width: min-content;
     /* left: 100px; */
@@ -220,8 +223,10 @@
   /*----------------sidebar-content----------------*/
   
   .sidebar-content {
-    max-height: calc(100% - 30px);
-    height: calc(100% - 30px);
+    max-height: calc(100% -8vh);
+    height: calc(100% - 8vh);
+    /* border-top: 1px solid #464a52; */
+
     overflow-y: auto;
     position: relative;
     background-color: black;
@@ -299,6 +304,7 @@
   .sidebar-wrapper .sidebar-search > div {
     padding: 10px 20px;
   }
+
   
   /*----------------------sidebar-menu-------------------------*/
   
@@ -381,6 +387,7 @@
   .sidebar-wrapper .sidebar-menu ul li a span.badge {
     float: right;
     margin-top: 8px;
+    cursor: pointer;
     /* margin-left: 5px; */
   }
   
@@ -404,8 +411,10 @@
   .sidebar-footer {
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom:1.5vh;
+    left: -3.5vw;
     display: flex;
+    height: 4vh;
   }
   
   .sidebar-footer > a {
@@ -523,7 +532,9 @@
   .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text,
   .chiller-theme .sidebar-wrapper .sidebar-brand>a,
   .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
-  .chiller-theme .sidebar-footer>a {
+  .chiller-theme .sidebar-footer>a,
+  .chiller-theme .sidebar-footer2>a
+   {
       color: #818896;
   }
   
@@ -566,8 +577,7 @@
   .chiller-theme .sidebar-footer {
       /* background: #1e2229; */
       /* background: #3a3f48; */
-      box-shadow: 0px -1px 5px #282c33;
-      border-top: 1px solid #464a52;
+      /* box-shadow: 0px -1px 5px #282c33; */
   }
   
   .chiller-theme .sidebar-footer>a:first-child {
@@ -605,10 +615,11 @@ button, input, optgroup, select, textarea {
   font-size: inherit;
   line-height: inherit;
   width: 11vw;
+
   }
-  .fa.fa-trash{
+  /* .fa.fa-trash{
     color: maroon;
-  }
+  } */
   .fa fa-download{
     color: maroon;
   }
@@ -720,3 +731,583 @@ button, input, optgroup, select, textarea {
       
         
       }
+      .chiller-theme .sidebar-footer2>a:first-child {
+        border-left: none;
+    }
+    
+    .chiller-theme .sidebar-footer2>a:last-child {
+        border-right: none;
+    }
+    
+      .chiller-theme[_ngcontent-c3] .sidebar-footer2[_ngcontent-c3] {
+        /* box-shadow: 0px -1px 5px #282c33; */
+        /* border-top: 1px solid #464a52; */
+    }
+    
+    .sidebar-footer2[_ngcontent-c3] {
+      width: 100%;
+      bottom: 73.5vh;
+      left: -3vw;
+      display: flex;
+    }
+    
+  .sidebar-footer2 {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+  }
+  
+  .sidebar-footer2 > a {
+    flex-grow: 1;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+  }
+  
+  .sidebar-footer2 > a .notification {
+    position: absolute;
+    top: 0;
+  }
+  .poin {
+   
+    cursor: pointer;
+}
+.sidebar-footer2[_ngcontent-c4] {
+  position: absolute;
+  width: 100%;
+  left: -3vw;
+  bottom: 73.5vh;
+  display: flex;
+}
+.sidebar-search{
+  margin-top: 5vh;
+}
+.filter{
+  
+  margin-top: 6vh;
+}
+.black{
+  background-color:white;
+  color: maroon;
+}
+.marrom{
+  background-color: maroon;
+  color: maroon;
+}
+button[_ngcontent-c4], input[_ngcontent-c4], optgroup[_ngcontent-c4], select[_ngcontent-c4], textarea[_ngcontent-c4] {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 11vw;
+  background-color: gray;
+  color: white;
+}
+button[_ngcontent-c3], input[_ngcontent-c3], optgroup[_ngcontent-c3], select[_ngcontent-c3], textarea[_ngcontent-c3] {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 11vw;
+  background-color: gray;
+  color: white;
+}
+.fa-trash,.fa-download{
+
+}
+/* tooltip */
+/* 
+  You want a simple and fancy tooltip?
+  Just copy all [data-tooltip] blocks:
+*/
+[data-tooltip] {
+  position: relative;
+  z-index: 10;
+}
+
+/* Positioning and visibility settings of the tooltip */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 50%;
+  bottom: calc(100% + 5px);
+  pointer-events: none;
+  transition: 0.2s;
+  will-change: transform;
+}
+
+/* The actual tooltip with a dynamic width */
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  padding: 10px 18px;
+  min-width: 50px;
+  max-width: 300px;
+  width: max-content;
+  width: -moz-max-content;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: rgba(59, 72, 80, 0.9);
+  background-image: linear-gradient(30deg,
+    rgba(59, 72, 80, 0.44),
+    rgba(59, 68, 75, 0.44),
+    rgba(60, 82, 88, 0.44));
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  white-space: pre-wrap;
+  transform: translate(-50%, -5px) scale(0.5);
+}
+
+/* Tooltip arrow */
+[data-tooltip]:after {
+  content: '';
+  border-style: solid;
+  border-width: 5px 5px 0px 5px;
+  border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+  transition-duration: 0s; /* If the mouse leaves the element, 
+                              the transition effects for the 
+                              tooltip arrow are "turned off" */
+  transform-origin: top;   /* Orientation setting for the
+                              slide-down effect */
+  transform: translateX(-50%) scaleY(0);
+}
+
+/* Tooltip becomes visible at hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+/* Scales from 0.5 to 1 -> grow effect */
+[data-tooltip]:hover:before {
+  transition-delay: 0.3s;
+  transform: translate(-50%, -5px) scale(1);
+}
+/* Slide down effect only on mouseenter (NOT on mouseleave) */
+[data-tooltip]:hover:after {
+  transition-delay: 0.5s; /* Starting after the grow effect */
+  transition-duration: 0.2s;
+  transform: translateX(-50%) scaleY(1);
+}
+/*
+  That's it.
+*/
+
+
+
+
+
+
+
+/*
+  If you want some adjustability
+  here are some orientation settings you can use:
+*/
+
+/* LEFT */
+/* Tooltip + arrow */
+[data-tooltip-location="left"]:before,
+[data-tooltip-location="left"]:after {
+  left: auto;
+  right: calc(100% + 5px);
+  bottom: 50%;
+}
+
+/* Tooltip */
+[data-tooltip-location="left"]:before {
+  transform: translate(-5px, 50%) scale(0.5);
+}
+[data-tooltip-location="left"]:hover:before {
+  transform: translate(-5px, 50%) scale(1);
+}
+
+/* Arrow */
+[data-tooltip-location="left"]:after {
+  border-width: 5px 0px 5px 5px;
+  border-color: transparent transparent transparent rgba(55, 64, 70, 0.9);
+  transform-origin: left;
+  transform: translateY(50%) scaleX(0);
+}
+[data-tooltip-location="left"]:hover:after {
+  transform: translateY(50%) scaleX(1);
+}
+
+
+
+/* RIGHT */
+[data-tooltip-location="right"]:before,
+[data-tooltip-location="right"]:after {
+  left: calc(100% + 5px);
+  bottom: 50%;
+}
+
+[data-tooltip-location="right"]:before {
+  transform: translate(5px, 50%) scale(0.5);
+}
+[data-tooltip-location="right"]:hover:before {
+  transform: translate(5px, 50%) scale(1);
+}
+
+[data-tooltip-location="right"]:after {
+  border-width: 5px 5px 5px 0px;
+  border-color: transparent rgba(55, 64, 70, 0.9) transparent transparent;
+  transform-origin: right;
+  transform: translateY(50%) scaleX(0);
+}
+[data-tooltip-location="right"]:hover:after {
+  transform: translateY(50%) scaleX(1);
+}
+
+
+
+/* BOTTOM */
+[data-tooltip-location="bottom"]:before,
+[data-tooltip-location="bottom"]:after {
+  top: calc(100% + 5px);
+  bottom: auto;
+}
+
+[data-tooltip-location="bottom"]:before {
+  transform: translate(-50%, 5px) scale(0.5);
+}
+[data-tooltip-location="bottom"]:hover:before {
+  transform: translate(-50%, 5px) scale(1);
+}
+
+[data-tooltip-location="bottom"]:after {
+  border-width: 0px 5px 5px 5px;
+  border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+  transform-origin: bottom;
+}
+
+
+
+
+
+
+
+
+
+
+
+html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 1.2em;
+  background: linear-gradient(45deg, #243949, #2cacd1, #35eb93);
+  background-size: 120% 120%;
+  animation: moveFocus 5s ease infinite alternate;
+}
+@keyframes moveFocus { 
+  0%   { background-position: 0% 100% }
+  100% { background-position: 100% 0% }
+}
+
+body {
+  background: none;
+}
+
+main {
+  padding: 4%;
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  margin: 0;
+  padding: 0.7rem 1.4rem;
+
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  outline: inherit;
+  text-decoration: none;
+  font-family: Roboto, sans-serif;
+  font-size: 0.7em;
+  background-color: rgba(174, 184, 192, 0.55);
+  color: white;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: background 350ms ease-in-out, 
+              transform 150ms ease;
+}
+button:hover {
+  background-color: #484f56;
+}
+button:active {
+  transform: scale(0.98);
+}
+button:focus {
+  box-shadow: 0 0 2px 2px #298bcf;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+
+.example-elements {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  padding-right: 4%;
+}
+
+.example-elements p {
+  padding: 6px;
+  display: inline-block;
+  margin-bottom: 5%;
+}
+.example-elements p:hover {
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.example-elements a {
+  margin-left: 6px;
+  margin-bottom: calc(5% + 10px);
+  color: #76daff;
+  text-decoration: none;
+}
+.example-elements a:hover {
+  margin-bottom: calc(5% + 9px);
+  border-bottom: 1px solid #76daff;
+}
+
+.example-elements button {
+  margin-bottom: 20px;
+}
+
+.info-wrapper {
+  flex-grow: 8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  padding-left: 6%;
+  border-left: 3px solid #35ea95;
+}
+
+.info-wrapper p {
+  color: rgba(255, 255, 255, 0.69);
+}
+.info-wrapper p {
+  max-width: 600px;
+  text-align: justify;
+}
+
+.info-wrapper .title-question {
+  display: block;
+  color: #fff;
+  font-size: 1.36em;
+  font-weight: 500;
+  padding-bottom: 24px;
+}
+
+
+/* Thumbnail settings */
+@media (max-width: 800px) {
+  html {
+/*     box-shadow: inset 0px -13px 0px -7px #0ebeff; */
+    animation-duration: 0.6s;
+  }
+
+
+  .info-wrapper p:before,
+  .info-wrapper p:after {
+    display: none;
+  }
+  .example-elements {
+    max-width: 150px;
+    font-size: 22px;
+  }
+  .example-elements a, button {
+    display: none;
+  }
+  .example-elements p:before, 
+  .example-elements p:after {
+    visibility: visible;
+    opacity: 1;
+  }
+  .example-elements p:before {
+    content: "Tooltip";
+    font-size: 20px;
+    transform: translate(-50%, -5px) scale(1);
+  }
+  .example-elements p:after {
+    transform: translate(-50%, -1px) scaleY(1);
+  }
+}
+
+
+
+
+      /* bb */
+      *, *:before, *:after {
+        box-sizing: border-box;
+        outline: none;
+        }
+        
+        html {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 16px;
+        font-smooth: auto;
+        font-weight: 300;
+        line-height: 1.5;
+        color: #444;
+        }
+        
+        /* body {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        background-color: #bdc3c7;
+        }
+         */
+        .hover {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 85%;
+        margin-left: 2vw;
+        height: 10vh;
+        background-color: black;
+        /* border: 2px solid 
+        rgb(184, 175, 53); */
+        /* background-color: #4DB6AC;
+        background-color: white; */
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        overflow: hidden;
+        }
+        .hover:before, .hover:after {
+        position: absolute;
+        top: 0;
+        display: flex;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+        transition: 0.25s linear;
+        z-index: 1;
+        }
+        .hover:before {
+        content: '';
+        left: 0;
+        justify-content: flex-end;
+        background-color: black;
+        border-top: 2px solid 
+        rgb(184, 175, 53);
+        border-left: 2px solid 
+        rgb(184, 175, 53);
+        border-bottom: 2px solid 
+        rgb(184, 175, 53);
+
+        /* background-color: rgb(184, 175, 53); */
+        }
+        .hover:after {
+        content: '';
+        right: 0;
+        justify-content: flex-start;
+        background-color: black;
+        border-top: 2px solid 
+
+        rgb(184, 175, 53);
+        border-right: 2px solid 
+        rgb(184, 175, 53);
+        border-bottom: 2px solid 
+        rgb(184, 175, 53);
+
+        /* background-color: #44a69c; */
+        /* background-color: darkgoldenrod;
+        background-color: rgb(184, 175, 53); */
+      
+        }
+        .hover:hover {
+        background-color: #46627f;
+        background-color: maroon;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+        .hover:hover span {
+        opacity: 0;
+        z-index: -3;
+        }
+        .hover:hover:before {
+        opacity: 0.5;
+        transform: translateY(-100%);
+        }
+        .hover:hover:after {
+        opacity: 0.5;
+        transform: translateY(100%);
+        }
+        .hover span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: whitesmoke;
+        /* font-family: 'Fira Mono', monospace; */
+        font-size: 24px;
+        font-weight: 700;
+        opacity: 1;
+        transition: opacity 0.25s;
+        z-index: 2;
+        }
+        .hover .social-link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25%;
+        height: 100%;
+        color: whitesmoke;
+        font-size: 24px;
+        text-decoration: none;
+        transition: 0.25s;
+        }
+        .hover .social-link i {
+        text-shadow: 1px 1px rgba(70, 98, 127, 0.7);
+        transform: scale(1);
+        }
+        .hover .social-link:hover {
+        background-color: rgba(245, 245, 245, 0.1);
+        }
+        .hover .social-link:hover i {
+        animation: bounce 0.4s linear;
+        }
+        
+        @keyframes bounce {
+        40% {
+          transform: scale(1.4);
+        }
+        60% {
+          transform: scale(0.8);
+        }
+        80% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+        }
+        
