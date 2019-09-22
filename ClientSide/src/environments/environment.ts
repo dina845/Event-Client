@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseRoute: "http://localhost:50637/WebApi/"
+  baseRoute: "http://35.239.144.95/WebApi/"
 };
 
 /*
