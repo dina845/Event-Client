@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingComponent } from './gallery/loading/loading.component';
+
 @NgModule({
   declarations: [
     AppComponent,

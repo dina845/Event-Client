@@ -79,9 +79,10 @@ export class ImagesService {
     });
 
   }
-  InsertImages(formData, sizeFiles): Observable<WebResult<Image[]>> {
+  InsertImages(base64arr, sizeFiles): Observable<WebResult<Image[]>> {
+    //const headers= new HttpHeaders({'Content-Type':'application/json'});
     this.sizeUploadFiles = sizeFiles;
-    return this.http.post<WebResult<Image[]>>(environment.baseRoute + 'Image/InsertImages', formData);
+    return this.http.post<WebResult<Image[]>>(environment.baseRoute + 'Image/InsertImages',base64arr);
 
   }
   hasGroom() {
