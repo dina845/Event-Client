@@ -1310,4 +1310,40 @@ button::-moz-focus-inner {
           transform: scale(1);
         }
         }
-        
+.iconfooter{
+  width: 7vw;
+          height: 6vh;
+}
+.iconfooter:after {
+  content: '';
+  right: 0;
+  justify-content: flex-start;
+  background-color: black;
+  border-top: 2px solid 
+
+  maroon;
+  border-right: 2px solid 
+  maroon;
+  /* rgb(184, 175, 53); */
+  border-bottom: 2px solid 
+maroon;
+
+  /* background-color: #44a69c; */
+  /* background-color: darkgoldenrod;
+  background-color: rgb(184, 175, 53); */
+
+  }
+  .iconfooter:before {
+    content: '';
+    left: 0;
+    justify-content: flex-end;
+    background-color: black;
+    border-top: 2px solid 
+    maroon;
+    border-left: 2px solid 
+    maroon;
+    border-bottom: 2px solid 
+    maroon;
+
+    /* background-color: rgb(184, 175, 53); */
+    }
