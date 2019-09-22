@@ -4,17 +4,10 @@
 
 export const environment = {
   production: false,
-<<<<<<< HEAD
-  //baseRoute: "http://35.239.144.95/WebApi/",
-  // baseRoute:"http://34.90.8.20/WebApi/"
-
-  baseRoute: "http://localhost:50637/WebApi/",
-=======
   // baseRoute: "http://35.239.144.95/WebApi/",
   // baseRoute:"http://34.90.8.20/WebApi/"
   baseRoute: "http://localhost:50637/WebApi/",
   // baseRoute: "http://35.239.144.95/WebApi/",
->>>>>>> 4d9ad06f4de47fec246be2489f854d5cfd068772
   domain : "/",
   assets:"../../.."
 };
