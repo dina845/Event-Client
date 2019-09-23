@@ -33,8 +33,14 @@
       <!-- <li><a href="#portfolio"style="text-decoration:none"><i class="icon-thumbs-up-alt"></i>Portfolio</a></li> -->
       <!-- <li><a href="#services" style="text-decoration:none"><i class="icon-gear"></i>Services</a></li> -->
       <li><a [routerLink]="['/gallery']" style="text-decoration:none"><i class="icon-picture"></i>Gallery</a></li>
-      <!-- <li><a href="#contact" style="text-decoration:none"><i class="icon-phone"></i><i class="material-icons"
-            id="person">person</i></a></li> -->
+      <a>
+        <i class="fa fa-trash" ></i>
+        <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
+      </a>
+
+      <li><a href="https://github.com/MalkaGreenwald/Event-Client" style="text-decoration:none"><i class="fab fa-github"
+            id="person"></i></a>
+          </li>
       <li>
         <a>
           <button class="btn btn-default" mwlConfirmationPopover 
