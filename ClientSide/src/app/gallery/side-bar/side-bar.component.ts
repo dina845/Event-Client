@@ -355,7 +355,7 @@ this.gotoBotton();
 
     data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
   }
- 
+ counter:number=0;
   handleFileInput(files: FileList) {
     this.Files = files;
     let i;
@@ -374,9 +374,10 @@ this.gotoBotton();
           // this.urls.push(this.currentUrl);
           debugger;
           this.base64arr.push(event.target.result);
-          this.base64arr.push(this.fileToUpload.name);
+          this.base64arr.push(files[this.counter].name);
+          this.counter++;
           console.log(event.target.result);
-          if (i == files.length)
+          if (this.counter == files.length)
           this.InsertImages(this.base64arr, files.length);//send the images' url to the server = in order to init the table  
 
         }

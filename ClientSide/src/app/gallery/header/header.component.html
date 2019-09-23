@@ -33,34 +33,35 @@
       <!-- <li><a href="#portfolio"style="text-decoration:none"><i class="icon-thumbs-up-alt"></i>Portfolio</a></li> -->
       <!-- <li><a href="#services" style="text-decoration:none"><i class="icon-gear"></i>Services</a></li> -->
       <li><a [routerLink]="['/gallery']" style="text-decoration:none"><i class="icon-picture"></i>Gallery</a></li>
-      <a>
-        <i class="fa fa-trash" ></i>
-        <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
-      </a>
+     <!-- <div > -->
+      <li *ngIf="imageService.isHome==false" > <a>
+        <i class="fa fa-trash" (click)="showCycle()"></i>
+      </a></li>
+     
+    <!-- </div> -->
 
       <li><a href="https://github.com/MalkaGreenwald/Event-Client" style="text-decoration:none"><i class="fab fa-github"
             id="person"></i></a>
           </li>
-      <li>
+      <!-- <li> -->
         
 
       <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenterdelete">
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenterdelete">
     <i class="matirial-icon">delete</i>
-  </button>
+  </button> -->
   
   <!-- Modal -->
 
-        <a>
+        <!-- <a>
           <button class="btn btn-default" mwlConfirmationPopover 
             [popoverMessage]="popoverMessage" placement="left" (confirm)="Reset()"
             (cancel)="cancelClicked = true" confirmButtonType="danger" [appendToBody]="true" 
             [placement]="placement">
             Reset
           </button> 
-          <!-- <input type="button" class="btn btn-primary" value="Reset" (click)="Reset()" style="display: inline-block"> -->
-        </a>
-      </lyyi>
+        </a> -->
+      <!-- </li> -->
     </ul>
   </nav>
 

@@ -1206,6 +1206,7 @@ button::-moz-focus-inner {
         margin-top: 3vh;
         height: 10vh;
         background-color: black;
+        top: 2vh;
         /* border: 2px solid 
         rgb(184, 175, 53); */
         /* background-color: #4DB6AC;
