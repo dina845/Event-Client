@@ -9,6 +9,7 @@ import { Url } from 'src/app/services/url';
 import { HttpClient } from "@angular/common/http";
 import { forkJoin } from "rxjs";
 import * as JSZip from 'jszip';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-side-bar',
@@ -25,10 +26,20 @@ export class SideBarComponent implements OnInit {
   filterImage: FilterImage = new FilterImage();
 
   getRequests = [];
+  selected: boolean = false;
+  selectedGroom: boolean = false;
+  fileToUpload: File = null;
+  currentUrl: Url;
+  Files: FileList;
+  base64arr: string[] = new Array();
+  numImage: number = 1;
+  img = "img.jpg";
+
   // m: boolean;
   // imageMain: Image[];
   // imageTemp: Image[];
-  constructor(public imagesService: ImagesService, public cdRef: ChangeDetectorRef, public _http: HttpClient) { }
+  constructor(public imagesService: ImagesService, public cdRef: ChangeDetectorRef, public _http: HttpClient,
+    public toastr: ToastrService) { }
 
   ngOnInit() {
     // this.imagesService.getImages().subscribe(res => {
@@ -341,5 +352,78 @@ this.gotoBotton();
 
     data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
   }
+ 
+  handleFileInput(files: FileList) {
+    this.Files = files;
+    let i;
+    if (files && files[0]) {
+      let _formData = new FormData();
+      for (i = 0; i < files.length; i++) {
+        this.fileToUpload = files.item(i);
+        _formData.append("file", this.fileToUpload);
+        var reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.currentUrl = new Url();
+          this.currentUrl.urlImage = event.target.result;
+          this.currentUrl.nameImage = this.fileToUpload.name;
+          this.currentUrl.num = "image-" + this.numImage;
+          this.numImage++;
+          // this.urls.push(this.currentUrl);
+          debugger;
+          this.base64arr.push(event.target.result);
+          this.base64arr.push(this.fileToUpload.name);
+          console.log(event.target.result);
+        }
+        reader.readAsDataURL(files[i]);
+        if (i == files.length)
+          this.InsertImages(this.base64arr, files.length);//send the images' url to the server = in order to init the table  
+
+        //console.log(JSON.stringify(_formData));
+      }
+
+
+      // this.downZip(files, files.length);
+    }
+    this.selected = true;
+  } 
+  InsertImages(base64arr, lengthFiles) {
+    debugger;
+    this.imagesService.gotImages = false;
+    this.imagesService.InsertImages(base64arr, lengthFiles).subscribe((res) => {
+      debugger;
+      if (res.Status == false) {
+        console.log(res.Message);
+        this.toastr.error(res.Message);
+      }
+      else {
+        this.imagesService.imageMain = res.Value;
+        this.imagesService.imageTemp = res.Value;
+        this.imagesService.maxNumPerson();
+        this.imagesService.gotImages = true;
+        this.imagesService.urls = new Array();
+        for (var i = 0; i < this.imagesService.imageTemp.length; i++) {
+          this.imagesService.urls.push(this.imagesService.imageTemp[i].url);
+        }
+      }
+
+      // this.urls=this.imagesService.imageTemp["url"];
+
+    });
+  }
   
+  SelectGroom() {
+    this.imagesService.selectedGroom = true;
+    this.imagesService.isUploadingGroom = true;
+  }
+  Reset(){
+    if(confirm("Are you sure to reset all yor images? ")) {
+      this.imagesService.reset().subscribe((res)=>{
+        if(res.Status==true){
+          this.imagesService.imageMain = null;
+          this.imagesService.imageTemp = null;
+          this.imagesService.urls = null;
+        }
+      });
+    }
+  }
 }

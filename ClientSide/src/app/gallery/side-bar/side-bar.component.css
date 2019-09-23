@@ -515,8 +515,11 @@ input[type="number"]::-webkit-inner-spin-button {
       box-shadow: 0px -1px 5px #282c33;
       background: #1e2229;
 box-shadow: 0px -1px 5px #282c33;
-border-top: 1px solid #464a52
+border-top: 1px solid #464a52;
       /* background: black; */
+      /* background: #31353D; */
+      /* background: black; */
+      background: #0e1719;
   }
   
   .chiller-theme .sidebar-wrapper .sidebar-header,
@@ -584,6 +587,10 @@ border-top: 1px solid #464a52
       background: #1e2229;
       /* background: #3a3f48; */
       box-shadow: 2px -1px 5px #282c33;
+      /* box-shadow: 0px -1px 5px #282c33; */
+      background: #1e2229;
+      box-shadow: 0px -1px 5px #282c33;
+      border-top: 1px solid #464a52;
   }
   
   .chiller-theme .sidebar-footer>a:first-child {
@@ -795,7 +802,7 @@ border-top: 1px solid #464a52;
 }
 .filter{
   
-  margin-top: 6vh;
+  margin-top: 2vh;
 }
 .black{
   background-color:white;
@@ -1356,3 +1363,79 @@ maroon;
 
     /* background-color: rgb(184, 175, 53); */
     }
+    .chiller-theme[_ngcontent-c6] .sidebar-footer[_ngcontent-c6] {
+      background: #1e2229;
+      box-shadow: 0px -1px 5px #282c33;
+      border-top: 1px solid #464a52;
+    }
+    /* uploadfile */
+    
+
+ input[type=file] {
+	font-size: 40px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	/* width: 10vw; */
+	/* display: none; */
+
+  }
+#file-icon{
+	/* border: 2px solid gray; */
+	color: white;
+	/* background-color: white; */
+	/* padding: 8px 20px;
+	border-radius: 8px; */
+	/* font-size: 20px; */
+	font-weight: bold;
+  font-size: 30px;
+	/* display: block; */
+	cursor: pointer;
+}
+
+/* .icon{
+	cursor: pointer;
+	color: maroon;
+	font-size: 1.5rem;
+
+	position: relative;
+	border-radius: 50%;
+	padding: 5px;
+	margin: 3px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
+} */
+
+.upload-btn-wrapper {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	cursor: pointer;
+
+  }
+  
+  /* .btn {
+
+	color: gray;
+	background-color: white;
+	padding: 8px 20px;
+
+	font-size: 20px;
+	font-weight: bold;	width: 50px;
+	height: 50px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+  } */
+  
+  .upload-btn-wrapper input[type=file] {
+	font-size: 50px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	cursor: pointer;
+	/* color: aqua;
+	z-index: 100;
+
+	opacity: 0; */
+  }
