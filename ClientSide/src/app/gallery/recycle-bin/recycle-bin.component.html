@@ -4,7 +4,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 
-<div *ngIf="imageService.recycleBin!=null &&imageService.recycleBin.length>0&&imageService.showCycle==true" id="reBin">
+<div *ngIf="imageService.recycleBin!=null &&imageService.recycleBin.length>0" id="reBin" style="width:200px;height: 300px;">
     <!-- <span class="title1" style="text-align: center">---------------------Recycle-bin--------------------</span> -->
     <div class="container-fluid">
         <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
@@ -14,8 +14,8 @@
                     <div class="panel panel-default">
                         <div class="panel-thumbnail">
                             <a title="image 1" class="thumb">
-                                <img class="img-fluid mx-auto d-block" src="{{imageService.recycleBin[0].url}}"
-                                    alt="slide 1">
+                                <img  src="{{imageService.recycleBin[0].url}}"
+                                    alt="slide 1" width="100%" height="auto">
                                 <i class="material-icons" (click)="undoDelete(imageService.recycleBin[0])">
                                     done
                                 </i>
@@ -27,7 +27,7 @@
                     <div class="panel panel-default">
                         <div class="panel-thumbnail">
                             <a title="image {{item}}" class="thumb">
-                                <img class="img-fluid mx-auto d-block" src="{{imageService.recycleBin[i].url}}"
+                                <img width="100%" height="auto" src="{{imageService.recycleBin[i].url}}"
                                     alt="slide 2">
                                 <i class="material-icons" (click)="undoDelete(imageService.recycleBin[i])">
                                     done

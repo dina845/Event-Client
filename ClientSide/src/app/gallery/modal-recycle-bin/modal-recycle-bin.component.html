@@ -7,13 +7,14 @@
 
 
 <!--Start of Modal -->
-<div class="modal" *ngIf="service.showCycle==true">
+<div class="wrapper">
+  
   <input id="modal__trigger" type="checkbox" />
-  <label for="modal__trigger"> <i class="fa fa-trash"></i></label>
-  <div class="modal__overlay" role="dialog" aria-labelledby="modal__title" aria-describedby="modal_desc">
+  <label for="modal__trigger"> <i class="fa fa-github"></i></label>
+  <div class="modal__overlay" role="dialog">
     <div class="modal__wrap">
       <label for="modal__trigger" (click)="showCycle()">&#10006;</label>
-      <h2 id="modal__title">recycle-bin</h2>
+      <h2 id="modal__title">RECYCLE BIN</h2>
       <app-recycle-bin></app-recycle-bin>
       <p></p>
     </div>

@@ -1,70 +1,54 @@
 <div style="background-color: white;width:100%;height:15vh;"></div>
 
 <div class="row justify-content-between" *ngIf="imagesService.isLoading==false">
-    <div class="col-3">
+  <div class="col-3">
 
-        <app-side-bar id="side-bar" style="z-index:2;  position: fixed;"></app-side-bar>
+    <app-side-bar id="side-bar" style="z-index:2;  position: fixed;"></app-side-bar>
+  </div>
+  <!-- <app-modal-recycle-bin></app-modal-recycle-bin> -->
+
+  <div class="col-9">
+    <div *ngIf="imagesService.gotImages==false" class="col-10">
+      <div style="background-color: white;width:100%;height:25vh;"></div>
+      <app-progress-bar></app-progress-bar>
     </div>
-    <!-- <app-modal-recycle-bin></app-modal-recycle-bin> -->
-
-    <div class="col-9">
-        <div *ngIf="imagesService.gotImages==false" class="col-10">
-            <div style="background-color: white;width:100%;height:25vh;"></div>
-            <app-progress-bar></app-progress-bar>
-        </div>
-        <div *ngIf="imagesService.gotImages==true">
-        <!-- <div *ngIf="imagesService.gotImages==true&& imagesService.showCycle==false"> -->
-            <app-images style="z-index: 1;margin-left: 25vw;"></app-images>
-        </div>
-        <!-- <div *ngIf="imagesService.gotImages==true"> -->
-        <div >
-<!-- Button trigger modal -->
-
-            <!--End of Wrap -->
-
-            <app-modal-recycle-bin *ngIf="imagesService.gotImages==true&& imagesService.showCycle==true" ></app-modal-recycle-bin>
-
-
-            <!-- <app-recycle-bin id="bin"></app-recycle-bin> -->
-        </div>
-
-
-
+    <div *ngIf="imagesService.gotImages==true">
+      <!-- <div *ngIf="imagesService.gotImages==true&& imagesService.showCycle==false"> -->
+      <app-images style="z-index: 1;margin-left: 25vw;"></app-images>
     </div>
+    <!-- <div *ngIf="imagesService.gotImages==true"> -->
+    <div>
+      <!-- Button trigger modal -->
+
+      <!--End of Wrap -->
+
+
+
+      <!-- <app-recycle-bin id="bin"></app-recycle-bin> -->
+    </div>
+
+
+
+  </div>
 </div>
 
-<div class="	modal fade "id="exampleModalCenterdelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class=" modal-xl" role="document" style="width: 90vw">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="#exampleModalCenterdelete" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <app-recycle-bin></app-recycle-bin>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-               asddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd<br>
-            </div>
-            <div class="modal-footer">
-              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-          
-            </div>
-          </div>
-        </div>
+
+<div class="modal fade" id="recycleModalCenter" tabindex="-1" role="dialog" aria-labelledby="recycleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered"  role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="recycleModalLongTitle">RECYCLE BIN</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <app-recycle-bin></app-recycle-bin>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
