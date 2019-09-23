@@ -9,24 +9,24 @@
           <a href="#">filters</a>
 
         </div>
-   
+
         <!-- <div class="sidebar-header">
 
         </div> -->
         <!-- <div class="sidebar-search"> -->
-          
-          <!-- plus -->
-         
-         
-          <!-- <div class="sidebar-footer2">
+
+        <!-- plus -->
+
+
+        <!-- <div class="sidebar-footer2">
                   <i class="fa fa-user"></i> -->
 
-          <!-- <div class="upload-btn-wrapper" style="float: right">
+        <!-- <div class="upload-btn-wrapper" style="float: right">
                       <i class="fa fa-cloud-upload" id="file-icon" for="upload" title="upload the event's photos"></i>
                       <input type='file' id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
                     </div> -->
-          <!-- <a href="#fake" class="enter"> -->
-          <!-- <a>
+        <!-- <a href="#fake" class="enter"> -->
+        <!-- <a>
                       <i class="fa fa-trash" ></i>
                       <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
                     </a>
@@ -35,25 +35,25 @@
                       <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
                       <span class="badge badge-pill badge-success notification poin" (click)="downloadZip()">Download-Zip</span>
                     </a> -->
-          <!-- <a>
+        <!-- <a>
                       <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
                       <span class="badge badge-pill badge-warning notification" (click)="downloadZip()">Download-Zip</span>
                     </a> -->
-          <!-- <span class="group-text" (click)="downloadZip()">
+        <!-- <span class="group-text" (click)="downloadZip()">
                   download zip
                   <i (click)="downloadZip()" class="fa fa-download" id="downloadZip" data-toggle="tooltip"
                     data-placement="top" title="download all the images"></i>
                 </span> -->
-          <!-- </a> -->
+        <!-- </a> -->
 
-          <!-- </div> -->
+        <!-- </div> -->
 
         <!-- </div>‏ -->
         <!-- <a href="#fake" class="enter">ENTER</a> -->
         <!-- sidebar-search  -->
         
         <div class="sidebar-menu">
-         
+
           <ul>
               <div class="hover" style="    margin-top: 10vh;"><span style="">
               <i class="material-icons" style=" color:  rgb(184, 175, 53)
@@ -124,19 +124,18 @@
               </a>
             </li>
             <li>
-                <a *ngIf="imagesService.isUploadingGroom==false">
-                    <i class="fa fa-user"
-                      [ngClass]="{'checked': GroomAlone.checked==true, 'not-checked':GroomAlone.checked==false}"></i>
-                    <label class="btn active" (click)="isGroomAlone(GroomAlone.checked)">
-                      <input type="checkbox" name='email1' #GroomAlone><span>Event groom </span>
-                    </label>
-                  </a>
-              <a  *ngIf="imagesService.isUploadingGroom==true">
+              <a *ngIf="imagesService.isUploadingGroom==false">
                 <i class="fa fa-user"
-                  [ngClass]="{'not-checked':GroomAlone.checked==false}"></i>
-                <label class="btn active" >
-                  <input type="checkbox" name='email1' #GroomAlone ><span  data-tooltip="Updating data"
-                  data-tooltip-location="top">Event groom </span>
+                  [ngClass]="{'checked': GroomAlone.checked==true, 'not-checked':GroomAlone.checked==false}"></i>
+                <label class="btn active" (click)="isGroomAlone(GroomAlone.checked)">
+                  <input type="checkbox" name='email1' #GroomAlone><span>Event groom </span>
+                </label>
+              </a>
+              <a *ngIf="imagesService.isUploadingGroom==true">
+                <i class="fa fa-user" [ngClass]="{'not-checked':GroomAlone.checked==false}"></i>
+                <label class="btn active">
+                  <input type="checkbox" name='email1' #GroomAlone><span data-tooltip="Updating data"
+                    data-tooltip-location="top">Event groom </span>
                 </label>
               </a>
             </li>
@@ -150,14 +149,13 @@
 
               </a>
               <a *ngIf="imagesService.isUploadingGroom==true">
-                  <i class="fa fa-users"
-                    [ngClass]="{'not-checked':GroomContain.checked==false}"></i>
-                  <label class="btn active" >
-                    <input type="checkbox" name='email1' #GroomContain><span  data-tooltip="Updating data"
+                <i class="fa fa-users" [ngClass]="{'not-checked':GroomContain.checked==false}"></i>
+                <label class="btn active">
+                  <input type="checkbox" name='email1' #GroomContain><span data-tooltip="Updating data"
                     data-tooltip-location="top">Contain groom</span>
-                  </label>
-  
-                </a>
+                </label>
+
+              </a>
             </li>
             <li>
               <a>
@@ -235,4 +233,3 @@
     </main>
     <!-- page-content" -->
   </div>
-  

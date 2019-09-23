@@ -21,6 +21,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingComponent } from './gallery/loading/loading.component';
+import { Component } from '@angular/core';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,9 @@ import { LoadingComponent } from './gallery/loading/loading.component';
         timeOut: 5000,
         extendedTimeOut: 1500,
         enableHtml: true
+      }),
+      ConfirmationPopoverModule.forRoot({
+        confirmButtonType: 'danger' // set defaults here
       })
     // ,NgxPageScrollCoreModule,
 

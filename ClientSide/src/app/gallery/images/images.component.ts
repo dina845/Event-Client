@@ -60,10 +60,11 @@ export class ImagesComponent implements OnInit {
           this.base64arr.push(event.target.result);
           this.base64arr.push(this.fileToUpload.name);
           console.log(event.target.result);
+          if (i == files.length)
+            this.InsertImages(this.base64arr, files.length);//send the images' url to the server = in order to init the table  
+
         }
         reader.readAsDataURL(files[i]);
-        if (i == files.length)
-          this.InsertImages(this.base64arr, files.length);//send the images' url to the server = in order to init the table  
 
         //console.log(JSON.stringify(_formData));
       }
