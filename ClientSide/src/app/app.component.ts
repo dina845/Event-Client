@@ -32,7 +32,7 @@ export class AppComponent {
   };
 
   getRequests = [];
-  constructor(private _http: HttpClient,private service:ImagesService){}
+  constructor(public _http: HttpClient,public service:ImagesService){}
   download() {
   var data:string[]=[""];
       for (let index = 0; index < this.service.imageTemp.length; index++) {

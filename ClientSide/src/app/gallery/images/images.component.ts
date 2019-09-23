@@ -9,7 +9,7 @@ import { Url } from 'src/app/services/url';
 import { ToastrService } from 'ngx-toastr';
 // import { PageScrollService } from 'ngx-page-scroll-core';
 // import { DOCUMENT } from '@angular/common';
-import {Injectable, ApplicationRef } from '@angular/core';
+import { Injectable, ApplicationRef } from '@angular/core';
 
 @Component({
   selector: 'app-images',
@@ -25,13 +25,14 @@ export class ImagesComponent implements OnInit {
   //   this._http = value;
   // }
   constructor(public _http: HttpClient, public imagesService: ImagesService,
-    public cdRef: ChangeDetectorRef,public toastr:ToastrService) { }
+    public cdRef: ChangeDetectorRef, public toastr: ToastrService) { }
   public num = [1, 2, 3, 4, 5];
   selected: boolean = false;
   selectedGroom: boolean = false;
   fileToUpload: File = null;
   currentUrl: Url;
   Files: FileList;
+  base64arr: string[] = new Array();
   numImage: number = 1;
   img = "img.jpg";
   getRequests = [];
@@ -41,9 +42,10 @@ export class ImagesComponent implements OnInit {
 
   handleFileInput(files: FileList) {
     this.Files = files;
+    let i;
     if (files && files[0]) {
       let _formData = new FormData();
-      for (let i = 0; i < files.length; i++) {
+      for (i = 0; i < files.length; i++) {
         this.fileToUpload = files.item(i);
         _formData.append("file", this.fileToUpload);
         var reader = new FileReader();
@@ -55,23 +57,28 @@ export class ImagesComponent implements OnInit {
           this.numImage++;
           // this.urls.push(this.currentUrl);
           debugger;
-          console.log(event.target.result);
+          this.base64arr.push(event.target.result);
+          this.base64arr.push(this.fileToUpload.name);
+            // console.log(event.target.result);
+          if (i == files.length)
+          this.InsertImages(this.base64arr, files.length);//send the images' url to the server = in order to init the table  
+
         }
         reader.readAsDataURL(files[i]);
+       
         //console.log(JSON.stringify(_formData));
       }
 
 
       // this.downZip(files, files.length);
-      this.InsertImages(_formData, files.length);//send the images' url to the server = in order to init the table
     }
     this.selected = true;
   }
 
-  InsertImages(_formData, lengthFiles) {
+  InsertImages(base64arr, lengthFiles) {
     debugger;
     this.imagesService.gotImages = false;
-    this.imagesService.InsertImages(_formData, lengthFiles).subscribe((res) => {
+    this.imagesService.InsertImages(base64arr, lengthFiles).subscribe((res) => {
       debugger;
       if (res.Status == false) {
         console.log(res.Message);
@@ -96,17 +103,9 @@ export class ImagesComponent implements OnInit {
 
   SelectGroom() {
     this.imagesService.selectedGroom = true;
-    this.imagesService.isUploadingGroom=true;
+    this.imagesService.isUploadingGroom = true;
   }
-  Reset(){
-    this.imagesService.reset().subscribe((res)=>{
-      if(res.Status==true){
-        this.imagesService.imageMain = null;
-        this.imagesService.imageTemp = null;
-        this.imagesService.urls = null;
-      }
-    });
-  }
+
 
   // DeleteImg(url) {
   //   debugger;
