@@ -51,11 +51,19 @@
         <!-- </div>‏ -->
         <!-- <a href="#fake" class="enter">ENTER</a> -->
         <!-- sidebar-search  -->
+        
         <div class="sidebar-menu">
          
           <ul>
-              <div class="hover" style="    margin-top: 10vh;"><span style=""><i class="material-icons" style=" color:  rgb(184, 175, 53)
-                ;font-size:30px; animation: swing ease-in-out 0.6s 30000 ;">add</i></span><a class="social-link" href="https://twitter.com/twitter" target="_blank"><i class="material-icons">backup</i></a><a class="social-link" href="https://codepen.io/joshuaward/" target="_blank"><i class="fab fa-codepen"></i></a><a class="social-link" href="https://www.instagram.com/joshuaward/" target="_blank"><i class="fab fa-instagram"></i></a><a class="social-link" href="https://github.com/joshuaward" target="_blank"><i class="fab fa-github"></i></a>
+              <div class="hover" style="    margin-top: 10vh;"><span style="">
+              <i class="material-icons" style=" color:  rgb(184, 175, 53)
+                ;font-size:30px; animation: swing ease-in-out 0.6s 30000 ;">add</i></span>
+                <a class="social-link" target="_blank"><i id="file-icon" for="upload" class="material-icons">backup</i><input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)"
+                  multiple base-sixty-four-input>
+                </a>
+                <a class="social-link"  target="_blank" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-user"></i></a>
+                <a class="social-link" target="_blank" (click)="Reset()"><i class="material-icons">cancel</i></a>
+                <a class="social-link" href="https://github.com/MalkaGreenwald/Event-Client" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
               
             <!-- <input type="number" [min]="0" [max]="imagesService.numPersonTemp" #numPerson placeholder="Enter number of people in image" (change)="numPerson(numPerson)"> -->
