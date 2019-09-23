@@ -34,7 +34,10 @@ export class SideBarComponent implements OnInit {
   base64arr: string[] = new Array();
   numImage: number = 1;
   img = "img.jpg";
-
+  public popoverMessage: string = 'Are you sure you want to reset your album?';
+  public confirmClicked: boolean = false;
+  public cancelClicked: boolean = false;
+  public placement: string = 'bottom';
   // m: boolean;
   // imageMain: Image[];
   // imageTemp: Image[];
@@ -373,11 +376,12 @@ this.gotoBotton();
           this.base64arr.push(event.target.result);
           this.base64arr.push(this.fileToUpload.name);
           console.log(event.target.result);
-        }
-        reader.readAsDataURL(files[i]);
-        if (i == files.length)
+          if (i == files.length)
           this.InsertImages(this.base64arr, files.length);//send the images' url to the server = in order to init the table  
 
+        }
+        reader.readAsDataURL(files[i]);
+ 
         //console.log(JSON.stringify(_formData));
       }
 
@@ -416,7 +420,6 @@ this.gotoBotton();
     this.imagesService.isUploadingGroom = true;
   }
   Reset(){
-    if(confirm("Are you sure to reset all yor images? ")) {
       this.imagesService.reset().subscribe((res)=>{
         if(res.Status==true){
           this.imagesService.imageMain = null;
@@ -424,6 +427,6 @@ this.gotoBotton();
           this.imagesService.urls = null;
         }
       });
-    }
+   
   }
 }

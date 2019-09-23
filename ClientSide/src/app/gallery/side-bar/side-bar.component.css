@@ -221,8 +221,8 @@
   /*----------------sidebar-content----------------*/
   
   .sidebar-content {
-    max-height: calc(100% -8vh);
-    height: calc(100% - 8vh);
+    max-height: calc(100% -6vh);
+    height: calc(100% - 6vh);
     /* border-top: 1px solid #464a52; */
 
     overflow-y: auto;
@@ -408,7 +408,7 @@
   
   .sidebar-footer {
     position: absolute;
-    width: 100%;
+    width: 118%;
     bottom:1.5vh;
     left: -3.5vw;
     display: flex;
@@ -421,6 +421,7 @@
     height: 30px;
     line-height: 30px;
     position: relative;
+    margin-top: 1vh;
   }
   
   .sidebar-footer > a .notification {
@@ -736,7 +737,7 @@ button, input, optgroup, select, textarea {
       margin-left: 0;
       }
       .not-clear{
-      background-color:yellow;
+      background-color:rgb(184, 175, 53);;
       color: #282c33;
       margin-left: 0;
       
@@ -1200,6 +1201,7 @@ button::-moz-focus-inner {
         justify-content: center;
         width: 85%;
         margin-left: 1.5vw;
+        margin-top: 3vh;
         height: 10vh;
         background-color: black;
         /* border: 2px solid 
@@ -1437,3 +1439,16 @@ maroon;
 
 	opacity: 0; */
   }
+  .btn-danger {
+    color: #fff;
+    background-color: maroon;
+    border-color: maroon;
+}
+/* .sidebar-footer[_ngcontent-c4] > a[_ngcontent-c4] {
+  flex-grow: 1;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  position: relative;
+  margin-top: 1vh;
+} */

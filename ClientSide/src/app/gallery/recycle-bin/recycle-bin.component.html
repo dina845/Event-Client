@@ -14,10 +14,11 @@
                     <div class="panel panel-default">
                         <div class="panel-thumbnail">
                             <a title="image 1" class="thumb">
-                                <figure><img class="img-fluid mx-auto d-block" src="{{imageService.recycleBin[0].url}}"
-                                    alt="slide 1"></figure>
-                                <i class="material-icons" (click)="undoDelete(imageService.recycleBin[0])">
-                                    done
+                                <img class="img-fluid mx-auto d-block" src="{{imageService.recycleBin[0].url}}"
+                                    alt="slide 1" width="100%" height="auto">
+                                <i title="Undo deletion" class="material-icons" (click)="undoDelete(imageService.recycleBin[0])">
+                                        <!-- refresh -->
+                                        arrow_upward
                                 </i>
                             </a>
                         </div>
@@ -27,10 +28,10 @@
                     <div class="panel panel-default">
                         <div class="panel-thumbnail">
                             <a title="image {{item}}" class="thumb">
-                                <figure><img class="img-fluid mx-auto d-block" src="{{imageService.recycleBin[i].url}}"
-                                    alt="slide 2"></figure>
+                                <img class="img-fluid mx-auto d-block" src="{{imageService.recycleBin[i].url}}"
+                                    alt="slide 2" width="100%" height="auto">
                                 <i class="material-icons" (click)="undoDelete(imageService.recycleBin[i])">
-                                    done
+                                        arrow_upward
                                 </i>
                             </a>
                         </div>

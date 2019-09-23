@@ -4,14 +4,17 @@
   <a href="#" id="logo" style="padding-left: 5vw;padding-bottom:0%">
 
     <div *ngIf="imageService.isHome==false">
-      <img src="https://storage.googleapis.com/assetstakeapeek/logo-take.png" class="logoRegular" style="width: 7vw;height: auto;cursor: pointer;">
+      <img src="https://storage.googleapis.com/assetstakeapeek/logo-take.png" class="logoRegular"
+        style="width: 7vw;height: auto;cursor: pointer;">
     </div>
     <div *ngIf="imageService.isHome==true">
       <div *ngIf="isScroll==true">
-        <img src=".https://storage.googleapis.com/assetstakeapeek/logo-take.png" class="logoRegular" style="width: 7vw;height: auto;cursor: pointer;">
+        <img src=".https://storage.googleapis.com/assetstakeapeek/logo-take.png" class="logoRegular"
+          style="width: 7vw;height: auto;cursor: pointer;">
       </div>
       <div *ngIf="isScroll==false">
-        <img src="https://storage.googleapis.com/assetstakeapeek/logo-take.png" class="logoBig" style="width: 12vw;height: auto;cursor: pointer;">
+        <img src="https://storage.googleapis.com/assetstakeapeek/logo-take.png" class="logoBig"
+          style="width: 12vw;height: auto;cursor: pointer;">
       </div>
     </div>
   </a>
@@ -34,25 +37,18 @@
       <!-- <li><a href="#portfolio"style="text-decoration:none"><i class="icon-thumbs-up-alt"></i>Portfolio</a></li> -->
       <!-- <li><a href="#services" style="text-decoration:none"><i class="icon-gear"></i>Services</a></li> -->
       <li><a [routerLink]="['/gallery']" style="text-decoration:none"><i class="icon-picture"></i>Gallery</a></li>
-      <!-- <li><a href="#contact" style="text-decoration:none"><i class="icon-phone"></i><i class="material-icons"
-            id="person">person</i></a></li> -->
-      <li>
-        
 
-      <!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#recycleModalCenter">
-    <i class="matirial-icon">delete</i>
-  </button>
-   -->
-  <!-- Modal -->
+      <li><a href="https://github.com/MalkaGreenwald/Event-Client" style="text-decoration:none"><i class="fab fa-github"
+            id="person"></i></a>
+      </li>
+      <li>
 
         <a>
-          <button class="btn btn-default" mwlConfirmationPopover 
-            [popoverMessage]="popoverMessage" placement="left" (confirm)="Reset()"
-            (cancel)="cancelClicked = true" confirmButtonType="danger" [appendToBody]="true" 
+          <!-- <button class="btn btn-default" mwlConfirmationPopover [popoverMessage]="popoverMessage" placement="left"
+            (confirm)="Reset()" (cancel)="cancelClicked = true" confirmButtonType="danger" [appendToBody]="true"
             [placement]="placement">
             Reset
-          </button>
+          </button> -->
           <!-- <input type="button" class="btn btn-primary" value="Reset" (click)="Reset()" style="display: inline-block"> -->
         </a>
       </li>

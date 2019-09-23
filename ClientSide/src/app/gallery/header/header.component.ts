@@ -11,10 +11,12 @@ import { ImagesService } from 'src/app/services/images.service';
 })
 export class HeaderComponent implements OnInit {
 
-  public popoverMessage: string = 'Delete your images?';
-  public confirmClicked: boolean = false;
-  public cancelClicked: boolean = false;
-  public placement: string = 'bottom';
+public popoverMessage: string = 'Are you sure you want to reset your album?';
+public confirmClicked: boolean = false;
+public cancelClicked: boolean = false;
+public placement: string = 'bottom';
+
+ 
   isScroll:boolean=false;
   constructor(public scrollService:ScrollService,public _http: HttpClient,public imageService:ImagesService) { }
   public get http(): HttpClient {
@@ -72,8 +74,25 @@ public set http(value: HttpClient) {
           this.imageService.urls = null;
         }
       });
-    
-    
+  }
+  showCycle() {
+    this.imageService.showCycle = !this.imageService.showCycle;
+this.gotoBotton();
+  }
+  gotoBotton() {
+    if(this.imageService.showCycle)
+    window.scroll({
+      top: 1000000000000,
+      left: 0,
+      behavior: 'smooth'
+    });
+    if(!this.imageService.showCycle)
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+    // break;
   }
 }
 
