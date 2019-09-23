@@ -10,34 +10,34 @@
       </button>
     </div> -->
 
-    <nav class="container" id="con" style="height: 30vh;width: 10vw;">
+    <!-- <nav class="container" id="con" style="height: 30vh;width: 10vw;"> -->
       <!-- plus -->
-      <a class="buttons" ><i class="material-icons" style="
+      <!-- <a class="buttons" ><i class="material-icons" style="
           font-size: 4vw;
     margin-left: 2px;
     margin-top: 5px;
     color: maroon;">add</i></a>
-      <a class="buttons" tooltip="Upload Files">
+      <a class="buttons" tooltip="Upload Files"> -->
         <!-- <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up"> -->
-        <i id="file-icon" for="upload" title="upload the event's photos" class="material-icons" style="
+        <!-- <i id="file-icon" for="upload" title="upload the event's photos" class="material-icons" style="
          font-size: 2.5vw;
     color: maroon;
     margin-left: 12px;
     margin-top: 11.5px">backup</i>
         <input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)"
-          multiple base-sixty-four-input>
+          multiple base-sixty-four-input> -->
         <!-- </div> -->
-      </a>
-      <a class="buttons" tooltip="Groom's image" data-toggle="modal" data-target="#exampleModalCenter">
+      <!-- </a> -->
+      <!-- <a class="buttons" tooltip="Groom's image" data-toggle="modal" data-target="#exampleModalCenter"> -->
         <!-- change groom's image -->
-        <i class="fa fa-user" style="
+        <!-- <i class="fa fa-user" style="
         font-size: 2vw;
     color: maroon;
     margin-left: 13px;
     margin-top: 11px;
 "></i>
       </a>
-     
+      -->
       <!-- icons ,aterial
 <i class="material-icons">
 backup
@@ -50,10 +50,10 @@ backup
       </a> -->
 
 
-      <a class="buttons" tooltip="google"></a>
+      <!-- <a class="buttons" tooltip="google"></a>
 
 
-    </nav>
+    </nav> -->
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -106,6 +106,7 @@ backup
         <div id="icons"  class="deletedown">
           <a [href]="url" download="url.jpg"> <i class="material-icons icon" title="download the image">
               get_app
+              <!-- vertical_align_bottom -->
             </i></a>
 
           <i class="material-icons icon" (click)="imagesService.DeleteImg(url)">

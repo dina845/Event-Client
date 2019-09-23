@@ -11,10 +11,12 @@ import { ImagesService } from 'src/app/services/images.service';
 })
 export class HeaderComponent implements OnInit {
 
-  public popoverMessage: string = 'Delete your images?';
-  public confirmClicked: boolean = false;
-  public cancelClicked: boolean = false;
-  public placement: string = 'bottom';
+public popoverMessage: string = 'Are you sure you want to reset your album?';
+public confirmClicked: boolean = false;
+public cancelClicked: boolean = false;
+public placement: string = 'bottom';
+
+ 
   isScroll:boolean=false;
   constructor(public scrollService:ScrollService,public _http: HttpClient,public imageService:ImagesService) { }
   public get http(): HttpClient {

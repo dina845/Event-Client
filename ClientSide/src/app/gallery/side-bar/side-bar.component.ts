@@ -34,7 +34,10 @@ export class SideBarComponent implements OnInit {
   base64arr: string[] = new Array();
   numImage: number = 1;
   img = "img.jpg";
-
+  public popoverMessage: string = 'Are you sure you want to reset your album?';
+  public confirmClicked: boolean = false;
+  public cancelClicked: boolean = false;
+  public placement: string = 'bottom';
   // m: boolean;
   // imageMain: Image[];
   // imageTemp: Image[];

@@ -15,9 +15,10 @@
                         <div class="panel-thumbnail">
                             <a title="image 1" class="thumb">
                                 <img class="img-fluid mx-auto d-block" src="{{imageService.recycleBin[0].url}}"
-                                    alt="slide 1">
-                                <i class="material-icons" (click)="undoDelete(imageService.recycleBin[0])">
-                                    done
+                                    alt="slide 1" width="100%" height="auto">
+                                <i title="Undo deletion" class="material-icons" (click)="undoDelete(imageService.recycleBin[0])">
+                                        <!-- refresh -->
+                                        arrow_upward
                                 </i>
                             </a>
                         </div>
@@ -28,9 +29,9 @@
                         <div class="panel-thumbnail">
                             <a title="image {{item}}" class="thumb">
                                 <img class="img-fluid mx-auto d-block" src="{{imageService.recycleBin[i].url}}"
-                                    alt="slide 2">
+                                    alt="slide 2" width="100%" height="auto">
                                 <i class="material-icons" (click)="undoDelete(imageService.recycleBin[i])">
-                                    done
+                                        arrow_upward
                                 </i>
                             </a>
                         </div>
