@@ -98,8 +98,8 @@ export class ImagesService {
     return this.http.get<WebResult<Image[]>>(environment.baseRoute + 'Image/getImages', { headers });
 
   }
-  InsertImagesGroom(formData) {
-    return this.http.post<WebResult<any>>(environment.baseRoute + 'Image/InsertGroom', formData);
+  InsertImagesGroom(base64arr) {
+    return this.http.post<WebResult<any>>(environment.baseRoute + 'Image/InsertGroom', base64arr);
 
   }
   maxNumPerson() {

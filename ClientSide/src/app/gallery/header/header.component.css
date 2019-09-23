@@ -10,7 +10,7 @@ header{width:104%;
     display:table; 
     background-color:#0e1719;font-family: Roboto;font-weight: 300;}
 #logo{float:left; font-size:24px; text-transform:uppercase; color:white; font-weight:600; padding:20px 0px;}
-nav{width:auto; float:right;}
+nav{width:auto; float:right;    margin-right: 3vw;}
 nav ul{display:table; float:right;}
 nav ul li{float:left;}
 nav ul li:last-child{padding-right:0px;}

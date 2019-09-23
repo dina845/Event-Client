@@ -23,7 +23,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingComponent } from './gallery/loading/loading.component';
 import { Component } from '@angular/core';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
-import { ModalRecycleBinComponent } from './gallery/modal-recycle-bin/modal-recycle-bin.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +36,7 @@ import { ModalRecycleBinComponent } from './gallery/modal-recycle-bin/modal-recy
     CheckboxDirective,
     RecycleBinComponent,
     HomeComponent,
-    LoadingComponent,
-    ModalRecycleBinComponent
-    
+    LoadingComponent    
   ],
   imports: [
     BrowserModule,

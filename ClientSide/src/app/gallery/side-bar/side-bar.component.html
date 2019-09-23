@@ -26,12 +26,19 @@
                       <input type='file' id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
                     </div> -->
         <!-- <a href="#fake" class="enter"> -->
+<<<<<<< HEAD
         <a>
           <i class="fa fa-trash"></i>
           <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
         </a>
 
         <!--    <a>
+=======
+
+      
+                
+               <!--     <a>
+>>>>>>> 281c7da525178ce19849fc4472656517dc39c699
                       <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
                       <span class="badge badge-pill badge-success notification poin" (click)="downloadZip()">Download-Zip</span>
                     </a> -->
@@ -61,19 +68,14 @@
                 <a title="Upload images" class="social-link" target="_blank"><i id="file-icon" for="upload" class="material-icons">backup</i><input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)"
                   multiple >
                 </a>
-                <a title="Add event groom" class="social-link"  target="_blank" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-user"></i></a>
+                <a title="Add focus person" class="social-link"  target="_blank" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-user"></i></a>
                 <a title="Download zip" class="social-link" target="_blank" (click)="downloadZip()"> <i class="fa fa-download"></i></a>
-                <a class="social-link" target="_blank" (click)="showCycle()"><i class="fa fa-trash"></i></a>
-                </div>
-              
-
-
-              <a class="social-link" title="reset the album" target="_blank" mwlConfirmationPopover mwlConfirmationPopover
+                <a class="social-link" title="Reset the album" target="_blank" mwlConfirmationPopover mwlConfirmationPopover
                 [popoverMessage]="popoverMessage" placement="left" (confirm)="Reset()" (cancel)="cancelClicked = true"
                 confirmButtonType="danger" [appendToBody]="true" [placement]="placement"><i
-                  class="material-icons" style="font-size: 30px;">  refresh</i></a>
-             
-            
+                  class="material-icons" style="font-size: 30px;">refresh</i></a>
+                </div>
+              
 
 
             <!-- <input type="number" [min]="0" [max]="imagesService.numPersonTemp" #numPerson placeholder="Enter number of people in image" (change)="numPerson(numPerson)"> -->
@@ -139,14 +141,14 @@
                 <i class="fa fa-user"
                   [ngClass]="{'checked': GroomAlone.checked==true, 'not-checked':GroomAlone.checked==false}"></i>
                 <label class="btn active" (click)="isGroomAlone(GroomAlone.checked)">
-                  <input type="checkbox" name='email1' #GroomAlone><span>Event groom </span>
+                  <input type="checkbox" name='email1' #GroomAlone><span>Focus person alone</span>
                 </label>
               </a>
               <a *ngIf="imagesService.isUploadingGroom==true">
                 <i class="fa fa-user" [ngClass]="{'not-checked':GroomAlone.checked==false}"></i>
                 <label class="btn active">
                   <input type="checkbox" name='email1' #GroomAlone><span data-tooltip="Updating data"
-                    data-tooltip-location="top">Event groom </span>
+                    data-tooltip-location="top">Focus person alone</span>
                 </label>
               </a>
             </li>
@@ -155,7 +157,7 @@
                 <i class="fa fa-users"
                   [ngClass]="{'checked': GroomContain.checked==true, 'not-checked':GroomContain.checked==false}"></i>
                 <label class="btn active" (click)="isGroomContain(GroomContain.checked)">
-                  <input type="checkbox" name='email1' #GroomContain><span>Contain groom</span>
+                  <input type="checkbox" name='email1' #GroomContain><span>Focus person</span>
                 </label>
 
               </a>
@@ -163,7 +165,7 @@
                 <i class="fa fa-users" [ngClass]="{'not-checked':GroomContain.checked==false}"></i>
                 <label class="btn active">
                   <input type="checkbox" name='email1' #GroomContain><span data-tooltip="Updating data"
-                    data-tooltip-location="top">Contain groom</span>
+                    data-tooltip-location="top">Focus person</span>
                 </label>
 
               </a>
@@ -192,9 +194,6 @@
         <!-- sidebar-menu  -->
       </div>
       <!-- sidebar-content  -->
-<<<<<<< HEAD
-    
-=======
       <div class="sidebar-footer">
         <!--  -->
         <!-- <a>
@@ -247,4 +246,3 @@
     </main>
     <!-- page-content" -->
   </div>
->>>>>>> 15b796916178e7c26a080b96a82649e9cc4f810b

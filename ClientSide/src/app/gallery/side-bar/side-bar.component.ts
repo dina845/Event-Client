@@ -25,6 +25,7 @@ export class SideBarComponent implements OnInit {
   }
   filterImage: FilterImage = new FilterImage();
 
+  
   getRequests = [];
   selected: boolean = false;
   selectedGroom: boolean = false;
@@ -52,7 +53,7 @@ export class SideBarComponent implements OnInit {
   }
   showCycle() {
     this.imagesService.showCycle = !this.imagesService.showCycle;
-this.gotoBotton();
+    this.gotoBotton();
   }
   isShow: boolean = false;
   topPosToStartShowing = 100;
@@ -73,18 +74,18 @@ this.gotoBotton();
     }
   }
   gotoBotton() {
-    if(this.imagesService.showCycle)
-    window.scroll({
-      top: 1000000000000,
-      left: 0,
-      behavior: 'smooth'
-    });
-    if(!this.imagesService.showCycle)
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
+    if (this.imagesService.showCycle)
+      window.scroll({
+        top: 1000000000000,
+        left: 0,
+        behavior: 'smooth'
+      });
+    if (!this.imagesService.showCycle)
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     // break;
   }
 
@@ -273,7 +274,7 @@ this.gotoBotton();
       this.imagesService.recycleBin.forEach(e => {
         if (e.isBlur == true)
 
-        this.imagesService.undoDelete(e);
+          this.imagesService.undoDelete(e);
       });
     this.isClearBlur = !this.isClearBlur;
   }
@@ -307,8 +308,8 @@ this.gotoBotton();
     this.filterImage.isIndoors == true ? name += "_Indoors" : null;
     this.filterImage.isOutdoors == true ? name += "_Outdoors" : null;
     this.filterImage.ischild == true ? name += "_child" : null;
-    if(name=="")
-    name="All";
+    if (name == "")
+      name = "All";
     var data: string[] = [""];
     for (let index = 0; index < this.imagesService.imageTemp.length; index++) {
       data.push(this.imagesService.imageTemp[index].url.toString());
@@ -355,8 +356,9 @@ this.gotoBotton();
 
     data.forEach(url => this.getRequests.push(this._http.get(url, { responseType: 'blob' })));
   }
- 
+  counter: number = 0;
   handleFileInput(files: FileList) {
+    this.counter = 0;
     this.Files = files;
     let i;
     if (files && files[0]) {
@@ -366,30 +368,23 @@ this.gotoBotton();
         _formData.append("file", this.fileToUpload);
         var reader = new FileReader();
         reader.onload = (event: any) => {
-          this.currentUrl = new Url();
-          this.currentUrl.urlImage = event.target.result;
-          this.currentUrl.nameImage = this.fileToUpload.name;
-          this.currentUrl.num = "image-" + this.numImage;
+          
           this.numImage++;
           // this.urls.push(this.currentUrl);
           debugger;
           this.base64arr.push(event.target.result);
-          this.base64arr.push(this.fileToUpload.name);
+          this.base64arr.push(files[this.counter].name);
+          this.counter++;
           console.log(event.target.result);
-          if (i == files.length)
-          this.InsertImages(this.base64arr, files.length);//send the images' url to the server = in order to init the table  
+          if (this.counter == files.length)
+            this.InsertImages(this.base64arr, files.length);//send the images' url to the server = in order to init the table  
 
         }
         reader.readAsDataURL(files[i]);
- 
-        //console.log(JSON.stringify(_formData));
       }
-
-
-      // this.downZip(files, files.length);
     }
     this.selected = true;
-  } 
+  }
   InsertImages(base64arr, lengthFiles) {
     debugger;
     this.imagesService.gotImages = false;
@@ -414,19 +409,19 @@ this.gotoBotton();
 
     });
   }
-  
+
   SelectGroom() {
     this.imagesService.selectedGroom = true;
     this.imagesService.isUploadingGroom = true;
   }
-  Reset(){
-      this.imagesService.reset().subscribe((res)=>{
-        if(res.Status==true){
-          this.imagesService.imageMain = null;
-          this.imagesService.imageTemp = null;
-          this.imagesService.urls = null;
-        }
-      });
-   
+  Reset() {
+    this.imagesService.reset().subscribe((res) => {
+      if (res.Status == true) {
+        this.imagesService.imageMain = null;
+        this.imagesService.imageTemp = null;
+        this.imagesService.urls = null;
+      }
+    });
+
   }
 }
