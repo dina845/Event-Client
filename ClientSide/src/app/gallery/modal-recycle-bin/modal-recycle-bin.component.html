@@ -1,0 +1,25 @@
+<!--End of Wrap -->
+<div class="wrap">
+  <!-- <h1>Pure <span>CSS</span> Modal Popup</h1> -->
+
+</div>
+<!--End of Wrap -->
+
+
+<!--Start of Modal -->
+<div class="modal" *ngIf="service.showCycle==true">
+  <input id="modal__trigger" type="checkbox" />
+  <label for="modal__trigger"> <i class="fa fa-trash"></i></label>
+  <div class="modal__overlay" role="dialog" aria-labelledby="modal__title" aria-describedby="modal_desc">
+    <div class="modal__wrap">
+      <label for="modal__trigger" (click)="showCycle()">&#10006;</label>
+      <h2 id="modal__title">recycle-bin</h2>
+      <app-recycle-bin></app-recycle-bin>
+      <p></p>
+    </div>
+  </div>
+</div>
+<!--End of Modal -->
+
+
+

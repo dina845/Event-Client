@@ -511,6 +511,13 @@ input[type="number"]::-webkit-inner-spin-button {
   /*-----------------------------chiller-theme-------------------------------------------------*/
   
   .chiller-theme .sidebar-wrapper {
+      background: #31353D;
+      background: #1e2229;
+      box-shadow: 0px -1px 5px #282c33;
+      background: #1e2229;
+box-shadow: 0px -1px 5px #282c33;
+border-top: 1px solid #464a52;
+      /* background: black; */
       /* background: #31353D; */
       /* background: black; */
       background: #0e1719;
@@ -578,8 +585,9 @@ input[type="number"]::-webkit-inner-spin-button {
   }
   
   .chiller-theme .sidebar-footer {
-      /* background: #1e2229; */
+      background: #1e2229;
       /* background: #3a3f48; */
+      box-shadow: 2px -1px 5px #282c33;
       /* box-shadow: 0px -1px 5px #282c33; */
       background: #1e2229;
       box-shadow: 0px -1px 5px #282c33;
@@ -746,8 +754,11 @@ button, input, optgroup, select, textarea {
     }
     
       .chiller-theme[_ngcontent-c3] .sidebar-footer2[_ngcontent-c3] {
-        /* box-shadow: 0px -1px 5px #282c33; */
-        /* border-top: 1px solid #464a52; */
+        box-shadow: 0px -1px 5px #282c33; 
+         border-top: 1px solid #464a52;
+         background: #1e2229;
+box-shadow: 0px -1px 5px #282c33;
+border-top: 1px solid #464a52;
     }
     
     .sidebar-footer2[_ngcontent-c3] {
