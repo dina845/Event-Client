@@ -60,15 +60,12 @@
                   multiple >
                 </a>
                 <a class="social-link"  target="_blank" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-user"></i></a>
-                <a class="social-link" target="_blank" (click)="Reset()"><i class="material-icons">cancel</i></a>
-                <a class="social-link" target="_blank" data-toggle="modal" data-target="#recycleModalCenter"><i class="fab fa-github"></i></a>
+                <a class="social-link" target="_blank" (click)="downloadZip()"> <i class="fa fa-download"></i></a>
+                <a class="social-link" target="_blank" (click)="showCycle()"><i class="fa fa-trash"></i></a>
                 </div>
               
             <!-- <input type="number" [min]="0" [max]="imagesService.numPersonTemp" #numPerson placeholder="Enter number of people in image" (change)="numPerson(numPerson)"> -->
-            <a>
-                <i class="fa fa-trash" ></i>
-                <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
-              </a>
+            
             <li class="filter">
               <span>filter image   </span>
             </li>
@@ -173,7 +170,7 @@
               <a>
                 <i class="fa fa-sort-numeric-up"
                   [ngClass]="{'checked': numPerson1.changed==true, 'not-checked':numPerson1.changed==false}"></i>
-                <input type="number" #numPerson1 placeholder="Number of people" (change)="numPerson(numPerson1.value)"
+                <input type="number" class='form-control'  #numPerson1 placeholder="Number of people" (change)="numPerson(numPerson1.value)"
                   (input)="numPerson(numPerson1.value)" min=0>
 
               </a>
@@ -183,55 +180,4 @@
         <!-- sidebar-menu  -->
       </div>
       <!-- sidebar-content  -->
-      <div class="sidebar-footer">
-        <!--  -->
-        <!-- <a>
-          <i class="fa fa-trash"></i>
-          <span class="badge badge-pill badge-warning notification poin black" (click)="showCycle()">Cycle-Bin</span>
-        </a> -->
-
-        <!-- <a>
-          <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
-          <span class="badge badge-pill badge-success notification poin black" (click)="downloadZip()">Download</span>
-        </a> -->
-     <!--  -->
-
-        <!-- <a>
-          <i class="fa fa-bell"></i>
-          <span class="badge badge-pill badge-warning notification">0</span>
-        </a>
-        <a>
-          <i class="fa fa-envelope"></i>
-          <span class="badge badge-pill badge-success notification">BETA</span>
-        </a> -->
-        <div class="hover iconfooter" style="
-        margin-left: 5vw;"><span style=""><i class="material-icons" style=" color:  maroon
-          ;font-size:30px; animation: swing ease-in-out 0.6s 30000 ;">delete_outline</i></span>
-          <a class="social-link" href="https://twitter.com/twitter" target="_blank">
-            <i class="material-icons">backup</i></a>
-            <a class="social-link" href="https://codepen.io/joshuaward/" target="_blank"><i class="fab fa-codepen"></i></a>
-            <!-- <a class="social-link" href="https://www.instagram.com/joshuaward/" target="_blank"><i class="fab fa-instagram"></i></a> -->
-            <!-- <a class="social-link" href="https://github.com/joshuaward" target="_blank"><i class="fab fa-github"></i> </a> -->
-         
-          </div>
-          <div class="hover iconfooter" style="
-           margin-left:1vw;"><span style=""><i class="material-icons" style=" color:  maroon
-            ;font-size:30px; animation: swing ease-in-out 0.6s 30000 ;">vertical_align_bottom</i></span>
-            <a class="social-link" href="https://twitter.com/twitter" target="_blank">
-              <i class="material-icons">backup</i></a>
-              <a class="social-link" href="https://codepen.io/joshuaward/" target="_blank"><i class="fab fa-codepen"></i></a>
-              <!-- <a class="social-link" href="https://www.instagram.com/joshuaward/" target="_blank"><i class="fab fa-instagram"></i></a> -->
-              <!-- <a class="social-link" href="https://github.com/joshuaward" target="_blank"><i class="fab fa-github"></i> </a> -->
-           
-            </div>
-      </div>
-
     
-    </nav>
-    <!-- sidebar-wrapper  -->
-    <main class="page-content">
-
-
-    </main>
-    <!-- page-content" -->
-  </div>

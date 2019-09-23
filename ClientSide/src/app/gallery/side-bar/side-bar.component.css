@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500);
 
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
+
 /* #sideBar{
    /* width: min-content;
     /* left: 100px; */
@@ -818,8 +816,8 @@ button[_ngcontent-c4], input[_ngcontent-c4], optgroup[_ngcontent-c4], select[_ng
   font-size: inherit;
   line-height: inherit;
   width: 11vw;
-  background-color: gray;
-  color: white;
+  background-color: white;
+  color: maroon;
 }
 button[_ngcontent-c3], input[_ngcontent-c3], optgroup[_ngcontent-c3], select[_ngcontent-c3], textarea[_ngcontent-c3] {
   margin: 0;
