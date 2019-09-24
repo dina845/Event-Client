@@ -26,10 +26,12 @@
                       <input type='file' id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
                     </div> -->
         <!-- <a href="#fake" class="enter"> -->
+        <a>
+          <i class="fa fa-trash"></i>
+          <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
+        </a>
 
-      
-                
-               <!--     <a>
+        <!--    <a>
                       <i class="fa fa-download" id="downloadZip" data-toggle="tooltip" data-placement="top"></i>
                       <span class="badge badge-pill badge-success notification poin" (click)="downloadZip()">Download-Zip</span>
                     </a> -->
@@ -56,32 +58,23 @@
             <div class="hover" style="    margin-top: 4vh;"><span style="">
                 <i class="material-icons" style=" color:  rgb(184, 175, 53)
                 ;font-size:30px; animation: swing ease-in-out 0.6s 30000 ;">add</i></span>
-
-
-              <a class="social-link" title="reset the album" target="_blank" mwlConfirmationPopover mwlConfirmationPopover
+                <a title="Upload images" class="social-link" target="_blank"><i id="file-icon" for="upload" class="material-icons">backup</i><input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)"
+                  multiple >
+                </a>
+                <a title="Add focus person" class="social-link"  target="_blank" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-user"></i></a>
+                <a title="Download zip" class="social-link" target="_blank" (click)="downloadZip()"> <i class="fa fa-download"></i></a>
+                <a class="social-link" title="Reset the album" target="_blank" mwlConfirmationPopover mwlConfirmationPopover
                 [popoverMessage]="popoverMessage" placement="left" (confirm)="Reset()" (cancel)="cancelClicked = true"
                 confirmButtonType="danger" [appendToBody]="true" [placement]="placement"><i
-                  class="material-icons" style="font-size: 30px;">  refresh</i></a>
-                  
-              <a class="social-link"title="download the current sort" target="_blank" (click)="downloadZip()"><i class="fa fa-download"></i></a>
-
-              <a class="social-link" title="upload focus person image" target="_blank" data-toggle="modal" data-target="#exampleModalCenter"><i
-                  class="fa fa-user"></i></a>
-
-              <a class="social-link" title="upload your images" target="_blank"><i id="file-icon" for="upload"
-                  class="material-icons">backup</i><input type='file' accept="image/*" id="upload" name='myfile'
-                  (change)="handleFileInput($event.target.files)" multiple base-sixty-four-input>
-              </a>
-            </div>
+                  class="material-icons" style="font-size: 30px;">refresh</i></a>
+                </div>
+              
 
 
             <!-- <input type="number" [min]="0" [max]="imagesService.numPersonTemp" #numPerson placeholder="Enter number of people in image" (change)="numPerson(numPerson)"> -->
-            <!-- <a>
-                <i class="fa fa-trash" ></i>
-                <span class="badge badge-pill badge-warning notification poin" (click)="showCycle()">Cycle-Bin</span>
-              </a> -->
-            <li class="filter">
-              <span>filter image   </span>
+            
+            <li class="filter header-menu">
+              <span>filter image</span>
             </li>
         
             <li>
@@ -141,14 +134,14 @@
                 <i class="fa fa-user"
                   [ngClass]="{'checked': GroomAlone.checked==true, 'not-checked':GroomAlone.checked==false}"></i>
                 <label class="btn active" (click)="isGroomAlone(GroomAlone.checked)">
-                  <input type="checkbox" name='email1' #GroomAlone><span>Event groom </span>
+                  <input type="checkbox" name='email1' #GroomAlone><span>Focus person alone</span>
                 </label>
               </a>
               <a *ngIf="imagesService.isUploadingGroom==true">
                 <i class="fa fa-user" [ngClass]="{'not-checked':GroomAlone.checked==false}"></i>
                 <label class="btn active">
                   <input type="checkbox" name='email1' #GroomAlone><span data-tooltip="Updating data"
-                    data-tooltip-location="top">Event groom </span>
+                    data-tooltip-location="top">Focus person alone</span>
                 </label>
               </a>
             </li>
@@ -157,7 +150,7 @@
                 <i class="fa fa-users"
                   [ngClass]="{'checked': GroomContain.checked==true, 'not-checked':GroomContain.checked==false}"></i>
                 <label class="btn active" (click)="isGroomContain(GroomContain.checked)">
-                  <input type="checkbox" name='email1' #GroomContain><span>Contain groom</span>
+                  <input type="checkbox" name='email1' #GroomContain><span>Focus person</span>
                 </label>
 
               </a>
@@ -165,7 +158,7 @@
                 <i class="fa fa-users" [ngClass]="{'not-checked':GroomContain.checked==false}"></i>
                 <label class="btn active">
                   <input type="checkbox" name='email1' #GroomContain><span data-tooltip="Updating data"
-                    data-tooltip-location="top">Contain groom</span>
+                    data-tooltip-location="top">Focus person</span>
                 </label>
 
               </a>
@@ -184,7 +177,7 @@
               <a>
                 <i class="fa fa-sort-numeric-up"
                   [ngClass]="{'checked': numPerson1.changed==true, 'not-checked':numPerson1.changed==false}"></i>
-                <input type="number" #numPerson1 placeholder="Number of people" (change)="numPerson(numPerson1.value)"
+                <input type="number" class='form-control'  #numPerson1 placeholder="Number of people" (change)="numPerson(numPerson1.value)"
                   (input)="numPerson(numPerson1.value)" min=0>
 
               </a>
