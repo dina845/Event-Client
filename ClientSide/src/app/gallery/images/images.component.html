@@ -3,57 +3,7 @@
     <!-- progress-bar -->
 
 
-    <!-- modal button-->
-    <!-- <div *ngIf="imagesService.selectedGroom==false">
-      <button type="button" class="btn1 upload-btn-wrapper1" data-toggle="modal" data-target="#exampleModalCenter">
-        add groom's image
-      </button>
-    </div> -->
 
-    <!-- <nav class="container" id="con" style="height: 30vh;width: 10vw;"> -->
-      <!-- plus -->
-      <!-- <a class="buttons" ><i class="material-icons" style="
-          font-size: 4vw;
-    margin-left: 2px;
-    margin-top: 5px;
-    color: maroon;">add</i></a>
-      <a class="buttons" tooltip="Upload Files"> -->
-        <!-- <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up"> -->
-        <!-- <i id="file-icon" for="upload" title="upload the event's photos" class="material-icons" style="
-         font-size: 2.5vw;
-    color: maroon;
-    margin-left: 12px;
-    margin-top: 11.5px">backup</i>
-        <input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)"
-          multiple base-sixty-four-input> -->
-        <!-- </div> -->
-      <!-- </a> -->
-      <!-- <a class="buttons" tooltip="Groom's image" data-toggle="modal" data-target="#exampleModalCenter"> -->
-        <!-- change groom's image -->
-        <!-- <i class="fa fa-user" style="
-        font-size: 2vw;
-    color: maroon;
-    margin-left: 13px;
-    margin-top: 11px;
-"></i>
-      </a>
-      -->
-      <!-- icons ,aterial
-<i class="material-icons">
-backup
-</i>
- -->
-      <!-- <a class="buttons" tooltip="Change groom">
-        <button type="button" class="btn1 upload-btn-wrapper1" data-toggle="modal" data-target="#exampleModalCenter">
-          change groom
-        </button>
-      </a> -->
-
-
-      <!-- <a class="buttons" tooltip="google"></a>
-
-
-    </nav> -->
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -67,7 +17,8 @@ backup
             </button>
           </div>
           <div class="modal-body">
-            <app-groom></app-groom>
+            <!-- <app-groom></app-groom> -->
+            <app-recycle-bin></app-recycle-bin>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn1 btn-primary" (click)="SelectGroom()" data-dismiss="modal">I
@@ -76,16 +27,7 @@ backup
         </div>
       </div>
     </div>
-    <!-- upload  files -->
-    <!-- <div class="upload-btn-wrapper" style="float: right" *ngIf="imagesService.selectedGroom==true" id="up">
-      <i class="fa fa-cloud-upload" id="file-icon" for="upload" title="upload the event's photos"></i>
-      <input type='file' accept="image/*" id="upload" name='myfile' (change)="handleFileInput($event.target.files)" multiple>
-    </div> -->
-    <!-- הורדת ZIP -->
-    <!-- <i (click)="downloadZip()" class="material-icons" id="downloadZip" data-toggle="tooltip" data-placement="top"
-      title="download all the images">
-      arrow_downward
-    </i> -->
+   
 
 
   </div>
@@ -121,41 +63,7 @@ backup
 <div *ngIf="isShow">
   <i class="fa fa-chevron-circle-up" (click)="gotoTop()" id="scroll"></i>
 </div>
-<!-- fab -->
-
-<!-- <button *ngIf="isShow" (click)="gotoTop()" id="scroll"><i class="fa fa-angle-up"></i></button> -->
-<!-- <button *ngIf="isShow" (click)="gotoTop()" id="scroll">👆</button> -->
-<!-- button -->
-<!-- <div class="custom-file-upload">
-<label for="file-upload" class="custom-file-upload1">
-    <i  id="file-icon" class="fa fa-cloud-upload"  for="upload" title="upload the event's photos"></i>Upload Files
-</label>
-<input id="file-upload" type="file"id="upload" name='myfile'(change)="handleFileInput($event.target.files)"multiple/>
-</div>  -->
 
 
-
-<!-- <div class="upload-btn-wrapper"  >
-    <i class="material-icons" id="file-icon" for="upload" title="upload the event's photos">attach_file</i>
-    <input type='file'id="upload" name='myfile' (change)="handleFileInput($event.target.files)" >
-  </div> -->
-  <!-- <div style="background-color: gray;width: 100vw;box-shadow: black"> -->
-
-  <div>
-<app-recycle-bin id="bin"></app-recycle-bin></div>
+<app-recycle-bin id="bin"></app-recycle-bin>
      
-
-<!-- </div> -->
-<!-- Extra large modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button>
-
-<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      ...
-    </div>
-  </div>
-</div> -->
-
-
-<!-- <app-recycle-bin id="bin"></app-recycle-bin> -->
